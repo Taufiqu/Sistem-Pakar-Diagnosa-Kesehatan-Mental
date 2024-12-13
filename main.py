@@ -11,7 +11,7 @@ data = data.fillna({'Price': 0, 'Time_Minutes': 0, 'Rating': 0})
 app = Flask(__name__)
 
 @app.route("/", methods=["GET"])
-def index():
+def home():
     return render_template('index.html')
 
 @app.route("/recommend", methods=["POST"])
@@ -37,15 +37,11 @@ def recommend():
     # Sort by rating (descending)
     filtered_data = filtered_data.sort_values(by="Rating", ascending=False)
 
-    # Prepare response
+    # Prepare recommendations
     recommendations = filtered_data.head(5).to_dict(orient="records")
-    
-    # Convert recommendations to HTML for display
-    results_html = "<h2>Recommendations</h2><ul>"
-    for rec in recommendations:
-        results_html += f"<li>{rec['Place_Name']} - {rec['Category']} - {rec['City']} - {rec['Price']} - {rec['Rating']}</li>"
-    results_html += "</ul>"
-    return results_html
+
+    # Render the recommendations page
+    return render_template('recommend.html', recommendations=recommendations)
 
 if __name__ == "__main__":
     app.run(debug=True)
