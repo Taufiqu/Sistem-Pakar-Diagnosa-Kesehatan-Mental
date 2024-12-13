@@ -1,4 +1,4 @@
-from flask import Flask, request, jsonify, render_template_string
+from flask import Flask, request, jsonify, render_template
 import pandas as pd
 
 # Load the dataset
@@ -10,34 +10,9 @@ data = data.fillna({'Price': 0, 'Time_Minutes': 0, 'Rating': 0})
 # Initialize the Flask app
 app = Flask(__name__)
 
-# HTML Template for the Home Page
-home_page_html = """
-<!DOCTYPE html>
-<html>
-<head>
-    <title>Tourism Expert System</title>
-</head>
-<body>
-    <h1>Welcome to the Tourism Expert System</h1>
-    <form action="/recommend" method="POST">
-        <label for="category">Category:</label>
-        <input type="text" id="category" name="category" placeholder="e.g., Taman Hiburan"><br><br>
-        
-        <label for="city">City:</label>
-        <input type="text" id="city" name="city" placeholder="e.g., Jakarta"><br><br>
-        
-        <label for="max_price">Maximum Price:</label>
-        <input type="number" id="max_price" name="max_price" placeholder="e.g., 100000"><br><br>
-        
-        <button type="submit">Get Recommendations</button>
-    </form>
-</body>
-</html>
-"""
-
 @app.route("/", methods=["GET"])
-def home():
-    return render_template_string(home_page_html)
+def index():
+    return render_template('index.html')
 
 @app.route("/recommend", methods=["POST"])
 def recommend():

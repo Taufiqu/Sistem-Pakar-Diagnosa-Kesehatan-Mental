@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Tourism Expert System</title>
+</head>
+<body>
+    <h1>Welcome to the Tourism Expert System</h1>
+    <form action="/recommend" method="POST">
+        <label for="category">Category:</label>
+        <input type="text" id="category" name="category" placeholder="e.g., Taman Hiburan"><br><br>
+        
+        <label for="city">City:</label>
+        <input type="text" id="city" name="city" placeholder="e.g., Jakarta"><br><br>
+        
+        <label for="max_price">Maximum Price:</label>
+        <input type="number" id="max_price" name="max_price" placeholder="e.g., 100000"><br><br>
+        
+        <button type="submit">Get Recommendations</button>
+    </form>
+</body>
+</html>
