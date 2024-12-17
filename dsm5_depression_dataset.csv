@@ -1,0 +1,10 @@
+ID,Symptom,Category,Frequency,Weight
+1,"Depressed most of the day, nearly every day",Mood,Nearly every day,1
+2,"Markedly diminished interest or pleasure in all, or almost all, activities",Mood,Nearly every day,1
+3,Significant weight loss or weight gain,Physical,Nearly every day,1
+4,Insomnia or hypersomnia nearly every day,Physical,Nearly every day,1
+5,Psychomotor agitation or retardation nearly every day,Behavioral,Nearly every day,1
+6,Fatigue or loss of energy nearly every day,Energy,Nearly every day,1
+7,Feelings of worthlessness or excessive or inappropriate guilt,Cognitive,Nearly every day,1
+8,"Diminished ability to think or concentrate, or indecisiveness",Cognitive,Nearly every day,1
+9,"Recurrent thoughts of death, suicidal ideation, or a suicide plan",Suicidal,Nearly every day,1
