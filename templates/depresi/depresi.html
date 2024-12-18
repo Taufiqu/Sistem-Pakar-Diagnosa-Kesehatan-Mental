@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Depression Diagnosis System</title>
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+    <body>
+        <div class="container">
+            <h1>Depression Diagnosis Result</h1>
+            <p><strong>Age:</strong> {{ age }}</p>
+            <p><strong>Gender:</strong> {{ gender }}</p>
+            <p><strong>Your Depression Score:</strong> {{ user_score }}</p>
+            <p><strong>Closest Match from Dataset:</strong></p>
+            <ul>
+                <li><strong>Age:</strong> {{ result['1. Age'] }}</li>
+                <li><strong>Gender:</strong> {{ result['2. Gender'] }}</li>
+                <li><strong>Depression Value:</strong> {{ result['Depression Value'] }}</li>
+                <li><strong>Depression Label:</strong> {{ result['Depression Label'] }}</li>
+            </ul>
+            <a href="/">Back to Home</a>
+        </div>
+    </body>
+</html>

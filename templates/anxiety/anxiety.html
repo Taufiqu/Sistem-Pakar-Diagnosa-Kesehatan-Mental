@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Anxiety Diagnosis Result</title>
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+    <body>
+        <div class="container">
+            <h1>Anxiety Diagnosis Result</h1>
+            <p><strong>Age:</strong> {{ age }}</p>
+            <p><strong>Gender:</strong> {{ gender }}</p>
+            <p><strong>Your Anxiety Score:</strong> {{ user_score }}</p>
+            <p><strong>Closest Match from Dataset:</strong></p>
+            <ul>
+                <li><strong>Age:</strong> {{ result['1. Age'] }}</li>
+                <li><strong>Gender:</strong> {{ result['2. Gender'] }}</li>
+                <li><strong>Anxiety Value:</strong> {{ result['Anxiety Value'] }}</li>
+                <li><strong>Anxiety Label:</strong> {{ result['Anxiety Label'] }}</li>
+            </ul>
+            <a href="/">Back to Home</a>
+        </div>
+    </body>
+</html>

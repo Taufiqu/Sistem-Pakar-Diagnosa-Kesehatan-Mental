@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Depression Diagnosis</title>
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+    <body>
+        <div class="container">
+            <h1>Depression Diagnosis</h1>
+        <form method="POST">
+            <p>Please provide your details:</p>
+            <label>Age:</label>
+            <select name="age" required>
+                <option value="18-22">18-22</option>
+                <option value="23-27">23-27</option>
+                <option value="28-32">28-32</option>
+                <option value="33 and above">33 and above</option>
+            </select><br><br>
+
+            <label>Gender:</label>
+            <select name="gender" required>
+                <option value="Male">Male</option>
+                <option value="Female">Female</option>
+            </select><br><br>
+            
+            <p>Answer the following questions (0-3):</p>
+            <label>1. Little interest or pleasure in doing things:</label>
+            <input type="number" name="q1" min="0" max="3"><br><br>
+
+            <label>2. Feeling down, depressed, or hopeless:</label>
+            <input type="number" name="q2" min="0" max="3"><br><br>
+
+            <label>3. Trouble falling or staying asleep, or sleeping too much:</label>
+            <input type="number" name="q3" min="0" max="3"><br><br>
+
+            <label>4. Feeling tired or having little energy:</label>
+            <input type="number" name="q4" min="0" max="3"><br><br>
+
+            <label>5. Poor appetite or overeating:</label>
+            <input type="number" name="q5" min="0" max="3"><br><br>
+
+            <label>6. Feeling bad about yourself - or that you are a failure or have let yourself or your family down:</label>
+            <input type="number" name="q6" min="0" max="3"><br><br>
+
+            <label>7. Trouble concentrating on things, such as reading the books or watching television:</label>
+            <input type="number" name="q7" min="0" max="3"><br><br>
+
+            <label>8. Moving or speaking so slowly that others could notice? Or being so fidgety or restless that you have been moving more than usual:</label>
+            <input type="number" name="q8" min="0" max="3"><br><br>
+
+            <label>9. Thoughts that you would be better off dead, or hurting yourself:</label>
+            <input type="number" name="q9" min="0" max="3"><br><br>
+
+            <button type="submit">Submit</button>
+        </form>
+        <a href="/">Back to Home</a>
+        </div>
+    </body>
+</html>

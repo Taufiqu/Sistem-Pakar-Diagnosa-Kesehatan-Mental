@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+        
+<html>  
+<head>      
+    <title>Stress Diagnosis Result</title>
+    <link rel="stylesheet" href="/static/style.css">        
+</head> 
+    <body>
+        <div class="container">
+            <h1>Stress Diagnosis Result</h1>
+            <p><strong>Age:</strong> {{ age }}</p>
+            <p><strong>Gender:</strong> {{ gender }}</p>
+            <p><strong>Your Stress Score:</strong> {{ user_score }}</p>
+            <p><strong>Closest Match from Dataset:</strong></p>
+            <ul>
+                <li><strong>Age:</strong> {{ result['1. Age'] }}</li>
+                <li><strong>Gender:</strong> {{ result['2. Gender'] }}</li>
+                <li><strong>Stress Value:</strong> {{ result['Stress Value'] }}</li>
+                <li><strong>Stress Label:</strong> {{ result['Stress Label'] }}</li>
+            </ul>
+            <a href="/">Back to Home</a>
+        </div>
+    </body>
+</html>
