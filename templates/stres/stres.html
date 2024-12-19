@@ -1,25 +1,57 @@
+<!-- filepath: /c:/Users/LENOVO/Documents/GitHub/Sistem-Pakar-Rekomendasi-Tempat-Wisata/templates/stres/stres.html -->
 <!DOCTYPE html>
-        
-<html>  
-<head>      
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Stress Diagnosis Result</title>
-    <link rel="stylesheet" href="/static/style.css">        
-</head> 
-    <body>
-        <div class="container">
-            <h1>Stress Diagnosis Result</h1>
-            <p><strong>Age:</strong> {{ age }}</p>
-            <p><strong>Gender:</strong> {{ gender }}</p>
-            <p><strong>Your Stress Score:</strong> {{ user_score }}</p>
-            <p><strong>Closest Match from Dataset:</strong></p>
-            <ul>
-                <li><strong>Age:</strong> {{ result['1. Age'] }}</li>
-                <li><strong>Gender:</strong> {{ result['2. Gender'] }}</li>
-                <li><strong>Stress Value:</strong> {{ result['Stress Value'] }}</li>
-                <li><strong>Stress Label:</strong> {{ result['Stress Label'] }}</li>
-            </ul>
-            <a href="/">Back to Home</a>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/output.css') }}">
+</head>
+<body class="bg-gray-100 flex items-center justify-center min-h-screen">
+    <div class="container mx-auto px-4 py-8">
+        <div class="max-w-2xl mx-auto bg-white p-8 rounded-lg shadow-lg">
+            <h1 class="text-3xl font-bold text-gray-800 mb-6 text-center">Stress Diagnosis Result</h1>
+            <div class="bg-gray-50 p-4 rounded-lg shadow mb-4">
+                <p class="text-lg text-gray-700"><strong>Age:</strong> {{ age }}</p>
+            </div>
+            <div class="bg-gray-50 p-4 rounded-lg shadow mb-4">
+                <p class="text-lg text-gray-700"><strong>Gender:</strong> {{ gender }}</p>
+            </div>
+            <div class="bg-gray-50 p-4 rounded-lg shadow mb-4">
+                <p class="text-lg text-gray-700"><strong>Your Stress Score:</strong> {{ user_score }}</p>
+            </div>
+            <div class="bg-gray-50 p-4 rounded-lg shadow mb-4">
+                <p class="text-lg text-gray-700"><strong>Closest Match from Dataset:</strong></p>
+                <ul class="list-disc list-inside">
+                    <li class="text-lg text-gray-700"><strong>Age:</strong> {{ result['1. Age'] }}</li>
+                    <li class="text-lg text-gray-700"><strong>Gender:</strong> {{ result['2. Gender'] }}</li>
+                    <li class="text-lg text-gray-700"><strong>Stress Value:</strong> {{ result['Stress Value'] }}</li>
+                    <li class="text-lg text-gray-700">
+                        <strong>Stress Label:</strong>
+                        <span class="
+                            {% if result['Stress Label'] == 'No Stress' %}
+                                text-green-500
+                            {% elif result['Stress Label'] == 'Minimal Stress' %}
+                                text-yellow-500
+                            {% elif result['Stress Label'] == 'Mild Stress' %}
+                                text-yellow-400
+                            {% elif result['Stress Label'] == 'Moderate Stress' %}
+                                text-orange-500
+                            {% elif result['Stress Label'] == 'Moderately Severe Stress' %}
+                                text-red-500
+                            {% elif result['Stress Label'] == 'Severe Stress' %}
+                                text-red-700
+                            {% endif %}
+                        ">
+                            {{ result['Stress Label'] }}
+                        </span>
+                    </li>
+                </ul>
+            </div>
+            <a href="/" class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2 focus:outline-none block text-center">Back to Home</a>
         </div>
-        <script src="https://cdn.jsdelivr.net/npm/flowbite@2.5.2/dist/flowbite.min.js"></script>
-    </body>
+    </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.2.1/flowbite.min.js"></script>
+</body>
 </html>

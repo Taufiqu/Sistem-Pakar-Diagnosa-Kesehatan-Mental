@@ -1,23 +1,60 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Depression Diagnosis System</title>
-    <link rel="stylesheet" href="/static/style.css">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/output.css') }}">
 </head>
-    <body>
-        <div class="container">
-            <h1>Depression Diagnosis Result</h1>
-            <p><strong>Age:</strong> {{ age }}</p>
-            <p><strong>Gender:</strong> {{ gender }}</p>
-            <p><strong>Your Depression Score:</strong> {{ user_score }}</p>
-            <p><strong>Closest Match from Dataset:</strong></p>
-            <ul>
-                <li><strong>Age:</strong> {{ result['1. Age'] }}</li>
-                <li><strong>Gender:</strong> {{ result['2. Gender'] }}</li>
-                <li><strong>Depression Value:</strong> {{ result['Depression Value'] }}</li>
-                <li><strong>Depression Label:</strong> {{ result['Depression Label'] }}</li>
-            </ul>
-            <a href="/">Back to Home</a>
+<body class="bg-gray-100 flex items-center justify-center min-h-screen">
+    <div class="container mx-auto px-4 py-8">
+        <div class="max-w-2xl mx-auto bg-white p-8 rounded-lg shadow-lg">
+            <h1 class="text-3xl font-bold text-gray-800 mb-6 text-center">Depression Diagnosis Result</h1>
+            <div class="bg-gray-50 p-4 rounded-lg shadow mb-4">
+                <p class="text-lg text-gray-700"><strong>Age:</strong> {{ age }}</p>
+            </div>
+            <div class="bg-gray-50 p-4 rounded-lg shadow mb-4">
+                <p class="text-lg text-gray-700"><strong>Gender:</strong> {{ gender }}</p>
+            </div>
+            <div class="bg-gray-50 p-4 rounded-lg shadow mb-4">
+                <p class="text-lg text-gray-700"><strong>Your Depression Score:</strong> {{ user_score }}</p>
+            </div>
+            <div class="bg-gray-50 p-4 rounded-lg shadow mb-4">
+                <p class="text-lg text-gray-700"><strong>Closest Match from Dataset:</strong></p>
+                <ul class="list-disc list-inside">
+                    <li class="text-lg text-gray-700"><strong>Age:</strong> {{ result['1. Age'] }}</li>
+                    <li class="text-lg text-gray-700"><strong>Gender:</strong> {{ result['2. Gender'] }}</li>
+                    <br>
+                   
+                        <div class="bg-gray-100 text-lg  shadow mb-4 text-gray-700">
+                            <strong>Depression Value:</strong> {{ result['Depression Value'] }}
+                            <br>
+                            <strong>Depression Label:</strong>
+                            <span class="
+                                {% if result['Depression Label'] == 'No Depression' %}
+                                    text-green-500
+                                {% elif result['Depression Label'] == 'Minimal Depression' %}
+                                    text-yellow-500
+                                {% elif result['Depression Label'] == 'Mild Depression' %}
+                                    text-yellow-400
+                                {% elif result['Depression Label'] == 'Moderate Depression' %}
+                                    text-orange-500
+                                {% elif result['Depression Label'] == 'Moderately Severe Depression' %}
+                                    text-red-500
+                                {% elif result['Depression Label'] == 'Severe Depression' %}
+                                    text-red-700
+                                {% endif %}
+                            ">
+                                {{ result['Depression Label'] }}
+                            </span>
+                        </div>
+                    
+                </ul>
+            </div>
+            <a href="/" class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2 focus:outline-none block text-center">Back to Home</a>
         </div>
-    </body>
+    </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.2.1/flowbite.min.js"></script>
+</body>
 </html>
