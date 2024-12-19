@@ -2,52 +2,74 @@
 <html>
 <head>
     <title>Anxiety Diagnosis</title>
-    <link rel="stylesheet" href="/static/style.css">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/flowbite/1.6.5/flowbite.min.css" rel="stylesheet">
 </head>
-    <body>
-        <div class="container">
-            <h1>Anxiety Diagnosis</h1>
-        <form method="POST">
-            <p>Please provide your details:</p>
-            <label>Age:</label>
-            <select name="age" required>
-                <option value="18-22">18-22</option>
-                <option value="23-27">23-27</option>
-                <option value="28-32">28-32</option>
-                <option value="33 and above">33 and above</option>
-            </select><br><br>
+<body class="bg-gray-100 py-10">
+    <div class="max-w-3xl mx-auto bg-white p-6 rounded-lg shadow-md">
+        <h1 class="text-2xl font-bold mb-4 text-gray-800">Anxiety Diagnosis</h1>
+        <form method="POST" class="space-y-6">
+            <div class="mt-4">
+                <label for="age" class="block text-sm font-medium text-gray-700">Age:</label>
+                <select name="age" id="age" class="block w-full mt-1 p-2 border border-gray-300 rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500" required>
+                    <option value="18-22">18-22</option>
+                    <option value="23-27">23-27</option>
+                    <option value="28-32">28-32</option>
+                    <option value="33 and above">33 and above</option>
+                </select>
+            </div>
 
-            <label>Gender:</label>
-            <select name="gender" required>
-                <option value="Male">Male</option>
-                <option value="Female">Female</option>
-            </select><br><br>
+            <div class="mt-4">
+                <label for="gender" class="block text-sm font-medium text-gray-700">Gender:</label>
+                <select name="gender" id="gender" class="block w-full mt-1 p-2 border border-gray-300 rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500" required>
+                    <option value="Male">Male</option>
+                    <option value="Female">Female</option>
+                </select>
+            </div>
 
-            <p>Answer the following questions (0-3):</p>
-            <label>1. In a semester, how often you felt nervous, anxious or on edge due to academic pressure?</label>
-            <input type="number" name="q1" min="0" max="3" required><br><br>
+            <p class="text-gray-700 font-semibold">Answer the following questions (0-3):</p>
 
-            <label>2. In a semester, how often have you been unable to stop worrying about your academic affairs?</label>
-            <input type="number" name="q2" min="0" max="3" required><br><br>
+            <div class="space-y-4">
+                <div>
+                    <label for="q1" class="block text-gray-600 font-medium">1. In a semester, how often have you felt nervous, anxious or on edge due to academic pressure?</label>
+                    <input type="number" name="q1" id="q1" min="0" max="3" required class="mt-1 block w-full border-gray-300 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500">
+                </div>
 
-            <label>3. In a semester, how often have you had trouble relaxing due to academic pressure?</label>
-            <input type="number" name="q3" min="0" max="3" required><br><br>
+                <div>
+                    <label for="q2" class="block text-gray-600 font-medium">2. In a semester, how often have you been unable to stop worrying about your academic affairs?</label>
+                    <input type="number" name="q2" id="q2" min="0" max="3" required class="mt-1 block w-full border-gray-300 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500">
+                </div>
 
-            <label>4. In a semester, how often have you been easily annoyed or irritated because of academic pressure?</label>
-            <input type="number" name="q4" min="0" max="3" required><br><br>
+                <div>
+                    <label for="q3" class="block text-gray-600 font-medium">3. In a semester, how often have you had trouble relaxing due to academic pressure?</label>
+                    <input type="number" name="q3" id="q3" min="0" max="3" required class="mt-1 block w-full border-gray-300 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500">
+                </div>
 
-            <label>5. In a semester, how often have you worried too much about academic affairs?</label>
-            <input type="number" name="q5" min="0" max="3" required><br><br>
+                <div>
+                    <label for="q4" class="block text-gray-600 font-medium">4. In a semester, how often have you been easily annoyed or irritated because of academic pressure?</label>
+                    <input type="number" name="q4" id="q4" min="0" max="3" required class="mt-1 block w-full border-gray-300 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500">
+                </div>
 
-            <label>6. In a semester, how often have you been so restless due to academic pressure that it is hard to sit still?</label>
-            <input type="number" name="q6" min="0" max="3" required><br><br>
+                <div>
+                    <label for="q5" class="block text-gray-600 font-medium">5. In a semester, how often have you worried too much about academic affairs?</label>
+                    <input type="number" name="q5" id="q5" min="0" max="3" required class="mt-1 block w-full border-gray-300 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500">
+                </div>
 
-            <label>7. In a semester, how often have you felt afraid, as if something awful might happen?</label>
-            <input type="number" name="q7" min="0" max="3" required><br><br>
+                <div>
+                    <label for="q6" class="block text-gray-600 font-medium">6. In a semester, how often have you been so restless due to academic pressure that it is hard to sit still?</label>
+                    <input type="number" name="q6" id="q6" min="0" max="3" required class="mt-1 block w-full border-gray-300 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500">
+                </div>
 
-            <button type="submit">Submit</button>
+                <div>
+                    <label for="q7" class="block text-gray-600 font-medium">7. In a semester, how often have you felt afraid, as if something awful might happen?</label>
+                    <input type="number" name="q7" id="q7" min="0" max="3" required class="mt-1 block w-full border-gray-300 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500">
+                </div>
+            </div>
+
+            <button type="submit" class="w-full bg-blue-500 text-white font-bold py-2 px-4 rounded-lg hover:bg-blue-600 focus:ring-2 focus:ring-blue-300">Submit</button>
         </form>
-        <a href="/">Back to Home</a>
-        </div>
-    </body>
+        <a href="/" class="block mt-4 text-center text-blue-500 hover:underline">Back to Home</a>
+    </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/1.6.5/flowbite.min.js"></script>
+</body>
 </html>
