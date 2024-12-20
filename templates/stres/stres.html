@@ -4,30 +4,31 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Stress Diagnosis Result</title>
+    <title>Hasil Diagnosis Stres</title>
     <link rel="stylesheet" href="{{ url_for('static', filename='css/output.css') }}">
 </head>
 <body class="bg-gray-100 flex items-center justify-center min-h-screen">
     <div class="container mx-auto px-4 py-8">
         <div class="max-w-2xl mx-auto bg-white p-8 rounded-lg shadow-lg">
-            <h1 class="text-3xl font-bold text-gray-800 mb-6 text-center">Stress Diagnosis Result</h1>
+            <h1 class="text-3xl font-bold text-gray-800 mb-6 text-center">Hasil Diagnosis Stres</h1>
             <div class="bg-gray-50 p-4 rounded-lg shadow mb-4">
-                <p class="text-lg text-gray-700"><strong>Age:</strong> {{ age }}</p>
+                <p class="text-lg text-gray-700"><strong>Usia:</strong> {{ age }}</p>
             </div>
             <div class="bg-gray-50 p-4 rounded-lg shadow mb-4">
-                <p class="text-lg text-gray-700"><strong>Gender:</strong> {{ gender }}</p>
+                <p class="text-lg text-gray-700"><strong>Jenis kelamin:</strong> {{ gender }}</p>
             </div>
             <div class="bg-gray-50 p-4 rounded-lg shadow mb-4">
-                <p class="text-lg text-gray-700"><strong>Your Stress Score:</strong> {{ user_score }}</p>
+                <p class="text-lg text-gray-700"><strong>Skor stres Anda:</strong> {{ user_score }}</p>
             </div>
             <div class="bg-gray-50 p-4 rounded-lg shadow mb-4">
-                <p class="text-lg text-gray-700"><strong>Closest Match from Dataset:</strong></p>
+                <p class="text-lg text-gray-700"><strong>Pertandingan terdekat dari dataset:</strong></p>
                 <ul class="list-disc list-inside">
-                    <li class="text-lg text-gray-700"><strong>Age:</strong> {{ result['1. Age'] }}</li>
-                    <li class="text-lg text-gray-700"><strong>Gender:</strong> {{ result['2. Gender'] }}</li>
-                    <li class="text-lg text-gray-700"><strong>Stress Value:</strong> {{ result['Stress Value'] }}</li>
+                    <li class="text-lg text-gray-700"><strong>Usia:</strong> {{ result['1. Age'] }}</li>
+                    <li class="text-lg text-gray-700"><strong>Jenis kelamin:</strong> {{ result['2. Gender'] }}</li>
+                    <li class="text-lg text-gray-700"><strong>Nilai stres:</strong> {{ result['Stress Value'] }}</li>
                     <li class="text-lg text-gray-700">
-                        <strong>Stress Label:</strong>
+                        <strong>Label Stres:</strong>
+                        <!-- filepath: /c:/Users/LENOVO/Documents/GitHub/Sistem-Pakar-Rekomendasi-Tempat-Wisata/templates/stres/stres.html -->
                         <span class="
                             {% if result['Stress Label'] == 'No Stress' %}
                                 text-green-500
@@ -42,8 +43,20 @@
                             {% elif result['Stress Label'] == 'Severe Stress' %}
                                 text-red-700
                             {% endif %}
-                        ">
-                            {{ result['Stress Label'] }}
+                            ">
+                            {% if result['Stress Label'] == 'No Stress' %}
+                                Tidak Stres
+                            {% elif result['Stress Label'] == 'Minimal Stress' %}
+                                Stres Minimal
+                            {% elif result['Stress Label'] == 'Mild Stress' %}
+                                Stres Ringan
+                            {% elif result['Stress Label'] == 'Moderate Stress' %}
+                                Stres Sedang
+                            {% elif result['Stress Label'] == 'Moderately Severe Stress' %}
+                                Stres Cukup Berat
+                            {% elif result['Stress Label'] == 'Severe Stress' %}
+                                Stres Berat
+                            {% endif %}
                         </span>
                     </li>
                 </ul>

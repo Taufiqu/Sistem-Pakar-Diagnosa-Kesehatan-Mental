@@ -1,48 +1,48 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Stress Diagnosis</title>
+    <title>Diagnosis stres</title>
     <link rel="stylesheet" href="{{ url_for('static', filename='css/output.css') }}">
 </head>
 <body class="bg-gray-100 ">
     <nav class="bg-blue-600 p-4">
         <div class="container mx-auto">
-            <h1 class="text-white text-3xl font-bold"><a href="/">Mental Health Expert System</a></h1>
+            <h1 class="text-white text-3xl font-bold"><a href="/">Sistem Pakar Kesehatan Mental</a></h1>
         </div>
     </nav>
     <div class="max-w-3xl mx-auto bg-white p-6 rounded-lg shadow-md mt-10">
-        <h1 class="text-2xl font-bold mb-4 text-gray-800">Stress Diagnosis</h1>
+        <h1 class="text-2xl font-bold mb-4 text-gray-800">Diagnosis stres</h1>
         <form method="POST" class="space-y-6">
             <div class="mt-4">
-                <label for="age" class="block text-sm font-medium text-gray-700">Age:</label>
+                <label for="age" class="block text-sm font-medium text-gray-700">Usia:</label>
                 <select name="age" id="age" class="block w-full mt-1 p-2 border border-gray-300 rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500" required>
                     <option value="18-22">18-22</option>
                     <option value="23-27">23-27</option>
                     <option value="28-32">28-32</option>
-                    <option value="33 and above">33 and above</option>
+                    <option value="33 and above">33 dan di atas</option>
                 </select>
             </div>
 
             <div class="mt-4">
-                <label for="gender" class="block text-sm font-medium text-gray-700">Gender:</label>
+                <label for="gender" class="block text-sm font-medium text-gray-700">Jenis kelamin:</label>
                 <select name="gender" id="gender" class="block w-full mt-1 p-2 border border-gray-300 rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500" required>
-                    <option value="Male">Male</option>
-                    <option value="Female">Female</option>
+                    <option value="Male">Pria</option>
+                    <option value="Female">Perempuan</option>
                 </select>
             </div>
 
-            <p class="text-gray-700 font-semibold">Answer the following questions (0-4):</p>
+            <p class="text-gray-700 font-semibold">Jawab pertanyaan berikut (0-4):</p>
 
             <div class="mt-4 space-y-4">
                 <div>
-                    <label for="q1" class="block text-black font-medium mb-2 ">1. How often have you felt upset due to something that happened in your academic affairs?</label>
+                    <label for="q1" class="block text-black font-medium mb-2 ">1. Seberapa sering Anda merasa kesal karena sesuatu yang terjadi dalam urusan akademik Anda?</label>
                     <ul class="grid w-full gap-6 md:grid-cols-5">
                         <li>
                             <input type="radio" id="q1-0" name="q1" value="0" class="hidden peer" required />
                             <label for="q1-0" class="inline-flex items-center justify-between w-full p-5 text-gray-500 bg-white border border-gray-200 rounded-lg cursor-pointer dark:hover:text-gray-300 dark:border-gray-700 dark:peer-checked:text-blue-500 peer-checked:border-blue-600 peer-checked:text-blue-600 hover:text-black hover:bg-gray-100 dark:text-gray-400 dark:bg-gray-800 dark:hover:bg-gray-700">
                                 <div class="block">
                                     <div class="w-full text-lg font-semibold">0</div>
-                                    <div class="w-full">Not at all</div>
+                                    <div class="w-full">Sama sekali tidak</div>
                                 </div>
                             </label>
                         </li>
@@ -51,7 +51,7 @@
                             <label for="q1-1" class="inline-flex items-center justify-between w-full p-5 text-gray-500 bg-white border border-gray-200 rounded-lg cursor-pointer dark:hover:text-gray-300 dark:border-gray-700 dark:peer-checked:text-blue-500 peer-checked:border-blue-600 peer-checked:text-blue-600 hover:text-black hover:bg-gray-100 dark:text-gray-400 dark:bg-gray-800 dark:hover:bg-gray-700">
                                 <div class="block">
                                     <div class="w-full text-lg font-semibold">1</div>
-                                    <div class="w-full">Several days</div>
+                                    <div class="w-full">Beberapa hari</div>
                                 </div>
                             </label>
                         </li>
@@ -60,7 +60,7 @@
                             <label for="q1-2" class="inline-flex items-center justify-between w-full p-5 text-gray-500 bg-white border border-gray-200 rounded-lg cursor-pointer dark:hover:text-gray-300 dark:border-gray-700 dark:peer-checked:text-blue-500 peer-checked:border-blue-600 peer-checked:text-blue-600 hover:text-black hover:bg-gray-100 dark:text-gray-400 dark:bg-gray-800 dark:hover:bg-gray-700">
                                 <div class="block">
                                     <div class="w-full text-lg font-semibold">2</div>
-                                    <div class="w-full">more half days</div>
+                                    <div class="w-full">Lebih dari setengah hari</div>
                                 </div>
                             </label>
                         </li>
@@ -69,7 +69,7 @@
                             <label for="q1-3" class="inline-flex items-center justify-between w-full p-5 text-gray-500 bg-white border border-gray-200 rounded-lg cursor-pointer dark:hover:text-gray-300 dark:border-gray-700 dark:peer-checked:text-blue-500 peer-checked:border-blue-600 peer-checked:text-blue-600 hover:text-black hover:bg-gray-100 dark:text-gray-400 dark:bg-gray-800 dark:hover:bg-gray-700">
                                 <div class="block">
                                     <div class="w-full text-lg font-semibold">3</div>
-                                    <div class="w-full">Nearly every day</div>
+                                    <div class="w-full">Hampir setiap hari</div>
                                 </div>
                             </label>
                         </li>
@@ -78,7 +78,7 @@
                             <label for="q1-4" class="inline-flex items-center justify-between w-full p-5 text-gray-500 bg-white border border-gray-200 rounded-lg cursor-pointer dark:hover:text-gray-300 dark:border-gray-700 dark:peer-checked:text-blue-500 peer-checked:border-blue-600 peer-checked:text-blue-600 hover:text-black hover:bg-gray-100 dark:text-gray-400 dark:bg-gray-800 dark:hover:bg-gray-700">
                                 <div class="block">
                                     <div class="w-full text-lg font-semibold">4</div>
-                                    <div class="w-full">Always</div>
+                                    <div class="w-full">Selalu</div>
                                 </div>
                             </label>
                         </li>
@@ -87,14 +87,14 @@
                 <hr>
 
                 <div class="mt-4 mb-2">
-                    <label for="q2" class="block text-black font-medium mb-2">2. How often you felt as if you were unable to control important things in your academic affairs?</label>
+                    <label for="q2" class="block text-black font-medium mb-2">2. Seberapa sering Anda merasa seolah -olah Anda tidak dapat mengendalikan hal -hal penting dalam urusan akademik Anda?</label>
                     <ul class="grid w-full gap-6 md:grid-cols-5">
                         <li>
                             <input type="radio" id="q2-0" name="q2" value="0" class="hidden peer" required />
                             <label for="q2-0" class="inline-flex items-center justify-between w-full p-5 text-gray-500 bg-white border border-gray-200 rounded-lg cursor-pointer dark:hover:text-gray-300 dark:border-gray-700 dark:peer-checked:text-blue-500 peer-checked:border-blue-600 peer-checked:text-blue-600 hover:text-black hover:bg-gray-100 dark:text-gray-400 dark:bg-gray-800 dark:hover:bg-gray-700">
                                 <div class="block">
                                     <div class="w-full text-lg font-semibold">0</div>
-                                    <div class="w-full">Not at all</div>
+                                    <div class="w-full">Tidak sama  sekali</div>
                                 </div>
                             </label>
                         </li>
@@ -103,7 +103,7 @@
                             <label for="q2-1" class="inline-flex items-center justify-between w-full p-5 text-gray-500 bg-white border border-gray-200 rounded-lg cursor-pointer dark:hover:text-gray-300 dark:border-gray-700 dark:peer-checked:text-blue-500 peer-checked:border-blue-600 peer-checked:text-blue-600 hover:text-black hover:bg-gray-100 dark:text-gray-400 dark:bg-gray-800 dark:hover:bg-gray-700">
                                 <div class="block">
                                     <div class="w-full text-lg font-semibold">1</div>
-                                    <div class="w-full">Several days</div>
+                                    <div class="w-full">Beberapa hari</div>
                                 </div>
                             </label>
                         </li>
@@ -112,7 +112,7 @@
                             <label for="q2-2" class="inline-flex items-center justify-between w-full p-5 text-gray-500 bg-white border border-gray-200 rounded-lg cursor-pointer dark:hover:text-gray-300 dark:border-gray-700 dark:peer-checked:text-blue-500 peer-checked:border-blue-600 peer-checked:text-blue-600 hover:text-black hover:bg-gray-100 dark:text-gray-400 dark:bg-gray-800 dark:hover:bg-gray-700">
                                 <div class="block">
                                     <div class="w-full text-lg font-semibold">2</div>
-                                    <div class="w-full">more half days</div>
+                                    <div class="w-full">Lebih dari setengah hari</div>
                                 </div>
                             </label>
                         </li>
@@ -121,7 +121,7 @@
                             <label for="q2-3" class="inline-flex items-center justify-between w-full p-5 text-gray-500 bg-white border border-gray-200 rounded-lg cursor-pointer dark:hover:text-gray-300 dark:border-gray-700 dark:peer-checked:text-blue-500 peer-checked:border-blue-600 peer-checked:text-blue-600 hover:text-black hover:bg-gray-100 dark:text-gray-400 dark:bg-gray-800 dark:hover:bg-gray-700">
                                 <div class="block">
                                     <div class="w-full text-lg font-semibold">3</div>
-                                    <div class="w-full">Nearly every day</div>
+                                    <div class="w-full">Hampir setiap hari</div>
                                 </div>
                             </label>
                         </li>
@@ -130,7 +130,7 @@
                             <label for="q2-4" class="inline-flex items-center justify-between w-full p-5 text-gray-500 bg-white border border-gray-200 rounded-lg cursor-pointer dark:hover:text-gray-300 dark:border-gray-700 dark:peer-checked:text-blue-500 peer-checked:border-blue-600 peer-checked:text-blue-600 hover:text-black hover:bg-gray-100 dark:text-gray-400 dark:bg-gray-800 dark:hover:bg-gray-700">
                                 <div class="block">
                                     <div class="w-full text-lg font-semibold">4</div>
-                                    <div class="w-full">Always</div>
+                                    <div class="w-full">Selalu</div>
                                 </div>
                             </label>
                         </li>
@@ -139,14 +139,14 @@
                 <hr>
 
                 <div>
-                    <label for="q3" class="block text-black font-medium mb-2 ">3. How often you felt nervous and stressed because of academic pressure?</label>
+                    <label for="q3" class="block text-black font-medium mb-2 ">3. Seberapa sering Anda merasa gugup dan stres karena tekanan akademis?</label>
                     <ul class="grid w-full gap-6 md:grid-cols-5">
                         <li>
                             <input type="radio" id="q3-0" name="q3" value="0" class="hidden peer" required />
                             <label for="q3-0" class="inline-flex items-center justify-between w-full p-5 text-gray-500 bg-white border border-gray-200 rounded-lg cursor-pointer dark:hover:text-gray-300 dark:border-gray-700 dark:peer-checked:text-blue-500 peer-checked:border-blue-600 peer-checked:text-blue-600 hover:text-black hover:bg-gray-100 dark:text-gray-400 dark:bg-gray-800 dark:hover:bg-gray-700">
                                 <div class="block">
                                     <div class="w-full text-lg font-semibold">0</div>
-                                    <div class="w-full">Not at all</div>
+                                    <div class="w-full">Tidak sama  sekali</div>
                                 </div>
                             </label>
                         </li>
@@ -155,7 +155,7 @@
                             <label for="q3-1" class="inline-flex items-center justify-between w-full p-5 text-gray-500 bg-white border border-gray-200 rounded-lg cursor-pointer dark:hover:text-gray-300 dark:border-gray-700 dark:peer-checked:text-blue-500 peer-checked:border-blue-600 peer-checked:text-blue-600 hover:text-black hover:bg-gray-100 dark:text-gray-400 dark:bg-gray-800 dark:hover:bg-gray-700">
                                 <div class="block">
                                     <div class="w-full text-lg font-semibold">1</div>
-                                    <div class="w-full">Several days</div>
+                                    <div class="w-full">Beberapa hari</div>
                                 </div>
                             </label>
                         </li>
@@ -164,7 +164,7 @@
                             <label for="q3-2" class="inline-flex items-center justify-between w-full p-5 text-gray-500 bg-white border border-gray-200 rounded-lg cursor-pointer dark:hover:text-gray-300 dark:border-gray-700 dark:peer-checked:text-blue-500 peer-checked:border-blue-600 peer-checked:text-blue-600 hover:text-black hover:bg-gray-100 dark:text-gray-400 dark:bg-gray-800 dark:hover:bg-gray-700">
                                 <div class="block">
                                     <div class="w-full text-lg font-semibold">2</div>
-                                    <div class="w-full">more half days</div>
+                                    <div class="w-full">Lebih dari setengah hari</div>
                                 </div>
                             </label>
                         </li>
@@ -173,7 +173,7 @@
                             <label for="q3-3" class="inline-flex items-center justify-between w-full p-5 text-gray-500 bg-white border border-gray-200 rounded-lg cursor-pointer dark:hover:text-gray-300 dark:border-gray-700 dark:peer-checked:text-blue-500 peer-checked:border-blue-600 peer-checked:text-blue-600 hover:text-black hover:bg-gray-100 dark:text-gray-400 dark:bg-gray-800 dark:hover:bg-gray-700">
                                 <div class="block">
                                     <div class="w-full text-lg font-semibold">3</div>
-                                    <div class="w-full">Nearly every day</div>
+                                    <div class="w-full">Hampir setiap hari</div>
                                 </div>
                             </label>
                         </li>
@@ -182,7 +182,7 @@
                             <label for="q3-4" class="inline-flex items-center justify-between w-full p-5 text-gray-500 bg-white border border-gray-200 rounded-lg cursor-pointer dark:hover:text-gray-300 dark:border-gray-700 dark:peer-checked:text-blue-500 peer-checked:border-blue-600 peer-checked:text-blue-600 hover:text-black hover:bg-gray-100 dark:text-gray-400 dark:bg-gray-800 dark:hover:bg-gray-700">
                                 <div class="block">
                                     <div class="w-full text-lg font-semibold">4</div>
-                                    <div class="w-full">Always</div>
+                                    <div class="w-full">Selalu</div>
                                 </div>
                             </label>
                         </li>
@@ -191,14 +191,14 @@
                 <hr>
 
                 <div>
-                    <label for="q4" class="block text-black font-medium mb-2 ">4. How often you felt as if you could not cope with all mandatory academic activities?</label>
+                    <label for="q4" class="block text-black font-medium mb-2 ">4. Seberapa sering Anda merasa seolah -olah Anda tidak dapat mengatasi semua kegiatan akademik wajib?</label>
                     <ul class="grid w-full gap-6 md:grid-cols-5">
                         <li>
                             <input type="radio" id="q4-0" name="q4" value="0" class="hidden peer" required />
                             <label for="q4-0" class="inline-flex items-center justify-between w-full p-5 text-gray-500 bg-white border border-gray-200 rounded-lg cursor-pointer dark:hover:text-gray-300 dark:border-gray-700 dark:peer-checked:text-blue-500 peer-checked:border-blue-600 peer-checked:text-blue-600 hover:text-black hover:bg-gray-100 dark:text-gray-400 dark:bg-gray-800 dark:hover:bg-gray-700">
                                 <div class="block">
                                     <div class="w-full text-lg font-semibold">0</div>
-                                    <div class="w-full">Not at all</div>
+                                    <div class="w-full">Tidak sama  sekali</div>
                                 </div>
                             </label>
                         </li>
@@ -207,7 +207,7 @@
                             <label for="q4-1" class="inline-flex items-center justify-between w-full p-5 text-gray-500 bg-white border border-gray-200 rounded-lg cursor-pointer dark:hover:text-gray-300 dark:border-gray-700 dark:peer-checked:text-blue-500 peer-checked:border-blue-600 peer-checked:text-blue-600 hover:text-black hover:bg-gray-100 dark:text-gray-400 dark:bg-gray-800 dark:hover:bg-gray-700">
                                 <div class="block">
                                     <div class="w-full text-lg font-semibold">1</div>
-                                    <div class="w-full">Several days</div>
+                                    <div class="w-full">Beberapa hari</div>
                                 </div>
                             </label>
                         </li>
@@ -216,7 +216,7 @@
                             <label for="q4-2" class="inline-flex items-center justify-between w-full p-5 text-gray-500 bg-white border border-gray-200 rounded-lg cursor-pointer dark:hover:text-gray-300 dark:border-gray-700 dark:peer-checked:text-blue-500 peer-checked:border-blue-600 peer-checked:text-blue-600 hover:text-black hover:bg-gray-100 dark:text-gray-400 dark:bg-gray-800 dark:hover:bg-gray-700">
                                 <div class="block">
                                     <div class="w-full text-lg font-semibold">2</div>
-                                    <div class="w-full">more half days</div>
+                                    <div class="w-full">Lebih dari setengah hari</div>
                                 </div>
                             </label>
                         </li>
@@ -225,7 +225,7 @@
                             <label for="q4-3" class="inline-flex items-center justify-between w-full p-5 text-gray-500 bg-white border border-gray-200 rounded-lg cursor-pointer dark:hover:text-gray-300 dark:border-gray-700 dark:peer-checked:text-blue-500 peer-checked:border-blue-600 peer-checked:text-blue-600 hover:text-black hover:bg-gray-100 dark:text-gray-400 dark:bg-gray-800 dark:hover:bg-gray-700">
                                 <div class="block">
                                     <div class="w-full text-lg font-semibold">3</div>
-                                    <div class="w-full">Nearly every day</div>
+                                    <div class="w-full">Hampir setiap hari</div>
                                 </div>
                             </label>
                         </li>
@@ -234,7 +234,7 @@
                             <label for="q4-4" class="inline-flex items-center justify-between w-full p-5 text-gray-500 bg-white border border-gray-200 rounded-lg cursor-pointer dark:hover:text-gray-300 dark:border-gray-700 dark:peer-checked:text-blue-500 peer-checked:border-blue-600 peer-checked:text-blue-600 hover:text-black hover:bg-gray-100 dark:text-gray-400 dark:bg-gray-800 dark:hover:bg-gray-700">
                                 <div class="block">
                                     <div class="w-full text-lg font-semibold">4</div>
-                                    <div class="w-full">Always</div>
+                                    <div class="w-full">Selalu</div>
                                 </div>
                             </label>
                         </li>
@@ -243,14 +243,14 @@
                 <hr>
 
                 <div>
-                    <label for="q5" class="block text-black font-medium mb-2 ">5. How often you felt confident about your ability to handle your academic problems?</label>
+                    <label for="q5" class="block text-black font-medium mb-2 ">5. Seberapa sering Anda merasa yakin tentang kemampuan Anda untuk menangani masalah akademik Anda?</label>
                     <ul class="grid w-full gap-6 md:grid-cols-5">
                         <li>
                             <input type="radio" id="q5-0" name="q5" value="0" class="hidden peer" required />
                             <label for="q5-0" class="inline-flex items-center justify-between w-full p-5 text-gray-500 bg-white border border-gray-200 rounded-lg cursor-pointer dark:hover:text-gray-300 dark:border-gray-700 dark:peer-checked:text-blue-500 peer-checked:border-blue-600 peer-checked:text-blue-600 hover:text-black hover:bg-gray-100 dark:text-gray-400 dark:bg-gray-800 dark:hover:bg-gray-700">
                                 <div class="block">
                                     <div class="w-full text-lg font-semibold">0</div>
-                                    <div class="w-full">Not at all</div>
+                                    <div class="w-full">Tidak sama  sekali</div>
                                 </div>
                             </label>
                         </li>
@@ -259,7 +259,7 @@
                             <label for="q5-1" class="inline-flex items-center justify-between w-full p-5 text-gray-500 bg-white border border-gray-200 rounded-lg cursor-pointer dark:hover:text-gray-300 dark:border-gray-700 dark:peer-checked:text-blue-500 peer-checked:border-blue-600 peer-checked:text-blue-600 hover:text-black hover:bg-gray-100 dark:text-gray-400 dark:bg-gray-800 dark:hover:bg-gray-700">
                                 <div class="block">
                                     <div class="w-full text-lg font-semibold">1</div>
-                                    <div class="w-full">Several days</div>
+                                    <div class="w-full">Beberapa hari</div>
                                 </div>
                             </label>
                         </li>
@@ -268,7 +268,7 @@
                             <label for="q5-2" class="inline-flex items-center justify-between w-full p-5 text-gray-500 bg-white border border-gray-200 rounded-lg cursor-pointer dark:hover:text-gray-300 dark:border-gray-700 dark:peer-checked:text-blue-500 peer-checked:border-blue-600 peer-checked:text-blue-600 hover:text-black hover:bg-gray-100 dark:text-gray-400 dark:bg-gray-800 dark:hover:bg-gray-700">
                                 <div class="block">
                                     <div class="w-full text-lg font-semibold">2</div>
-                                    <div class="w-full">more half days</div>
+                                    <div class="w-full">Lebih dari setengah hari</div>
                                 </div>
                             </label>
                         </li>
@@ -277,7 +277,7 @@
                             <label for="q5-3" class="inline-flex items-center justify-between w-full p-5 text-gray-500 bg-white border border-gray-200 rounded-lg cursor-pointer dark:hover:text-gray-300 dark:border-gray-700 dark:peer-checked:text-blue-500 peer-checked:border-blue-600 peer-checked:text-blue-600 hover:text-black hover:bg-gray-100 dark:text-gray-400 dark:bg-gray-800 dark:hover:bg-gray-700">
                                 <div class="block">
                                     <div class="w-full text-lg font-semibold">3</div>
-                                    <div class="w-full">Nearly every day</div>
+                                    <div class="w-full">Hampir setiap hari</div>
                                 </div>
                             </label>
                         </li>
@@ -286,7 +286,7 @@
                             <label for="q5-4" class="inline-flex items-center justify-between w-full p-5 text-gray-500 bg-white border border-gray-200 rounded-lg cursor-pointer dark:hover:text-gray-300 dark:border-gray-700 dark:peer-checked:text-blue-500 peer-checked:border-blue-600 peer-checked:text-blue-600 hover:text-black hover:bg-gray-100 dark:text-gray-400 dark:bg-gray-800 dark:hover:bg-gray-700">
                                 <div class="block">
                                     <div class="w-full text-lg font-semibold">4</div>
-                                    <div class="w-full">Always</div>
+                                    <div class="w-full">Selalu</div>
                                 </div>
                             </label>
                         </li>
@@ -295,14 +295,14 @@
                 <hr>
 
                 <div>
-                    <label for="q6" class="block text-black font-medium mb-2 ">6. How often you felt as if things in your academic life are going on your way?</label>
+                    <label for="q6" class="block text-black font-medium mb-2 ">6. Seberapa sering Anda merasa seolah -olah hal -hal dalam kehidupan akademis Anda sedang berlangsung?</label>
                     <ul class="grid w-full gap-6 md:grid-cols-5">
                         <li>
                             <input type="radio" id="q6-0" name="q6" value="0" class="hidden peer" required />
                             <label for="q6-0" class="inline-flex items-center justify-between w-full p-5 text-gray-500 bg-white border border-gray-200 rounded-lg cursor-pointer dark:hover:text-gray-300 dark:border-gray-700 dark:peer-checked:text-blue-500 peer-checked:border-blue-600 peer-checked:text-blue-600 hover:text-black hover:bg-gray-100 dark:text-gray-400 dark:bg-gray-800 dark:hover:bg-gray-700">
                                 <div class="block">
                                     <div class="w-full text-lg font-semibold">0</div>
-                                    <div class="w-full">Not at all</div>
+                                    <div class="w-full">Tidak sama  sekali</div>
                                 </div>
                             </label>
                         </li>
@@ -311,7 +311,7 @@
                             <label for="q6-1" class="inline-flex items-center justify-between w-full p-5 text-gray-500 bg-white border border-gray-200 rounded-lg cursor-pointer dark:hover:text-gray-300 dark:border-gray-700 dark:peer-checked:text-blue-500 peer-checked:border-blue-600 peer-checked:text-blue-600 hover:text-black hover:bg-gray-100 dark:text-gray-400 dark:bg-gray-800 dark:hover:bg-gray-700">
                                 <div class="block">
                                     <div class="w-full text-lg font-semibold">1</div>
-                                    <div class="w-full">Several days</div>
+                                    <div class="w-full">Beberapa hari</div>
                                 </div>
                             </label>
                         </li>
@@ -320,7 +320,7 @@
                             <label for="q6-2" class="inline-flex items-center justify-between w-full p-5 text-gray-500 bg-white border border-gray-200 rounded-lg cursor-pointer dark:hover:text-gray-300 dark:border-gray-700 dark:peer-checked:text-blue-500 peer-checked:border-blue-600 peer-checked:text-blue-600 hover:text-black hover:bg-gray-100 dark:text-gray-400 dark:bg-gray-800 dark:hover:bg-gray-700">
                                 <div class="block">
                                     <div class="w-full text-lg font-semibold">2</div>
-                                    <div class="w-full">more half days</div>
+                                    <div class="w-full">Lebih dari setengah hari</div>
                                 </div>
                             </label>
                         </li>
@@ -329,7 +329,7 @@
                             <label for="q6-3" class="inline-flex items-center justify-between w-full p-5 text-gray-500 bg-white border border-gray-200 rounded-lg cursor-pointer dark:hover:text-gray-300 dark:border-gray-700 dark:peer-checked:text-blue-500 peer-checked:border-blue-600 peer-checked:text-blue-600 hover:text-black hover:bg-gray-100 dark:text-gray-400 dark:bg-gray-800 dark:hover:bg-gray-700">
                                 <div class="block">
                                     <div class="w-full text-lg font-semibold">3</div>
-                                    <div class="w-full">Nearly every day</div>
+                                    <div class="w-full">Hampir setiap hari</div>
                                 </div>
                             </label>
                         </li>
@@ -338,7 +338,7 @@
                             <label for="q6-4" class="inline-flex items-center justify-between w-full p-5 text-gray-500 bg-white border border-gray-200 rounded-lg cursor-pointer dark:hover:text-gray-300 dark:border-gray-700 dark:peer-checked:text-blue-500 peer-checked:border-blue-600 peer-checked:text-blue-600 hover:text-black hover:bg-gray-100 dark:text-gray-400 dark:bg-gray-800 dark:hover:bg-gray-700">
                                 <div class="block">
                                     <div class="w-full text-lg font-semibold">4</div>
-                                    <div class="w-full">Always</div>
+                                    <div class="w-full">Selalu</div>
                                 </div>
                             </label>
                         </li>
@@ -347,14 +347,14 @@
                 <hr>
 
                 <div>
-                    <label for="q7" class="block text-black font-medium mb-2 ">7. How often are you able to control irritations in your academic affairs?</label>
+                    <label for="q7" class="block text-black font-medium mb-2 ">7. Seberapa sering Anda dapat mengendalikan iritasi dalam urusan akademik Anda?</label>
                     <ul class="grid w-full gap-6 md:grid-cols-5">
                         <li>
                             <input type="radio" id="q7-0" name="q7" value="0" class="hidden peer" required />
                             <label for="q7-0" class="inline-flex items-center justify-between w-full p-5 text-gray-500 bg-white border border-gray-200 rounded-lg cursor-pointer dark:hover:text-gray-300 dark:border-gray-700 dark:peer-checked:text-blue-500 peer-checked:border-blue-600 peer-checked:text-blue-600 hover:text-black hover:bg-gray-100 dark:text-gray-400 dark:bg-gray-800 dark:hover:bg-gray-700">
                                 <div class="block">
                                     <div class="w-full text-lg font-semibold">0</div>
-                                    <div class="w-full">Not at all</div>
+                                    <div class="w-full">Tidak sama  sekali</div>
                                 </div>
                             </label>
                         </li>
@@ -363,7 +363,7 @@
                             <label for="q7-1" class="inline-flex items-center justify-between w-full p-5 text-gray-500 bg-white border border-gray-200 rounded-lg cursor-pointer dark:hover:text-gray-300 dark:border-gray-700 dark:peer-checked:text-blue-500 peer-checked:border-blue-600 peer-checked:text-blue-600 hover:text-black hover:bg-gray-100 dark:text-gray-400 dark:bg-gray-800 dark:hover:bg-gray-700">
                                 <div class="block">
                                     <div class="w-full text-lg font-semibold">1</div>
-                                    <div class="w-full">Several days</div>
+                                    <div class="w-full">Beberapa hari</div>
                                 </div>
                             </label>
                         </li>
@@ -372,7 +372,7 @@
                             <label for="q7-2" class="inline-flex items-center justify-between w-full p-5 text-gray-500 bg-white border border-gray-200 rounded-lg cursor-pointer dark:hover:text-gray-300 dark:border-gray-700 dark:peer-checked:text-blue-500 peer-checked:border-blue-600 peer-checked:text-blue-600 hover:text-black hover:bg-gray-100 dark:text-gray-400 dark:bg-gray-800 dark:hover:bg-gray-700">
                                 <div class="block">
                                     <div class="w-full text-lg font-semibold">2</div>
-                                    <div class="w-full">more half days</div>
+                                    <div class="w-full">Lebih dari setengah hari</div>
                                 </div>
                             </label>
                         </li>
@@ -381,7 +381,7 @@
                             <label for="q7-3" class="inline-flex items-center justify-between w-full p-5 text-gray-500 bg-white border border-gray-200 rounded-lg cursor-pointer dark:hover:text-gray-300 dark:border-gray-700 dark:peer-checked:text-blue-500 peer-checked:border-blue-600 peer-checked:text-blue-600 hover:text-black hover:bg-gray-100 dark:text-gray-400 dark:bg-gray-800 dark:hover:bg-gray-700">
                                 <div class="block">
                                     <div class="w-full text-lg font-semibold">3</div>
-                                    <div class="w-full">Nearly every day</div>
+                                    <div class="w-full">Hampir setiap hari</div>
                                 </div>
                             </label>
                         </li>
@@ -390,7 +390,7 @@
                             <label for="q7-4" class="inline-flex items-center justify-between w-full p-5 text-gray-500 bg-white border border-gray-200 rounded-lg cursor-pointer dark:hover:text-gray-300 dark:border-gray-700 dark:peer-checked:text-blue-500 peer-checked:border-blue-600 peer-checked:text-blue-600 hover:text-black hover:bg-gray-100 dark:text-gray-400 dark:bg-gray-800 dark:hover:bg-gray-700">
                                 <div class="block">
                                     <div class="w-full text-lg font-semibold">4</div>
-                                    <div class="w-full">Always</div>
+                                    <div class="w-full">Selalu</div>
                                 </div>
                             </label>
                         </li>
@@ -399,14 +399,14 @@
                 <hr>
 
                 <div>
-                    <label for="q8" class="block text-black font-medium mb-2 ">8. How often you felt as if your academic performance was on top?</label>
+                    <label for="q8" class="block text-black font-medium mb-2 ">8. Seberapa sering Anda merasa seolah-olah kinerja akademik Anda ada di atas?</label>
                     <ul class="grid w-full gap-6 md:grid-cols-5">
                         <li>
                             <input type="radio" id="q8-0" name="q8" value="0" class="hidden peer" required />
                             <label for="q8-0" class="inline-flex items-center justify-between w-full p-5 text-gray-500 bg-white border border-gray-200 rounded-lg cursor-pointer dark:hover:text-gray-300 dark:border-gray-700 dark:peer-checked:text-blue-500 peer-checked:border-blue-600 peer-checked:text-blue-600 hover:text-black hover:bg-gray-100 dark:text-gray-400 dark:bg-gray-800 dark:hover:bg-gray-700">
                                 <div class="block">
                                     <div class="w-full text-lg font-semibold">0</div>
-                                    <div class="w-full">Not at all</div>
+                                    <div class="w-full">Tidak sama  sekali</div>
                                 </div>
                             </label>
                         </li>
@@ -415,7 +415,7 @@
                             <label for="q8-1" class="inline-flex items-center justify-between w-full p-5 text-gray-500 bg-white border border-gray-200 rounded-lg cursor-pointer dark:hover:text-gray-300 dark:border-gray-700 dark:peer-checked:text-blue-500 peer-checked:border-blue-600 peer-checked:text-blue-600 hover:text-black hover:bg-gray-100 dark:text-gray-400 dark:bg-gray-800 dark:hover:bg-gray-700">
                                 <div class="block">
                                     <div class="w-full text-lg font-semibold">1</div>
-                                    <div class="w-full">Several days</div>
+                                    <div class="w-full">Beberapa hari</div>
                                 </div>
                             </label>
                         </li>
@@ -424,7 +424,7 @@
                             <label for="q8-2" class="inline-flex items-center justify-between w-full p-5 text-gray-500 bg-white border border-gray-200 rounded-lg cursor-pointer dark:hover:text-gray-300 dark:border-gray-700 dark:peer-checked:text-blue-500 peer-checked:border-blue-600 peer-checked:text-blue-600 hover:text-black hover:bg-gray-100 dark:text-gray-400 dark:bg-gray-800 dark:hover:bg-gray-700">
                                 <div class="block">
                                     <div class="w-full text-lg font-semibold">2</div>
-                                    <div class="w-full">more half days</div>
+                                    <div class="w-full">Lebih dari setengah hari</div>
                                 </div>
                             </label>
                         </li>
@@ -433,7 +433,7 @@
                             <label for="q8-3" class="inline-flex items-center justify-between w-full p-5 text-gray-500 bg-white border border-gray-200 rounded-lg cursor-pointer dark:hover:text-gray-300 dark:border-gray-700 dark:peer-checked:text-blue-500 peer-checked:border-blue-600 peer-checked:text-blue-600 hover:text-black hover:bg-gray-100 dark:text-gray-400 dark:bg-gray-800 dark:hover:bg-gray-700">
                                 <div class="block">
                                     <div class="w-full text-lg font-semibold">3</div>
-                                    <div class="w-full">Nearly every day</div>
+                                    <div class="w-full">Hampir setiap hari</div>
                                 </div>
                             </label>
                         </li>
@@ -442,7 +442,7 @@
                             <label for="q8-4" class="inline-flex items-center justify-between w-full p-5 text-gray-500 bg-white border border-gray-200 rounded-lg cursor-pointer dark:hover:text-gray-300 dark:border-gray-700 dark:peer-checked:text-blue-500 peer-checked:border-blue-600 peer-checked:text-blue-600 hover:text-black hover:bg-gray-100 dark:text-gray-400 dark:bg-gray-800 dark:hover:bg-gray-700">
                                 <div class="block">
                                     <div class="w-full text-lg font-semibold">4</div>
-                                    <div class="w-full">Always</div>
+                                    <div class="w-full">Selalu</div>
                                 </div>
                             </label>
                         </li>
@@ -451,14 +451,14 @@
             <hr>
 
                 <div>
-                    <label for="q9" class="block text-black font-medium mb-2 ">9. How often you got angered due to bad performance or low grades that are beyond your control?</label>
+                    <label for="q9" class="block text-black font-medium mb-2 ">9. Seberapa sering Anda marah karena kinerja yang buruk atau nilai rendah yang berada di luar kendali Anda?</label>
                     <ul class="grid w-full gap-6 md:grid-cols-5">
                         <li>
                             <input type="radio" id="q9-0" name="q9" value="0" class="hidden peer" required />
                             <label for="q9-0" class="inline-flex items-center justify-between w-full p-5 text-gray-500 bg-white border border-gray-200 rounded-lg cursor-pointer dark:hover:text-gray-300 dark:border-gray-700 dark:peer-checked:text-blue-500 peer-checked:border-blue-600 peer-checked:text-blue-600 hover:text-black hover:bg-gray-100 dark:text-gray-400 dark:bg-gray-800 dark:hover:bg-gray-700">
                                 <div class="block">
                                     <div class="w-full text-lg font-semibold">0</div>
-                                    <div class="w-full">Not at all</div>
+                                    <div class="w-full">Tidak sama  sekali</div>
                                 </div>
                             </label>
                         </li>
@@ -467,7 +467,7 @@
                             <label for="q9-1" class="inline-flex items-center justify-between w-full p-5 text-gray-500 bg-white border border-gray-200 rounded-lg cursor-pointer dark:hover:text-gray-300 dark:border-gray-700 dark:peer-checked:text-blue-500 peer-checked:border-blue-600 peer-checked:text-blue-600 hover:text-black hover:bg-gray-100 dark:text-gray-400 dark:bg-gray-800 dark:hover:bg-gray-700">
                                 <div class="block">
                                     <div class="w-full text-lg font-semibold">1</div>
-                                    <div class="w-full">Several days</div>
+                                    <div class="w-full">Beberapa hari</div>
                                 </div>
                             </label>
                         </li>
@@ -476,7 +476,7 @@
                             <label for="q9-2" class="inline-flex items-center justify-between w-full p-5 text-gray-500 bg-white border border-gray-200 rounded-lg cursor-pointer dark:hover:text-gray-300 dark:border-gray-700 dark:peer-checked:text-blue-500 peer-checked:border-blue-600 peer-checked:text-blue-600 hover:text-black hover:bg-gray-100 dark:text-gray-400 dark:bg-gray-800 dark:hover:bg-gray-700">
                                 <div class="block">
                                     <div class="w-full text-lg font-semibold">2</div>
-                                    <div class="w-full">more half days</div>
+                                    <div class="w-full">Lebih dari setengah hari</div>
                                 </div>
                             </label>
                         </li>
@@ -485,7 +485,7 @@
                             <label for="q9-3" class="inline-flex items-center justify-between w-full p-5 text-gray-500 bg-white border border-gray-200 rounded-lg cursor-pointer dark:hover:text-gray-300 dark:border-gray-700 dark:peer-checked:text-blue-500 peer-checked:border-blue-600 peer-checked:text-blue-600 hover:text-black hover:bg-gray-100 dark:text-gray-400 dark:bg-gray-800 dark:hover:bg-gray-700">
                                 <div class="block">
                                     <div class="w-full text-lg font-semibold">3</div>
-                                    <div class="w-full">Nearly every day</div>
+                                    <div class="w-full">Hampir setiap hari</div>
                                 </div>
                             </label>
                         </li>
@@ -494,7 +494,7 @@
                             <label for="q9-4" class="inline-flex items-center justify-between w-full p-5 text-gray-500 bg-white border border-gray-200 rounded-lg cursor-pointer dark:hover:text-gray-300 dark:border-gray-700 dark:peer-checked:text-blue-500 peer-checked:border-blue-600 peer-checked:text-blue-600 hover:text-black hover:bg-gray-100 dark:text-gray-400 dark:bg-gray-800 dark:hover:bg-gray-700">
                                 <div class="block">
                                     <div class="w-full text-lg font-semibold">4</div>
-                                    <div class="w-full">Always</div>
+                                    <div class="w-full">Selalu</div>
                                 </div>
                             </label>
                         </li>
@@ -503,14 +503,14 @@
             <hr>
 
                 <div>
-                    <label for="q10" class="block text-black font-medium mb-2 ">10. How often you felt as if academic difficulties are piling up so high that you could not overcome them?</label>
+                    <label for="q10" class="block text-black font-medium mb-2 ">10. Seberapa sering Anda merasa bahwa kesulitan akademis menumpuk begitu tinggi sehingga Anda tidak bisa mengatasinya?</label>
                     <ul class="grid w-full gap-6 md:grid-cols-5">
                         <li>
                             <input type="radio" id="q10-0" name="q10" value="0" class="hidden peer" required />
                             <label for="q10-0" class="inline-flex items-center justify-between w-full p-5 text-gray-500 bg-white border border-gray-200 rounded-lg cursor-pointer dark:hover:text-gray-300 dark:border-gray-700 dark:peer-checked:text-blue-500 peer-checked:border-blue-600 peer-checked:text-blue-600 hover:text-black hover:bg-gray-100 dark:text-gray-400 dark:bg-gray-800 dark:hover:bg-gray-700">
                                 <div class="block">
                                     <div class="w-full text-lg font-semibold">0</div>
-                                    <div class="w-full">Not at all</div>
+                                    <div class="w-full">Tidak sama  sekali</div>
                                 </div>
                             </label>
                         </li>
@@ -519,7 +519,7 @@
                             <label for="q10-1" class="inline-flex items-center justify-between w-full p-5 text-gray-500 bg-white border border-gray-200 rounded-lg cursor-pointer dark:hover:text-gray-300 dark:border-gray-700 dark:peer-checked:text-blue-500 peer-checked:border-blue-600 peer-checked:text-blue-600 hover:text-black hover:bg-gray-100 dark:text-gray-400 dark:bg-gray-800 dark:hover:bg-gray-700">
                                 <div class="block">
                                     <div class="w-full text-lg font-semibold">1</div>
-                                    <div class="w-full">Several days</div>
+                                    <div class="w-full">Beberapa hari</div>
                                 </div>
                             </label>
                         </li>
@@ -528,7 +528,7 @@
                             <label for="q10-2" class="inline-flex items-center justify-between w-full p-5 text-gray-500 bg-white border border-gray-200 rounded-lg cursor-pointer dark:hover:text-gray-300 dark:border-gray-700 dark:peer-checked:text-blue-500 peer-checked:border-blue-600 peer-checked:text-blue-600 hover:text-black hover:bg-gray-100 dark:text-gray-400 dark:bg-gray-800 dark:hover:bg-gray-700">
                                 <div class="block">
                                     <div class="w-full text-lg font-semibold">2</div>
-                                    <div class="w-full">more half days</div>
+                                    <div class="w-full">Lebih dari setengah hari</div>
                                 </div>
                             </label>
                         </li>
@@ -537,7 +537,7 @@
                             <label for="q10-3" class="inline-flex items-center justify-between w-full p-5 text-gray-500 bg-white border border-gray-200 rounded-lg cursor-pointer dark:hover:text-gray-300 dark:border-gray-700 dark:peer-checked:text-blue-500 peer-checked:border-blue-600 peer-checked:text-blue-600 hover:text-black hover:bg-gray-100 dark:text-gray-400 dark:bg-gray-800 dark:hover:bg-gray-700">
                                 <div class="block">
                                     <div class="w-full text-lg font-semibold">3</div>
-                                    <div class="w-full">Nearly every day</div>
+                                    <div class="w-full">Hampir setiap hari</div>
                                 </div>
                             </label>
                         </li>
@@ -546,7 +546,7 @@
                             <label for="q10-4" class="inline-flex items-center justify-between w-full p-5 text-gray-500 bg-white border border-gray-200 rounded-lg cursor-pointer dark:hover:text-gray-300 dark:border-gray-700 dark:peer-checked:text-blue-500 peer-checked:border-blue-600 peer-checked:text-blue-600 hover:text-black hover:bg-gray-100 dark:text-gray-400 dark:bg-gray-800 dark:hover:bg-gray-700">
                                 <div class="block">
                                     <div class="w-full text-lg font-semibold">4</div>
-                                    <div class="w-full">Always</div>
+                                    <div class="w-full">Selalu</div>
                                 </div>
                             </label>
                         </li>
