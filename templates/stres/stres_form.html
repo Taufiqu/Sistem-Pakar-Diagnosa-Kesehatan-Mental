@@ -2,10 +2,14 @@
 <html>
 <head>
     <title>Stress Diagnosis</title>
-    <script src="https://cdn.tailwindcss.com"></script>
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/flowbite/1.6.5/flowbite.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/output.css') }}">
 </head>
-<body class="bg-gray-100 py-10">
+<body class="bg-gray-100 ">
+    <nav class="bg-blue-600 p-4">
+        <div class="container mx-auto">
+            <h1 class="text-white text-3xl font-bold"><a href="/">Mental Health Expert System</a></h1>
+        </div>
+    </nav>
     <div class="max-w-3xl mx-auto bg-white p-6 rounded-lg shadow-md">
         <h1 class="text-2xl font-bold mb-4 text-gray-800">Stress Diagnosis</h1>
         <form method="POST" class="space-y-6">
@@ -31,56 +35,525 @@
 
             <div class="mt-4 space-y-4">
                 <div>
-                    <label for="q1" class="block text-gray-600 font-medium">1. How often have you felt upset due to something that happened in your academic affairs?</label>
-                    <input type="number" name="q1" id="q1" min="0" max="4" required class="mt-1 block w-full border-gray-300 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500">
+                    <label for="q1" class="block text-black font-medium mb-2 ">1. How often have you felt upset due to something that happened in your academic affairs?</label>
+                    <ul class="grid w-full gap-6 md:grid-cols-5">
+                        <li>
+                            <input type="radio" id="q1-0" name="q1" value="0" class="hidden peer" required />
+                            <label for="q1-0" class="inline-flex items-center justify-between w-full p-5 text-gray-500 bg-white border border-gray-200 rounded-lg cursor-pointer dark:hover:text-gray-300 dark:border-gray-700 dark:peer-checked:text-blue-500 peer-checked:border-blue-600 peer-checked:text-blue-600 hover:text-black hover:bg-gray-100 dark:text-gray-400 dark:bg-gray-800 dark:hover:bg-gray-700">
+                                <div class="block">
+                                    <div class="w-full text-lg font-semibold">0</div>
+                                    <div class="w-full">Not at all</div>
+                                </div>
+                            </label>
+                        </li>
+                        <li>
+                            <input type="radio" id="q1-1" name="q1" value="1" class="hidden peer">
+                            <label for="q1-1" class="inline-flex items-center justify-between w-full p-5 text-gray-500 bg-white border border-gray-200 rounded-lg cursor-pointer dark:hover:text-gray-300 dark:border-gray-700 dark:peer-checked:text-blue-500 peer-checked:border-blue-600 peer-checked:text-blue-600 hover:text-black hover:bg-gray-100 dark:text-gray-400 dark:bg-gray-800 dark:hover:bg-gray-700">
+                                <div class="block">
+                                    <div class="w-full text-lg font-semibold">1</div>
+                                    <div class="w-full">Several days</div>
+                                </div>
+                            </label>
+                        </li>
+                        <li>
+                            <input type="radio" id="q1-2" name="q1" value="2" class="hidden peer">
+                            <label for="q1-2" class="inline-flex items-center justify-between w-full p-5 text-gray-500 bg-white border border-gray-200 rounded-lg cursor-pointer dark:hover:text-gray-300 dark:border-gray-700 dark:peer-checked:text-blue-500 peer-checked:border-blue-600 peer-checked:text-blue-600 hover:text-black hover:bg-gray-100 dark:text-gray-400 dark:bg-gray-800 dark:hover:bg-gray-700">
+                                <div class="block">
+                                    <div class="w-full text-lg font-semibold">2</div>
+                                    <div class="w-full">more half days</div>
+                                </div>
+                            </label>
+                        </li>
+                        <li>
+                            <input type="radio" id="q1-3" name="q1" value="3" class="hidden peer">
+                            <label for="q1-3" class="inline-flex items-center justify-between w-full p-5 text-gray-500 bg-white border border-gray-200 rounded-lg cursor-pointer dark:hover:text-gray-300 dark:border-gray-700 dark:peer-checked:text-blue-500 peer-checked:border-blue-600 peer-checked:text-blue-600 hover:text-black hover:bg-gray-100 dark:text-gray-400 dark:bg-gray-800 dark:hover:bg-gray-700">
+                                <div class="block">
+                                    <div class="w-full text-lg font-semibold">3</div>
+                                    <div class="w-full">Nearly every day</div>
+                                </div>
+                            </label>
+                        </li>
+                        <li>
+                            <input type="radio" id="q1-4" name="q1" value="4" class="hidden peer">
+                            <label for="q1-4" class="inline-flex items-center justify-between w-full p-5 text-gray-500 bg-white border border-gray-200 rounded-lg cursor-pointer dark:hover:text-gray-300 dark:border-gray-700 dark:peer-checked:text-blue-500 peer-checked:border-blue-600 peer-checked:text-blue-600 hover:text-black hover:bg-gray-100 dark:text-gray-400 dark:bg-gray-800 dark:hover:bg-gray-700">
+                                <div class="block">
+                                    <div class="w-full text-lg font-semibold">4</div>
+                                    <div class="w-full">Always</div>
+                                </div>
+                            </label>
+                        </li>
+                    </ul>
                 </div>
+                <hr>
+
+                <div class="mt-4 mb-2">
+                    <label for="q2" class="block text-black font-medium mb-2">2. How often you felt as if you were unable to control important things in your academic affairs?</label>
+                    <ul class="grid w-full gap-6 md:grid-cols-5">
+                        <li>
+                            <input type="radio" id="q2-0" name="q2" value="0" class="hidden peer" required />
+                            <label for="q2-0" class="inline-flex items-center justify-between w-full p-5 text-gray-500 bg-white border border-gray-200 rounded-lg cursor-pointer dark:hover:text-gray-300 dark:border-gray-700 dark:peer-checked:text-blue-500 peer-checked:border-blue-600 peer-checked:text-blue-600 hover:text-black hover:bg-gray-100 dark:text-gray-400 dark:bg-gray-800 dark:hover:bg-gray-700">
+                                <div class="block">
+                                    <div class="w-full text-lg font-semibold">0</div>
+                                    <div class="w-full">Not at all</div>
+                                </div>
+                            </label>
+                        </li>
+                        <li>
+                            <input type="radio" id="q2-1" name="q2" value="1" class="hidden peer">
+                            <label for="q2-1" class="inline-flex items-center justify-between w-full p-5 text-gray-500 bg-white border border-gray-200 rounded-lg cursor-pointer dark:hover:text-gray-300 dark:border-gray-700 dark:peer-checked:text-blue-500 peer-checked:border-blue-600 peer-checked:text-blue-600 hover:text-black hover:bg-gray-100 dark:text-gray-400 dark:bg-gray-800 dark:hover:bg-gray-700">
+                                <div class="block">
+                                    <div class="w-full text-lg font-semibold">1</div>
+                                    <div class="w-full">Several days</div>
+                                </div>
+                            </label>
+                        </li>
+                        <li>
+                            <input type="radio" id="q2-2" name="q2" value="2" class="hidden peer">
+                            <label for="q2-2" class="inline-flex items-center justify-between w-full p-5 text-gray-500 bg-white border border-gray-200 rounded-lg cursor-pointer dark:hover:text-gray-300 dark:border-gray-700 dark:peer-checked:text-blue-500 peer-checked:border-blue-600 peer-checked:text-blue-600 hover:text-black hover:bg-gray-100 dark:text-gray-400 dark:bg-gray-800 dark:hover:bg-gray-700">
+                                <div class="block">
+                                    <div class="w-full text-lg font-semibold">2</div>
+                                    <div class="w-full">more half days</div>
+                                </div>
+                            </label>
+                        </li>
+                        <li>
+                            <input type="radio" id="q2-3" name="q2" value="3" class="hidden peer">
+                            <label for="q2-3" class="inline-flex items-center justify-between w-full p-5 text-gray-500 bg-white border border-gray-200 rounded-lg cursor-pointer dark:hover:text-gray-300 dark:border-gray-700 dark:peer-checked:text-blue-500 peer-checked:border-blue-600 peer-checked:text-blue-600 hover:text-black hover:bg-gray-100 dark:text-gray-400 dark:bg-gray-800 dark:hover:bg-gray-700">
+                                <div class="block">
+                                    <div class="w-full text-lg font-semibold">3</div>
+                                    <div class="w-full">Nearly every day</div>
+                                </div>
+                            </label>
+                        </li>
+                        <li>
+                            <input type="radio" id="q2-4" name="q2" value="4" class="hidden peer">
+                            <label for="q2-4" class="inline-flex items-center justify-between w-full p-5 text-gray-500 bg-white border border-gray-200 rounded-lg cursor-pointer dark:hover:text-gray-300 dark:border-gray-700 dark:peer-checked:text-blue-500 peer-checked:border-blue-600 peer-checked:text-blue-600 hover:text-black hover:bg-gray-100 dark:text-gray-400 dark:bg-gray-800 dark:hover:bg-gray-700">
+                                <div class="block">
+                                    <div class="w-full text-lg font-semibold">4</div>
+                                    <div class="w-full">Always</div>
+                                </div>
+                            </label>
+                        </li>
+                    </ul>
+                </div>
+                <hr>
 
                 <div>
-                    <label for="q2" class="block text-gray-600 font-medium">2. How often you felt as if you were unable to control important things in your academic affairs?</label>
-                    <input type="number" name="q2" id="q2" min="0" max="4" required class="mt-1 block w-full border-gray-300 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500">
+                    <label for="q3" class="block text-black font-medium mb-2 ">3. How often you felt nervous and stressed because of academic pressure?</label>
+                    <ul class="grid w-full gap-6 md:grid-cols-5">
+                        <li>
+                            <input type="radio" id="q3-0" name="q3" value="0" class="hidden peer" required />
+                            <label for="q3-0" class="inline-flex items-center justify-between w-full p-5 text-gray-500 bg-white border border-gray-200 rounded-lg cursor-pointer dark:hover:text-gray-300 dark:border-gray-700 dark:peer-checked:text-blue-500 peer-checked:border-blue-600 peer-checked:text-blue-600 hover:text-black hover:bg-gray-100 dark:text-gray-400 dark:bg-gray-800 dark:hover:bg-gray-700">
+                                <div class="block">
+                                    <div class="w-full text-lg font-semibold">0</div>
+                                    <div class="w-full">Not at all</div>
+                                </div>
+                            </label>
+                        </li>
+                        <li>
+                            <input type="radio" id="q3-1" name="q3" value="1" class="hidden peer">
+                            <label for="q3-1" class="inline-flex items-center justify-between w-full p-5 text-gray-500 bg-white border border-gray-200 rounded-lg cursor-pointer dark:hover:text-gray-300 dark:border-gray-700 dark:peer-checked:text-blue-500 peer-checked:border-blue-600 peer-checked:text-blue-600 hover:text-black hover:bg-gray-100 dark:text-gray-400 dark:bg-gray-800 dark:hover:bg-gray-700">
+                                <div class="block">
+                                    <div class="w-full text-lg font-semibold">1</div>
+                                    <div class="w-full">Several days</div>
+                                </div>
+                            </label>
+                        </li>
+                        <li>
+                            <input type="radio" id="q3-2" name="q3" value="2" class="hidden peer">
+                            <label for="q3-2" class="inline-flex items-center justify-between w-full p-5 text-gray-500 bg-white border border-gray-200 rounded-lg cursor-pointer dark:hover:text-gray-300 dark:border-gray-700 dark:peer-checked:text-blue-500 peer-checked:border-blue-600 peer-checked:text-blue-600 hover:text-black hover:bg-gray-100 dark:text-gray-400 dark:bg-gray-800 dark:hover:bg-gray-700">
+                                <div class="block">
+                                    <div class="w-full text-lg font-semibold">2</div>
+                                    <div class="w-full">more half days</div>
+                                </div>
+                            </label>
+                        </li>
+                        <li>
+                            <input type="radio" id="q3-3" name="q3" value="3" class="hidden peer">
+                            <label for="q3-3" class="inline-flex items-center justify-between w-full p-5 text-gray-500 bg-white border border-gray-200 rounded-lg cursor-pointer dark:hover:text-gray-300 dark:border-gray-700 dark:peer-checked:text-blue-500 peer-checked:border-blue-600 peer-checked:text-blue-600 hover:text-black hover:bg-gray-100 dark:text-gray-400 dark:bg-gray-800 dark:hover:bg-gray-700">
+                                <div class="block">
+                                    <div class="w-full text-lg font-semibold">3</div>
+                                    <div class="w-full">Nearly every day</div>
+                                </div>
+                            </label>
+                        </li>
+                        <li>
+                            <input type="radio" id="q3-4" name="q3" value="4" class="hidden peer">
+                            <label for="q3-4" class="inline-flex items-center justify-between w-full p-5 text-gray-500 bg-white border border-gray-200 rounded-lg cursor-pointer dark:hover:text-gray-300 dark:border-gray-700 dark:peer-checked:text-blue-500 peer-checked:border-blue-600 peer-checked:text-blue-600 hover:text-black hover:bg-gray-100 dark:text-gray-400 dark:bg-gray-800 dark:hover:bg-gray-700">
+                                <div class="block">
+                                    <div class="w-full text-lg font-semibold">4</div>
+                                    <div class="w-full">Always</div>
+                                </div>
+                            </label>
+                        </li>
+                    </ul>
                 </div>
+                <hr>
 
                 <div>
-                    <label for="q3" class="block text-gray-600 font-medium">3. How often you felt nervous and stressed because of academic pressure?</label>
-                    <input type="number" name="q3" id="q3" min="0" max="4" required class="mt-1 block w-full border-gray-300 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500">
+                    <label for="q4" class="block text-black font-medium mb-2 ">4. How often you felt as if you could not cope with all mandatory academic activities?</label>
+                    <ul class="grid w-full gap-6 md:grid-cols-5">
+                        <li>
+                            <input type="radio" id="q4-0" name="q4" value="0" class="hidden peer" required />
+                            <label for="q4-0" class="inline-flex items-center justify-between w-full p-5 text-gray-500 bg-white border border-gray-200 rounded-lg cursor-pointer dark:hover:text-gray-300 dark:border-gray-700 dark:peer-checked:text-blue-500 peer-checked:border-blue-600 peer-checked:text-blue-600 hover:text-black hover:bg-gray-100 dark:text-gray-400 dark:bg-gray-800 dark:hover:bg-gray-700">
+                                <div class="block">
+                                    <div class="w-full text-lg font-semibold">0</div>
+                                    <div class="w-full">Not at all</div>
+                                </div>
+                            </label>
+                        </li>
+                        <li>
+                            <input type="radio" id="q4-1" name="q4" value="1" class="hidden peer">
+                            <label for="q4-1" class="inline-flex items-center justify-between w-full p-5 text-gray-500 bg-white border border-gray-200 rounded-lg cursor-pointer dark:hover:text-gray-300 dark:border-gray-700 dark:peer-checked:text-blue-500 peer-checked:border-blue-600 peer-checked:text-blue-600 hover:text-black hover:bg-gray-100 dark:text-gray-400 dark:bg-gray-800 dark:hover:bg-gray-700">
+                                <div class="block">
+                                    <div class="w-full text-lg font-semibold">1</div>
+                                    <div class="w-full">Several days</div>
+                                </div>
+                            </label>
+                        </li>
+                        <li>
+                            <input type="radio" id="q4-2" name="q4" value="2" class="hidden peer">
+                            <label for="q4-2" class="inline-flex items-center justify-between w-full p-5 text-gray-500 bg-white border border-gray-200 rounded-lg cursor-pointer dark:hover:text-gray-300 dark:border-gray-700 dark:peer-checked:text-blue-500 peer-checked:border-blue-600 peer-checked:text-blue-600 hover:text-black hover:bg-gray-100 dark:text-gray-400 dark:bg-gray-800 dark:hover:bg-gray-700">
+                                <div class="block">
+                                    <div class="w-full text-lg font-semibold">2</div>
+                                    <div class="w-full">more half days</div>
+                                </div>
+                            </label>
+                        </li>
+                        <li>
+                            <input type="radio" id="q4-3" name="q4" value="3" class="hidden peer">
+                            <label for="q4-3" class="inline-flex items-center justify-between w-full p-5 text-gray-500 bg-white border border-gray-200 rounded-lg cursor-pointer dark:hover:text-gray-300 dark:border-gray-700 dark:peer-checked:text-blue-500 peer-checked:border-blue-600 peer-checked:text-blue-600 hover:text-black hover:bg-gray-100 dark:text-gray-400 dark:bg-gray-800 dark:hover:bg-gray-700">
+                                <div class="block">
+                                    <div class="w-full text-lg font-semibold">3</div>
+                                    <div class="w-full">Nearly every day</div>
+                                </div>
+                            </label>
+                        </li>
+                        <li>
+                            <input type="radio" id="q4-4" name="q4" value="4" class="hidden peer">
+                            <label for="q4-4" class="inline-flex items-center justify-between w-full p-5 text-gray-500 bg-white border border-gray-200 rounded-lg cursor-pointer dark:hover:text-gray-300 dark:border-gray-700 dark:peer-checked:text-blue-500 peer-checked:border-blue-600 peer-checked:text-blue-600 hover:text-black hover:bg-gray-100 dark:text-gray-400 dark:bg-gray-800 dark:hover:bg-gray-700">
+                                <div class="block">
+                                    <div class="w-full text-lg font-semibold">4</div>
+                                    <div class="w-full">Always</div>
+                                </div>
+                            </label>
+                        </li>
+                    </ul>
                 </div>
+                <hr>
 
                 <div>
-                    <label for="q4" class="block text-gray-600 font-medium">4. How often you felt as if you could not cope with all mandatory academic activities?</label>
-                    <input type="number" name="q4" id="q4" min="0" max="4" required class="mt-1 block w-full border-gray-300 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500">
+                    <label for="q5" class="block text-black font-medium mb-2 ">5. How often you felt confident about your ability to handle your academic problems?</label>
+                    <ul class="grid w-full gap-6 md:grid-cols-5">
+                        <li>
+                            <input type="radio" id="q5-0" name="q5" value="0" class="hidden peer" required />
+                            <label for="q5-0" class="inline-flex items-center justify-between w-full p-5 text-gray-500 bg-white border border-gray-200 rounded-lg cursor-pointer dark:hover:text-gray-300 dark:border-gray-700 dark:peer-checked:text-blue-500 peer-checked:border-blue-600 peer-checked:text-blue-600 hover:text-black hover:bg-gray-100 dark:text-gray-400 dark:bg-gray-800 dark:hover:bg-gray-700">
+                                <div class="block">
+                                    <div class="w-full text-lg font-semibold">0</div>
+                                    <div class="w-full">Not at all</div>
+                                </div>
+                            </label>
+                        </li>
+                        <li>
+                            <input type="radio" id="q5-1" name="q5" value="1" class="hidden peer">
+                            <label for="q5-1" class="inline-flex items-center justify-between w-full p-5 text-gray-500 bg-white border border-gray-200 rounded-lg cursor-pointer dark:hover:text-gray-300 dark:border-gray-700 dark:peer-checked:text-blue-500 peer-checked:border-blue-600 peer-checked:text-blue-600 hover:text-black hover:bg-gray-100 dark:text-gray-400 dark:bg-gray-800 dark:hover:bg-gray-700">
+                                <div class="block">
+                                    <div class="w-full text-lg font-semibold">1</div>
+                                    <div class="w-full">Several days</div>
+                                </div>
+                            </label>
+                        </li>
+                        <li>
+                            <input type="radio" id="q5-2" name="q5" value="2" class="hidden peer">
+                            <label for="q5-2" class="inline-flex items-center justify-between w-full p-5 text-gray-500 bg-white border border-gray-200 rounded-lg cursor-pointer dark:hover:text-gray-300 dark:border-gray-700 dark:peer-checked:text-blue-500 peer-checked:border-blue-600 peer-checked:text-blue-600 hover:text-black hover:bg-gray-100 dark:text-gray-400 dark:bg-gray-800 dark:hover:bg-gray-700">
+                                <div class="block">
+                                    <div class="w-full text-lg font-semibold">2</div>
+                                    <div class="w-full">more half days</div>
+                                </div>
+                            </label>
+                        </li>
+                        <li>
+                            <input type="radio" id="q5-3" name="q5" value="3" class="hidden peer">
+                            <label for="q5-3" class="inline-flex items-center justify-between w-full p-5 text-gray-500 bg-white border border-gray-200 rounded-lg cursor-pointer dark:hover:text-gray-300 dark:border-gray-700 dark:peer-checked:text-blue-500 peer-checked:border-blue-600 peer-checked:text-blue-600 hover:text-black hover:bg-gray-100 dark:text-gray-400 dark:bg-gray-800 dark:hover:bg-gray-700">
+                                <div class="block">
+                                    <div class="w-full text-lg font-semibold">3</div>
+                                    <div class="w-full">Nearly every day</div>
+                                </div>
+                            </label>
+                        </li>
+                        <li>
+                            <input type="radio" id="q5-4" name="q5" value="4" class="hidden peer">
+                            <label for="q5-4" class="inline-flex items-center justify-between w-full p-5 text-gray-500 bg-white border border-gray-200 rounded-lg cursor-pointer dark:hover:text-gray-300 dark:border-gray-700 dark:peer-checked:text-blue-500 peer-checked:border-blue-600 peer-checked:text-blue-600 hover:text-black hover:bg-gray-100 dark:text-gray-400 dark:bg-gray-800 dark:hover:bg-gray-700">
+                                <div class="block">
+                                    <div class="w-full text-lg font-semibold">4</div>
+                                    <div class="w-full">Always</div>
+                                </div>
+                            </label>
+                        </li>
+                    </ul>
                 </div>
+                <hr>
 
                 <div>
-                    <label for="q5" class="block text-gray-600 font-medium">5. How often you felt confident about your ability to handle your academic problems?</label>
-                    <input type="number" name="q5" id="q5" min="0" max="4" required class="mt-1 block w-full border-gray-300 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500">
+                    <label for="q6" class="block text-black font-medium mb-2 ">6. How often you felt as if things in your academic life are going on your way?</label>
+                    <ul class="grid w-full gap-6 md:grid-cols-5">
+                        <li>
+                            <input type="radio" id="q6-0" name="q6" value="0" class="hidden peer" required />
+                            <label for="q6-0" class="inline-flex items-center justify-between w-full p-5 text-gray-500 bg-white border border-gray-200 rounded-lg cursor-pointer dark:hover:text-gray-300 dark:border-gray-700 dark:peer-checked:text-blue-500 peer-checked:border-blue-600 peer-checked:text-blue-600 hover:text-black hover:bg-gray-100 dark:text-gray-400 dark:bg-gray-800 dark:hover:bg-gray-700">
+                                <div class="block">
+                                    <div class="w-full text-lg font-semibold">0</div>
+                                    <div class="w-full">Not at all</div>
+                                </div>
+                            </label>
+                        </li>
+                        <li>
+                            <input type="radio" id="q6-1" name="q6" value="1" class="hidden peer">
+                            <label for="q6-1" class="inline-flex items-center justify-between w-full p-5 text-gray-500 bg-white border border-gray-200 rounded-lg cursor-pointer dark:hover:text-gray-300 dark:border-gray-700 dark:peer-checked:text-blue-500 peer-checked:border-blue-600 peer-checked:text-blue-600 hover:text-black hover:bg-gray-100 dark:text-gray-400 dark:bg-gray-800 dark:hover:bg-gray-700">
+                                <div class="block">
+                                    <div class="w-full text-lg font-semibold">1</div>
+                                    <div class="w-full">Several days</div>
+                                </div>
+                            </label>
+                        </li>
+                        <li>
+                            <input type="radio" id="q6-2" name="q6" value="2" class="hidden peer">
+                            <label for="q6-2" class="inline-flex items-center justify-between w-full p-5 text-gray-500 bg-white border border-gray-200 rounded-lg cursor-pointer dark:hover:text-gray-300 dark:border-gray-700 dark:peer-checked:text-blue-500 peer-checked:border-blue-600 peer-checked:text-blue-600 hover:text-black hover:bg-gray-100 dark:text-gray-400 dark:bg-gray-800 dark:hover:bg-gray-700">
+                                <div class="block">
+                                    <div class="w-full text-lg font-semibold">2</div>
+                                    <div class="w-full">more half days</div>
+                                </div>
+                            </label>
+                        </li>
+                        <li>
+                            <input type="radio" id="q6-3" name="q6" value="3" class="hidden peer">
+                            <label for="q6-3" class="inline-flex items-center justify-between w-full p-5 text-gray-500 bg-white border border-gray-200 rounded-lg cursor-pointer dark:hover:text-gray-300 dark:border-gray-700 dark:peer-checked:text-blue-500 peer-checked:border-blue-600 peer-checked:text-blue-600 hover:text-black hover:bg-gray-100 dark:text-gray-400 dark:bg-gray-800 dark:hover:bg-gray-700">
+                                <div class="block">
+                                    <div class="w-full text-lg font-semibold">3</div>
+                                    <div class="w-full">Nearly every day</div>
+                                </div>
+                            </label>
+                        </li>
+                        <li>
+                            <input type="radio" id="q6-4" name="q6" value="4" class="hidden peer">
+                            <label for="q6-4" class="inline-flex items-center justify-between w-full p-5 text-gray-500 bg-white border border-gray-200 rounded-lg cursor-pointer dark:hover:text-gray-300 dark:border-gray-700 dark:peer-checked:text-blue-500 peer-checked:border-blue-600 peer-checked:text-blue-600 hover:text-black hover:bg-gray-100 dark:text-gray-400 dark:bg-gray-800 dark:hover:bg-gray-700">
+                                <div class="block">
+                                    <div class="w-full text-lg font-semibold">4</div>
+                                    <div class="w-full">Always</div>
+                                </div>
+                            </label>
+                        </li>
+                    </ul>
                 </div>
+                <hr>
 
                 <div>
-                    <label for="q6" class="block text-gray-600 font-medium">6. How often you felt as if things in your academic life are going on your way?</label>
-                    <input type="number" name="q6" id="q6" min="0" max="4" required class="mt-1 block w-full border-gray-300 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500">
+                    <label for="q7" class="block text-black font-medium mb-2 ">7. How often are you able to control irritations in your academic affairs?</label>
+                    <ul class="grid w-full gap-6 md:grid-cols-5">
+                        <li>
+                            <input type="radio" id="q7-0" name="q7" value="0" class="hidden peer" required />
+                            <label for="q7-0" class="inline-flex items-center justify-between w-full p-5 text-gray-500 bg-white border border-gray-200 rounded-lg cursor-pointer dark:hover:text-gray-300 dark:border-gray-700 dark:peer-checked:text-blue-500 peer-checked:border-blue-600 peer-checked:text-blue-600 hover:text-black hover:bg-gray-100 dark:text-gray-400 dark:bg-gray-800 dark:hover:bg-gray-700">
+                                <div class="block">
+                                    <div class="w-full text-lg font-semibold">0</div>
+                                    <div class="w-full">Not at all</div>
+                                </div>
+                            </label>
+                        </li>
+                        <li>
+                            <input type="radio" id="q7-1" name="q7" value="1" class="hidden peer">
+                            <label for="q7-1" class="inline-flex items-center justify-between w-full p-5 text-gray-500 bg-white border border-gray-200 rounded-lg cursor-pointer dark:hover:text-gray-300 dark:border-gray-700 dark:peer-checked:text-blue-500 peer-checked:border-blue-600 peer-checked:text-blue-600 hover:text-black hover:bg-gray-100 dark:text-gray-400 dark:bg-gray-800 dark:hover:bg-gray-700">
+                                <div class="block">
+                                    <div class="w-full text-lg font-semibold">1</div>
+                                    <div class="w-full">Several days</div>
+                                </div>
+                            </label>
+                        </li>
+                        <li>
+                            <input type="radio" id="q7-2" name="q7" value="2" class="hidden peer">
+                            <label for="q7-2" class="inline-flex items-center justify-between w-full p-5 text-gray-500 bg-white border border-gray-200 rounded-lg cursor-pointer dark:hover:text-gray-300 dark:border-gray-700 dark:peer-checked:text-blue-500 peer-checked:border-blue-600 peer-checked:text-blue-600 hover:text-black hover:bg-gray-100 dark:text-gray-400 dark:bg-gray-800 dark:hover:bg-gray-700">
+                                <div class="block">
+                                    <div class="w-full text-lg font-semibold">2</div>
+                                    <div class="w-full">more half days</div>
+                                </div>
+                            </label>
+                        </li>
+                        <li>
+                            <input type="radio" id="q7-3" name="q7" value="3" class="hidden peer">
+                            <label for="q7-3" class="inline-flex items-center justify-between w-full p-5 text-gray-500 bg-white border border-gray-200 rounded-lg cursor-pointer dark:hover:text-gray-300 dark:border-gray-700 dark:peer-checked:text-blue-500 peer-checked:border-blue-600 peer-checked:text-blue-600 hover:text-black hover:bg-gray-100 dark:text-gray-400 dark:bg-gray-800 dark:hover:bg-gray-700">
+                                <div class="block">
+                                    <div class="w-full text-lg font-semibold">3</div>
+                                    <div class="w-full">Nearly every day</div>
+                                </div>
+                            </label>
+                        </li>
+                        <li>
+                            <input type="radio" id="q7-4" name="q7" value="4" class="hidden peer">
+                            <label for="q7-4" class="inline-flex items-center justify-between w-full p-5 text-gray-500 bg-white border border-gray-200 rounded-lg cursor-pointer dark:hover:text-gray-300 dark:border-gray-700 dark:peer-checked:text-blue-500 peer-checked:border-blue-600 peer-checked:text-blue-600 hover:text-black hover:bg-gray-100 dark:text-gray-400 dark:bg-gray-800 dark:hover:bg-gray-700">
+                                <div class="block">
+                                    <div class="w-full text-lg font-semibold">4</div>
+                                    <div class="w-full">Always</div>
+                                </div>
+                            </label>
+                        </li>
+                    </ul>
                 </div>
+                <hr>
 
                 <div>
-                    <label for="q7" class="block text-gray-600 font-medium">7. How often are you able to control irritations in your academic affairs?</label>
-                    <input type="number" name="q7" id="q7" min="0" max="4" required class="mt-1 block w-full border-gray-300 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500">
+                    <label for="q8" class="block text-black font-medium mb-2 ">8. How often you felt as if your academic performance was on top?</label>
+                    <ul class="grid w-full gap-6 md:grid-cols-5">
+                        <li>
+                            <input type="radio" id="q8-0" name="q8" value="0" class="hidden peer" required />
+                            <label for="q8-0" class="inline-flex items-center justify-between w-full p-5 text-gray-500 bg-white border border-gray-200 rounded-lg cursor-pointer dark:hover:text-gray-300 dark:border-gray-700 dark:peer-checked:text-blue-500 peer-checked:border-blue-600 peer-checked:text-blue-600 hover:text-black hover:bg-gray-100 dark:text-gray-400 dark:bg-gray-800 dark:hover:bg-gray-700">
+                                <div class="block">
+                                    <div class="w-full text-lg font-semibold">0</div>
+                                    <div class="w-full">Not at all</div>
+                                </div>
+                            </label>
+                        </li>
+                        <li>
+                            <input type="radio" id="q8-1" name="q8" value="1" class="hidden peer">
+                            <label for="q8-1" class="inline-flex items-center justify-between w-full p-5 text-gray-500 bg-white border border-gray-200 rounded-lg cursor-pointer dark:hover:text-gray-300 dark:border-gray-700 dark:peer-checked:text-blue-500 peer-checked:border-blue-600 peer-checked:text-blue-600 hover:text-black hover:bg-gray-100 dark:text-gray-400 dark:bg-gray-800 dark:hover:bg-gray-700">
+                                <div class="block">
+                                    <div class="w-full text-lg font-semibold">1</div>
+                                    <div class="w-full">Several days</div>
+                                </div>
+                            </label>
+                        </li>
+                        <li>
+                            <input type="radio" id="q8-2" name="q8" value="2" class="hidden peer">
+                            <label for="q8-2" class="inline-flex items-center justify-between w-full p-5 text-gray-500 bg-white border border-gray-200 rounded-lg cursor-pointer dark:hover:text-gray-300 dark:border-gray-700 dark:peer-checked:text-blue-500 peer-checked:border-blue-600 peer-checked:text-blue-600 hover:text-black hover:bg-gray-100 dark:text-gray-400 dark:bg-gray-800 dark:hover:bg-gray-700">
+                                <div class="block">
+                                    <div class="w-full text-lg font-semibold">2</div>
+                                    <div class="w-full">more half days</div>
+                                </div>
+                            </label>
+                        </li>
+                        <li>
+                            <input type="radio" id="q8-3" name="q8" value="3" class="hidden peer">
+                            <label for="q8-3" class="inline-flex items-center justify-between w-full p-5 text-gray-500 bg-white border border-gray-200 rounded-lg cursor-pointer dark:hover:text-gray-300 dark:border-gray-700 dark:peer-checked:text-blue-500 peer-checked:border-blue-600 peer-checked:text-blue-600 hover:text-black hover:bg-gray-100 dark:text-gray-400 dark:bg-gray-800 dark:hover:bg-gray-700">
+                                <div class="block">
+                                    <div class="w-full text-lg font-semibold">3</div>
+                                    <div class="w-full">Nearly every day</div>
+                                </div>
+                            </label>
+                        </li>
+                        <li>
+                            <input type="radio" id="q8-4" name="q8" value="4" class="hidden peer">
+                            <label for="q8-4" class="inline-flex items-center justify-between w-full p-5 text-gray-500 bg-white border border-gray-200 rounded-lg cursor-pointer dark:hover:text-gray-300 dark:border-gray-700 dark:peer-checked:text-blue-500 peer-checked:border-blue-600 peer-checked:text-blue-600 hover:text-black hover:bg-gray-100 dark:text-gray-400 dark:bg-gray-800 dark:hover:bg-gray-700">
+                                <div class="block">
+                                    <div class="w-full text-lg font-semibold">4</div>
+                                    <div class="w-full">Always</div>
+                                </div>
+                            </label>
+                        </li>
+                    </ul>
                 </div>
+            <hr>
 
                 <div>
-                    <label for="q8" class="block text-gray-600 font-medium">8. How often you felt as if your academic performance was on top?</label>
-                    <input type="number" name="q8" id="q8" min="0" max="4" required class="mt-1 block w-full border-gray-300 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500">
+                    <label for="q9" class="block text-black font-medium mb-2 ">9. How often you got angered due to bad performance or low grades that are beyond your control?</label>
+                    <ul class="grid w-full gap-6 md:grid-cols-5">
+                        <li>
+                            <input type="radio" id="q9-0" name="q9" value="0" class="hidden peer" required />
+                            <label for="q9-0" class="inline-flex items-center justify-between w-full p-5 text-gray-500 bg-white border border-gray-200 rounded-lg cursor-pointer dark:hover:text-gray-300 dark:border-gray-700 dark:peer-checked:text-blue-500 peer-checked:border-blue-600 peer-checked:text-blue-600 hover:text-black hover:bg-gray-100 dark:text-gray-400 dark:bg-gray-800 dark:hover:bg-gray-700">
+                                <div class="block">
+                                    <div class="w-full text-lg font-semibold">0</div>
+                                    <div class="w-full">Not at all</div>
+                                </div>
+                            </label>
+                        </li>
+                        <li>
+                            <input type="radio" id="q9-1" name="q9" value="1" class="hidden peer">
+                            <label for="q9-1" class="inline-flex items-center justify-between w-full p-5 text-gray-500 bg-white border border-gray-200 rounded-lg cursor-pointer dark:hover:text-gray-300 dark:border-gray-700 dark:peer-checked:text-blue-500 peer-checked:border-blue-600 peer-checked:text-blue-600 hover:text-black hover:bg-gray-100 dark:text-gray-400 dark:bg-gray-800 dark:hover:bg-gray-700">
+                                <div class="block">
+                                    <div class="w-full text-lg font-semibold">1</div>
+                                    <div class="w-full">Several days</div>
+                                </div>
+                            </label>
+                        </li>
+                        <li>
+                            <input type="radio" id="q9-2" name="q9" value="2" class="hidden peer">
+                            <label for="q9-2" class="inline-flex items-center justify-between w-full p-5 text-gray-500 bg-white border border-gray-200 rounded-lg cursor-pointer dark:hover:text-gray-300 dark:border-gray-700 dark:peer-checked:text-blue-500 peer-checked:border-blue-600 peer-checked:text-blue-600 hover:text-black hover:bg-gray-100 dark:text-gray-400 dark:bg-gray-800 dark:hover:bg-gray-700">
+                                <div class="block">
+                                    <div class="w-full text-lg font-semibold">2</div>
+                                    <div class="w-full">more half days</div>
+                                </div>
+                            </label>
+                        </li>
+                        <li>
+                            <input type="radio" id="q9-3" name="q9" value="3" class="hidden peer">
+                            <label for="q9-3" class="inline-flex items-center justify-between w-full p-5 text-gray-500 bg-white border border-gray-200 rounded-lg cursor-pointer dark:hover:text-gray-300 dark:border-gray-700 dark:peer-checked:text-blue-500 peer-checked:border-blue-600 peer-checked:text-blue-600 hover:text-black hover:bg-gray-100 dark:text-gray-400 dark:bg-gray-800 dark:hover:bg-gray-700">
+                                <div class="block">
+                                    <div class="w-full text-lg font-semibold">3</div>
+                                    <div class="w-full">Nearly every day</div>
+                                </div>
+                            </label>
+                        </li>
+                        <li>
+                            <input type="radio" id="q9-4" name="q9" value="4" class="hidden peer">
+                            <label for="q9-4" class="inline-flex items-center justify-between w-full p-5 text-gray-500 bg-white border border-gray-200 rounded-lg cursor-pointer dark:hover:text-gray-300 dark:border-gray-700 dark:peer-checked:text-blue-500 peer-checked:border-blue-600 peer-checked:text-blue-600 hover:text-black hover:bg-gray-100 dark:text-gray-400 dark:bg-gray-800 dark:hover:bg-gray-700">
+                                <div class="block">
+                                    <div class="w-full text-lg font-semibold">4</div>
+                                    <div class="w-full">Always</div>
+                                </div>
+                            </label>
+                        </li>
+                    </ul>
                 </div>
+            <hr>
 
                 <div>
-                    <label for="q9" class="block text-gray-600 font-medium">9. How often you got angered due to bad performance or low grades that are beyond your control?</label>
-                    <input type="number" name="q9" id="q9" min="0" max="4" required class="mt-1 block w-full border-gray-300 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500">
-                </div>
-
-                <div>
-                    <label for="q10" class="block text-gray-600 font-medium">10. How often you felt as if academic difficulties are piling up so high that you could not overcome them?</label>
-                    <input type="number" name="q10" id="q10" min="0" max="4" required class="mt-1 block w-full border-gray-300 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500">
+                    <label for="q10" class="block text-black font-medium mb-2 ">10. How often you felt as if academic difficulties are piling up so high that you could not overcome them?</label>
+                    <ul class="grid w-full gap-6 md:grid-cols-5">
+                        <li>
+                            <input type="radio" id="q10-0" name="q10" value="0" class="hidden peer" required />
+                            <label for="q10-0" class="inline-flex items-center justify-between w-full p-5 text-gray-500 bg-white border border-gray-200 rounded-lg cursor-pointer dark:hover:text-gray-300 dark:border-gray-700 dark:peer-checked:text-blue-500 peer-checked:border-blue-600 peer-checked:text-blue-600 hover:text-black hover:bg-gray-100 dark:text-gray-400 dark:bg-gray-800 dark:hover:bg-gray-700">
+                                <div class="block">
+                                    <div class="w-full text-lg font-semibold">0</div>
+                                    <div class="w-full">Not at all</div>
+                                </div>
+                            </label>
+                        </li>
+                        <li>
+                            <input type="radio" id="q10-1" name="q10" value="1" class="hidden peer">
+                            <label for="q10-1" class="inline-flex items-center justify-between w-full p-5 text-gray-500 bg-white border border-gray-200 rounded-lg cursor-pointer dark:hover:text-gray-300 dark:border-gray-700 dark:peer-checked:text-blue-500 peer-checked:border-blue-600 peer-checked:text-blue-600 hover:text-black hover:bg-gray-100 dark:text-gray-400 dark:bg-gray-800 dark:hover:bg-gray-700">
+                                <div class="block">
+                                    <div class="w-full text-lg font-semibold">1</div>
+                                    <div class="w-full">Several days</div>
+                                </div>
+                            </label>
+                        </li>
+                        <li>
+                            <input type="radio" id="q10-2" name="q10" value="2" class="hidden peer">
+                            <label for="q10-2" class="inline-flex items-center justify-between w-full p-5 text-gray-500 bg-white border border-gray-200 rounded-lg cursor-pointer dark:hover:text-gray-300 dark:border-gray-700 dark:peer-checked:text-blue-500 peer-checked:border-blue-600 peer-checked:text-blue-600 hover:text-black hover:bg-gray-100 dark:text-gray-400 dark:bg-gray-800 dark:hover:bg-gray-700">
+                                <div class="block">
+                                    <div class="w-full text-lg font-semibold">2</div>
+                                    <div class="w-full">more half days</div>
+                                </div>
+                            </label>
+                        </li>
+                        <li>
+                            <input type="radio" id="q10-3" name="q10" value="3" class="hidden peer">
+                            <label for="q10-3" class="inline-flex items-center justify-between w-full p-5 text-gray-500 bg-white border border-gray-200 rounded-lg cursor-pointer dark:hover:text-gray-300 dark:border-gray-700 dark:peer-checked:text-blue-500 peer-checked:border-blue-600 peer-checked:text-blue-600 hover:text-black hover:bg-gray-100 dark:text-gray-400 dark:bg-gray-800 dark:hover:bg-gray-700">
+                                <div class="block">
+                                    <div class="w-full text-lg font-semibold">3</div>
+                                    <div class="w-full">Nearly every day</div>
+                                </div>
+                            </label>
+                        </li>
+                        <li>
+                            <input type="radio" id="q10-4" name="q10" value="4" class="hidden peer">
+                            <label for="q10-4" class="inline-flex items-center justify-between w-full p-5 text-gray-500 bg-white border border-gray-200 rounded-lg cursor-pointer dark:hover:text-gray-300 dark:border-gray-700 dark:peer-checked:text-blue-500 peer-checked:border-blue-600 peer-checked:text-blue-600 hover:text-black hover:bg-gray-100 dark:text-gray-400 dark:bg-gray-800 dark:hover:bg-gray-700">
+                                <div class="block">
+                                    <div class="w-full text-lg font-semibold">4</div>
+                                    <div class="w-full">Always</div>
+                                </div>
+                            </label>
+                        </li>
+                    </ul>
                 </div>
             </div>
-
+            <hr>
             <div class="mt-6 flex justify-between items-center">
                 <button type="submit" class="bg-indigo-600 text-white py-2 px-4 rounded-md shadow-md hover:bg-indigo-700 focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2">Submit</button>
                 <a href="/" class="text-indigo-600 hover:underline">Back to Home</a>
