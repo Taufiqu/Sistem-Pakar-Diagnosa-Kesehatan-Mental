@@ -5,8 +5,13 @@
     <link rel="stylesheet" href="{{ url_for('static', filename='css/output.css') }}">
 
 </head>
-<body class="bg-gray-100 py-10">
-    <div class="max-w-3xl mx-auto bg-white p-6 rounded-lg shadow-md">
+<body class="bg-gray-100">
+    <nav class="bg-blue-600 p-4">
+        <div class="container mx-auto">
+            <h1 class="text-white text-3xl font-bold"><a href="/">Mental Health Expert System</a></h1>
+        </div>
+    </nav>
+    <div class="max-w-3xl mx-auto bg-white p-6 rounded-lg shadow-md mt-10">
         <h1 class="text-2xl font-bold mb-4 text-gray-800">Anxiety Diagnosis</h1>
         <form method="POST" class="space-y-6">
             <div class="mt-4">
@@ -28,6 +33,7 @@
             </div>
 
             <p class="text-gray-700 font-semibold">Answer the following questions (0-3):</p>
+            <hr>
 
             <div class="space-y-4">
                 <div>
@@ -51,6 +57,7 @@
                                 </div>
                             </label>
                         </li>
+                        
                         <li>
                             <input type="radio" id="q1-2" name="q1" value="2" class="hidden peer">
                             <label for="q1-2" class="inline-flex items-center justify-between w-full p-5 text-gray-500 bg-white border border-gray-200 rounded-lg cursor-pointer dark:hover:text-gray-300 dark:border-gray-700 dark:peer-checked:text-blue-500 peer-checked:border-blue-600 peer-checked:text-blue-600 hover:text-black hover:bg-gray-100 dark:text-gray-400 dark:bg-gray-800 dark:hover:bg-gray-700">
@@ -71,6 +78,7 @@
                         </li>
                     </ul>
                 </div>
+                <hr>
 
                 <div>
                     <label for="q2" class="block text-black  font-medium">2. In a semester, how often have you been unable to stop worrying about your academic affairs?</label>
@@ -113,6 +121,7 @@
                         </li>
                     </ul>
                 </div>
+                <hr>
 
                 <div>
                     <label for="q3" class="block text-black  font-medium">3. In a semester, how often have you had trouble relaxing due to academic pressure?</label>
@@ -155,6 +164,7 @@
                         </li>
                     </ul>
                 </div>
+                <hr>
 
                 <div>
                     <label for="q4" class="block text-black  font-medium">4. In a semester, how often have you been easily annoyed or irritated because of academic pressure?</label>
@@ -197,6 +207,7 @@
                         </li>
                     </ul>
                 </div>
+                <hr>
 
                 <div>
                     <label for="q5" class="block text-black  font-medium">5. In a semester, how often have you worried too much about academic affairs?</label>
@@ -239,6 +250,7 @@
                         </li>
                     </ul>
                 </div>
+                <hr>
 
                 <div>
                     <label for="q6" class="block text-black  font-medium">6. In a semester, how often have you been so restless due to academic pressure that it is hard to sit still?</label>
@@ -281,6 +293,7 @@
                         </li>
                     </ul>
                 </div>
+                <hr>
 
                 <div>
                     <label for="q7" class="block text-black  font-medium">7. In a semester, how often have you felt afraid, as if something awful might happen?</label>
@@ -324,6 +337,8 @@
                     </ul>
                 </div>
             </div>
+            <hr>
+
             <div class="mt-6 flex justify-between items-center">
                 <button type="submit" class="bg-indigo-600 text-white py-2 px-4 rounded-md shadow-md hover:bg-indigo-700 focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2">Submit</button>
                 <a href="/" class="text-indigo-600 hover:underline">Back to Home</a>
