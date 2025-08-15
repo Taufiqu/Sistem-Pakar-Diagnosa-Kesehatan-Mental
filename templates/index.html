@@ -1,45 +1,168 @@
-<!-- filepath: /c:/Users/LENOVO/Documents/GitHub/Sistem-Pakar-Rekomendasi-Tempat-Wisata/templates/index.html -->
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sistem Pakar Kesehatan Mental</title>
-    <link rel="stylesheet" href="{{ url_for('static', filename='css/output.css') }}">
-</head>
-<body class="bg-gray-100">
-    <nav class="bg-blue-600 p-4">
-        <div class="container mx-auto">
-            <h1 class="text-white text-3xl font-bold">Sistem Pakar Kesehatan Mental</h1>
+{% extends "base.html" %}
+
+{% block title %}Beranda - Sistem Pakar Kesehatan Mental{% endblock %}
+
+{% block content %}
+<!-- Hero Section -->
+<section class="bg-gradient-to-br from-blue-600 via-purple-600 to-blue-800 text-white py-20">
+    <div class="container mx-auto px-4 text-center">
+        <h1 class="text-5xl md:text-6xl font-bold mb-6 animate-fade-in">
+            Kesehatan Mental <span class="text-yellow-300">Anda</span> Penting
+        </h1>
+        <p class="text-xl md:text-2xl mb-8 text-blue-100 max-w-3xl mx-auto">
+            Platform diagnosa kesehatan mental yang membantu Anda memahami kondisi psikologis dengan analisis yang akurat dan rekomendasi yang tepat.
+        </p>
+        <div class="flex flex-col sm:flex-row gap-4 justify-center">
+            <button onclick="scrollToServices()" class="bg-white text-blue-600 px-8 py-3 rounded-full font-semibold hover:bg-blue-50 transition duration-300 transform hover:scale-105">
+                Mulai Diagnosa
+            </button>
+            <button onclick="scrollToAbout()" class="border-2 border-white text-white px-8 py-3 rounded-full font-semibold hover:bg-white hover:text-blue-600 transition duration-300">
+                Pelajari Lebih Lanjut
+            </button>
         </div>
-    </nav>
-        <div class="container mx-auto mt-10">
-            <div class="bg-white p-8 rounded-lg shadow-lg">
-                <h2 class="text-2xl font-semibold text-gray-800 mb-4">Selamat datang di sistem ahli kesehatan mental</h2>
-                <p class="text-gray-600 mb-6">Pilih sistem untuk melanjutkan:</p>
-                <div class="flex space-x-4 justify-center">
-                    <a href="/depression" class="block max-w-sm p-6 bg-white border border-blue-500 rounded-lg shadow hover:bg-blue-500 hover:border-blue-500 dark:bg-white dark:border-blue-700 dark:hover:bg-blue-700 transition duration-300">
-                        <div class="hover:text-white">
-                            <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-gray-900">Diagnosis depresi</h5>
-                            <p class="font-normal text-gray-700 dark:text-gray-700">Dapatkan analisis terperinci tentang gejala depresi Anda.</p>
-                        </div>
+    </div>
+</section>
+
+<!-- About Section -->
+<section id="about" class="py-16 bg-white">
+    <div class="container mx-auto px-4">
+        <div class="text-center mb-12">
+            <h2 class="text-3xl md:text-4xl font-bold text-gray-800 mb-4">Mengapa Memilih Platform Kami?</h2>
+            <p class="text-gray-600 max-w-2xl mx-auto">Kami menggunakan teknologi terdepan untuk memberikan analisis kesehatan mental yang akurat dan personal.</p>
+        </div>
+        
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+            <div class="text-center p-6 rounded-lg hover:shadow-lg transition duration-300">
+                <div class="w-20 h-20 bg-blue-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                    <i class="fas fa-brain text-3xl text-blue-600" style="color: #2563eb !important;"></i>
+                </div>
+                <h3 class="text-xl font-semibold mb-2">Analisis Akurat</h3>
+                <p class="text-gray-600">Menggunakan algoritma machine learning untuk memberikan hasil diagnosa yang tepat.</p>
+            </div>
+            
+            <div class="text-center p-6 rounded-lg hover:shadow-lg transition duration-300">
+                <div class="w-20 h-20 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                    <i class="fas fa-user-shield text-3xl text-green-600" style="color: #16a34a !important;"></i>
+                </div>
+                <h3 class="text-xl font-semibold mb-2">Privasi Terjamin</h3>
+                <p class="text-gray-600">Data Anda aman dan terlindungi dengan standar keamanan tinggi.</p>
+            </div>
+            
+            <div class="text-center p-6 rounded-lg hover:shadow-lg transition duration-300">
+                <div class="w-20 h-20 bg-purple-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                    <i class="fas fa-heart text-3xl text-purple-600" style="color: #9333ea !important;"></i>
+                </div>
+                <h3 class="text-xl font-semibold mb-2">Peduli & Responsif</h3>
+                <p class="text-gray-600">Tim yang berpengalaman siap membantu perjalanan kesehatan mental Anda.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Services Section -->
+<section id="services" class="py-16 bg-gray-50">
+    <div class="container mx-auto px-4">
+        <div class="text-center mb-12">
+            <h2 class="text-3xl md:text-4xl font-bold text-gray-800 mb-4">Layanan Diagnosa Kami</h2>
+            <p class="text-gray-600 max-w-2xl mx-auto">Pilih jenis diagnosa sesuai dengan kondisi yang ingin Anda evaluasi.</p>
+        </div>
+        
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+            <!-- Depression Card -->
+            <div class="bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-2xl transition duration-300 transform hover:-translate-y-2">
+                <div class="bg-gradient-to-r from-blue-500 to-blue-600 h-32 flex items-center justify-center">
+                    <i class="fas fa-cloud-rain text-5xl text-white"></i>
+                </div>
+                <div class="p-6">
+                    <h3 class="text-2xl font-bold text-gray-800 mb-2">Diagnosa Depresi</h3>
+                    <p class="text-gray-600 mb-4">Evaluasi mendalam untuk mengidentifikasi tingkat depresi dan memberikan rekomendasi penanganan yang tepat.</p>
+                    <ul class="text-sm text-gray-500 mb-6 space-y-1">
+                        <li>✓ Analisis gejala mood</li>
+                        <li>✓ Evaluasi energi & motivasi</li>
+                        <li>✓ Rekomendasi terapi</li>
+                    </ul>
+                    <a href="/depression" class="block w-full bg-blue-600 text-white text-center py-3 rounded-lg hover:bg-blue-700 transition duration-300 font-semibold shadow-md" style="background-color: #2563eb !important; color: white !important; text-decoration: none;">
+                        Mulai Diagnosa
                     </a>
-                    <a href="/stress" class="block max-w-sm p-6 bg-white border border-green-500 rounded-lg shadow hover:bg-green-500 hover:border-green-500 dark:bg-white dark:border-green-700 dark:hover:bg-green-700 transition duration-300">
-                        <div class="hover:text-white">
-                            <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-gray-900">Diagnosis stres</h5>
-                            <p class="font-normal text-gray-700 dark:text-gray-700">Evaluasi tingkat stres Anda dan dapatkan rekomendasi.</p>
-                        </div>
+                </div>
+            </div>
+
+            <!-- Stress Card -->
+            <div class="bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-2xl transition duration-300 transform hover:-translate-y-2">
+                <div class="bg-gradient-to-r from-green-500 to-green-600 h-32 flex items-center justify-center">
+                    <i class="fas fa-bolt text-5xl text-white"></i>
+                </div>
+                <div class="p-6">
+                    <h3 class="text-2xl font-bold text-gray-800 mb-2">Diagnosa Stres</h3>
+                    <p class="text-gray-600 mb-4">Identifikasi tingkat stres Anda dan temukan strategi coping yang efektif untuk mengelola tekanan hidup.</p>
+                    <ul class="text-sm text-gray-500 mb-6 space-y-1">
+                        <li>✓ Analisis sumber stres</li>
+                        <li>✓ Evaluasi respons tubuh</li>
+                        <li>✓ Teknik relaksasi</li>
+                    </ul>
+                    <a href="/stress" class="block w-full bg-green-600 text-white text-center py-3 rounded-lg hover:bg-green-700 transition duration-300 font-semibold shadow-md" style="background-color: #16a34a !important; color: white !important; text-decoration: none;">
+                        Mulai Diagnosa
                     </a>
-                    <a href="/anxiety" class="block max-w-sm p-6 bg-white border border-red-500 rounded-lg shadow hover:bg-red-500 hover:border-red-500 dark:bg-white dark:border-red-700 dark:hover:bg-red-700 transition duration-300">
-                        <div class="hover:text-white">
-                            <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-gray-900">Diagnosis kecemasan</h5>
-                            <p class="font-normal text-gray-700 dark:text-gray-700">Nilai gejala kecemasan Anda dan temukan cara untuk mengelolanya.</p>
-                        </div>
+                </div>
+            </div>
+
+            <!-- Anxiety Card -->
+            <div class="bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-2xl transition duration-300 transform hover:-translate-y-2">
+                <div class="bg-gradient-to-r from-red-500 to-red-600 h-32 flex items-center justify-center">
+                    <i class="fas fa-exclamation-triangle text-5xl text-white"></i>
+                </div>
+                <div class="p-6">
+                    <h3 class="text-2xl font-bold text-gray-800 mb-2">Diagnosa Kecemasan</h3>
+                    <p class="text-gray-600 mb-4">Analisis tingkat kecemasan dan dapatkan panduan untuk mengelola rasa khawatir yang berlebihan.</p>
+                    <ul class="text-sm text-gray-500 mb-6 space-y-1">
+                        <li>✓ Evaluasi kecemasan</li>
+                        <li>✓ Analisis pemicu</li>
+                        <li>✓ Strategi mengatasi</li>
+                    </ul>
+                    <a href="/anxiety" class="block w-full bg-red-600 text-white text-center py-3 rounded-lg hover:bg-red-700 transition duration-300 font-semibold shadow-md" style="background-color: #dc2626 !important; color: white !important; text-decoration: none;">
+                        Mulai Diagnosa
                     </a>
                 </div>
             </div>
         </div>
+    </div>
+</section>
 
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.2.1/flowbite.min.js"></script>
-</body>
-</html>
+<!-- Call to Action -->
+<section class="bg-gradient-to-r from-purple-600 to-blue-600 text-white py-16">
+    <div class="container mx-auto px-4 text-center">
+        <h2 class="text-3xl md:text-4xl font-bold mb-4">Mulai Perjalanan Kesehatan Mental Anda</h2>
+        <p class="text-xl mb-8 text-purple-100">Langkah pertama menuju kehidupan yang lebih sehat dan bahagia dimulai dari sini.</p>
+        <a href="#services" onclick="scrollToServices()" class="bg-white text-purple-600 px-8 py-4 rounded-full font-semibold hover:bg-purple-50 transition duration-300 transform hover:scale-105 inline-block">
+            Pilih Diagnosa Sekarang
+        </a>
+    </div>
+</section>
+{% endblock %}
+
+{% block extra_scripts %}
+<script>
+function scrollToServices() {
+    document.getElementById('services').scrollIntoView({ behavior: 'smooth' });
+}
+
+function scrollToAbout() {
+    document.getElementById('about').scrollIntoView({ behavior: 'smooth' });
+}
+
+// Add fade-in animation
+document.addEventListener('DOMContentLoaded', function() {
+    const elements = document.querySelectorAll('.animate-fade-in');
+    elements.forEach(el => {
+        el.style.opacity = '0';
+        el.style.transform = 'translateY(30px)';
+        el.style.transition = 'opacity 0.8s ease, transform 0.8s ease';
+        
+        setTimeout(() => {
+            el.style.opacity = '1';
+            el.style.transform = 'translateY(0)';
+        }, 100);
+    });
+});
+</script>
+{% endblock %}

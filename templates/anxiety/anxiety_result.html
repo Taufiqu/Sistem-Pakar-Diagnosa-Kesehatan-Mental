@@ -1,0 +1,213 @@
+{% extends "base.html" %}
+
+{% block title %}Hasil Diagnosa Kecemasan - Sistem Pakar Kesehatan Mental{% endblock %}
+
+{% block content %}
+<!-- Header Section -->
+<section class="bg-gradient-to-r from-red-500 to-red-600 text-white py-12">
+    <div class="container mx-auto px-4 text-center">
+        <div class="flex items-center justify-center mb-4">
+            <i class="fas fa-chart-line text-4xl mr-3"></i>
+            <h1 class="text-4xl font-bold">Hasil Diagnosa Kecemasan</h1>
+        </div>
+        <p class="text-xl text-red-100">Analisis lengkap kondisi kecemasan Anda</p>
+    </div>
+</section>
+
+<div class="container mx-auto px-4 py-8">
+    <div class="max-w-4xl mx-auto">
+        <!-- Result Overview Card -->
+        <div class="bg-white rounded-xl shadow-lg p-8 mb-8">
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+                <!-- Personal Info -->
+                <div class="space-y-4">
+                    <h2 class="text-2xl font-bold text-gray-800 mb-4 flex items-center">
+                        <i class="fas fa-user-circle text-red-500 mr-2"></i>
+                        Informasi Personal
+                    </h2>
+                    <div class="space-y-3">
+                        <div class="bg-gray-50 p-4 rounded-lg">
+                            <span class="text-sm text-gray-600">Usia</span>
+                            <p class="text-lg font-semibold text-gray-800">{{ age }}</p>
+                        </div>
+                        <div class="bg-gray-50 p-4 rounded-lg">
+                            <span class="text-sm text-gray-600">Jenis Kelamin</span>
+                            <p class="text-lg font-semibold text-gray-800">
+                                {% if gender == 'Male' %}Pria{% else %}Perempuan{% endif %}
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Score Display -->
+                <div class="text-center">
+                    <h2 class="text-2xl font-bold text-gray-800 mb-4">Skor Kecemasan Anda</h2>
+                    <div class="relative">
+                        <div class="w-40 h-40 mx-auto mb-4">
+                            <svg class="w-full h-full transform -rotate-90" viewBox="0 0 36 36">
+                                <path class="text-gray-200" stroke="currentColor" stroke-width="3" fill="none" d="M18 2.0845a 15.9155 15.9155 0 0 1 0 31.831a 15.9155 15.9155 0 0 1 0 -31.831"></path>
+                                <path class="text-red-500" stroke="currentColor" stroke-width="3" fill="none" stroke-linecap="round" stroke-dasharray="{{ (user_score / 21) * 100 }}, 100" d="M18 2.0845a 15.9155 15.9155 0 0 1 0 31.831a 15.9155 15.9155 0 0 1 0 -31.831"></path>
+                            </svg>
+                            <div class="absolute inset-0 flex items-center justify-center">
+                                <span class="text-3xl font-bold text-red-600">{{ user_score }}/21</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Result Analysis -->
+        <div class="bg-white rounded-xl shadow-lg p-8 mb-8">
+            <h2 class="text-2xl font-bold text-gray-800 mb-6 flex items-center">
+                <i class="fas fa-brain text-red-500 mr-2"></i>
+                Analisis Hasil
+            </h2>
+            
+            <!-- Anxiety Level Badge -->
+            <div class="text-center mb-6">
+                <div class="inline-flex items-center px-6 py-3 rounded-full text-xl font-bold
+                    {% if result['Anxiety Label'] == 'No Anxiety' %}
+                        bg-green-100 text-green-800
+                    {% elif result['Anxiety Label'] == 'Minimal Anxiety' %}
+                        bg-yellow-100 text-yellow-800
+                    {% elif result['Anxiety Label'] == 'Mild Anxiety' %}
+                        bg-orange-100 text-orange-800
+                    {% elif result['Anxiety Label'] == 'Moderate Anxiety' %}
+                        bg-red-100 text-red-800
+                    {% elif result['Anxiety Label'] == 'Moderately Severe Anxiety' %}
+                        bg-red-200 text-red-900
+                    {% elif result['Anxiety Label'] == 'Severe Anxiety' %}
+                        bg-red-300 text-red-900
+                    {% endif %}
+                ">
+                    <i class="fas fa-exclamation-triangle mr-2"></i>
+                    {% if result['Anxiety Label'] == 'No Anxiety' %}
+                        Tidak Ada Kecemasan
+                    {% elif result['Anxiety Label'] == 'Minimal Anxiety' %}
+                        Kecemasan Minimal
+                    {% elif result['Anxiety Label'] == 'Mild Anxiety' %}
+                        Kecemasan Ringan
+                    {% elif result['Anxiety Label'] == 'Moderate Anxiety' %}
+                        Kecemasan Sedang
+                    {% elif result['Anxiety Label'] == 'Moderately Severe Anxiety' %}
+                        Kecemasan Cukup Berat
+                    {% elif result['Anxiety Label'] == 'Severe Anxiety' %}
+                        Kecemasan Berat
+                    {% endif %}
+                </div>
+            </div>
+
+            <!-- Detailed Results -->
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <div class="bg-gray-50 p-6 rounded-lg">
+                    <h3 class="text-lg font-semibold text-gray-800 mb-3">Data Referensi Terdekat</h3>
+                    <div class="space-y-2">
+                        <p class="text-gray-700"><strong>Usia:</strong> {{ result['1. Age'] }}</p>
+                        <p class="text-gray-700"><strong>Jenis Kelamin:</strong> 
+                            {% if result['2. Gender'] == 'Male' %}Pria{% else %}Perempuan{% endif %}
+                        </p>
+                        <p class="text-gray-700"><strong>Nilai Kecemasan:</strong> {{ result['Anxiety Value'] }}</p>
+                    </div>
+                </div>
+
+                <div class="bg-blue-50 p-6 rounded-lg">
+                    <h3 class="text-lg font-semibold text-gray-800 mb-3">Interpretasi Hasil</h3>
+                    <div class="text-gray-700">
+                        {% if result['Anxiety Label'] == 'No Anxiety' %}
+                            <p>Tingkat kecemasan Anda dalam rentang normal. Pertahankan gaya hidup sehat dan teknik manajemen stres.</p>
+                        {% elif result['Anxiety Label'] == 'Minimal Anxiety' %}
+                            <p>Anda mengalami kecemasan minimal. Coba teknik relaksasi dan perhatikan pola hidup sehat.</p>
+                        {% elif result['Anxiety Label'] == 'Mild Anxiety' %}
+                            <p>Tingkat kecemasan ringan terdeteksi. Pertimbangkan untuk belajar teknik manajemen kecemasan.</p>
+                        {% elif result['Anxiety Label'] == 'Moderate Anxiety' %}
+                            <p>Kecemasan sedang memerlukan perhatian. Disarankan berkonsultasi dengan profesional kesehatan mental.</p>
+                        {% elif result['Anxiety Label'] == 'Moderately Severe Anxiety' %}
+                            <p>Tingkat kecemasan cukup tinggi. Sangat disarankan untuk mencari bantuan profesional.</p>
+                        {% elif result['Anxiety Label'] == 'Severe Anxiety' %}
+                            <p>Kecemasan berat memerlukan intervensi segera. Hubungi profesional kesehatan mental secepatnya.</p>
+                        {% endif %}
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Recommendations -->
+        <div class="bg-white rounded-xl shadow-lg p-8 mb-8">
+            <h2 class="text-2xl font-bold text-gray-800 mb-6 flex items-center">
+                <i class="fas fa-lightbulb text-yellow-500 mr-2"></i>
+                Rekomendasi
+            </h2>
+            
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                <div class="text-center p-6 bg-blue-50 rounded-lg">
+                    <i class="fas fa-meditation text-3xl text-blue-600 mb-3"></i>
+                    <h3 class="text-lg font-semibold mb-2">Teknik Relaksasi</h3>
+                    <p class="text-gray-600">Latihan pernapasan, meditasi, dan yoga untuk mengurangi kecemasan.</p>
+                </div>
+                
+                <div class="text-center p-6 bg-green-50 rounded-lg">
+                    <i class="fas fa-running text-3xl text-green-600 mb-3"></i>
+                    <h3 class="text-lg font-semibold mb-2">Aktivitas Fisik</h3>
+                    <p class="text-gray-600">Olahraga teratur membantu mengurangi hormon stres dan meningkatkan mood.</p>
+                </div>
+                
+                <div class="text-center p-6 bg-purple-50 rounded-lg">
+                    <i class="fas fa-user-md text-3xl text-purple-600 mb-3"></i>
+                    <h3 class="text-lg font-semibold mb-2">Konsultasi Profesional</h3>
+                    <p class="text-gray-600">Jika diperlukan, konsultasikan dengan psikolog atau psikiater.</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Action Buttons -->
+        <div class="flex flex-col sm:flex-row gap-4 justify-center">
+            <a href="/anxiety" class="inline-flex items-center px-6 py-3 bg-red-600 text-white rounded-lg hover:bg-red-700 transition font-semibold">
+                <i class="fas fa-redo mr-2"></i>
+                Ulangi Tes
+            </a>
+            <a href="/stress" class="inline-flex items-center px-6 py-3 bg-green-600 text-white rounded-lg hover:bg-green-700 transition font-semibold">
+                <i class="fas fa-bolt mr-2"></i>
+                Tes Stres
+            </a>
+            <a href="/depression" class="inline-flex items-center px-6 py-3 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition font-semibold">
+                <i class="fas fa-cloud-rain mr-2"></i>
+                Tes Depresi
+            </a>
+            <a href="/" class="inline-flex items-center px-6 py-3 border border-gray-300 text-gray-700 rounded-lg hover:bg-gray-50 transition font-semibold">
+                <i class="fas fa-home mr-2"></i>
+                Kembali ke Beranda
+            </a>
+        </div>
+    </div>
+</div>
+{% endblock %}
+
+{% block extra_scripts %}
+<script>
+// Add smooth animations
+document.addEventListener('DOMContentLoaded', function() {
+    // Animate score circle
+    const scoreCircle = document.querySelector('.text-red-500');
+    if (scoreCircle) {
+        scoreCircle.style.strokeDasharray = '0, 100';
+        setTimeout(() => {
+            scoreCircle.style.strokeDasharray = '{{ (user_score / 21) * 100 }}, 100';
+        }, 500);
+    }
+    
+    // Add fade-in animation to cards
+    const cards = document.querySelectorAll('.bg-white');
+    cards.forEach((card, index) => {
+        card.style.opacity = '0';
+        card.style.transform = 'translateY(20px)';
+        card.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+        
+        setTimeout(() => {
+            card.style.opacity = '1';
+            card.style.transform = 'translateY(0)';
+        }, index * 200);
+    });
+});
+</script>
+{% endblock %}

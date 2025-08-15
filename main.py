@@ -30,7 +30,7 @@ def depression_diagnosis():
         result = closest_match.to_dict()
 
         return render_template('depresi/depresi.html',age=age, gender=gender, user_score=user_score, result=result)
-    return render_template('depresi/depresi_form.html')
+    return render_template('depresi/depresi_form_new.html')
 
 @app.route("/stress", methods=["GET", "POST"])
 def stress_diagnosis():
@@ -49,7 +49,7 @@ def stress_diagnosis():
         # Render result
         result = closest_match.to_dict()
         return render_template('stres/stres.html',age=age, gender=gender,user_score=user_score, result=result)
-    return render_template('stres/stres_form.html')
+    return render_template('stres/stres_form_new.html')
 
 @app.route("/anxiety", methods=["GET", "POST"])
 def anxiety_diagnosis():
@@ -68,8 +68,8 @@ def anxiety_diagnosis():
         
         # Render result
         result = closest_match.to_dict()
-        return render_template('anxiety/anxiety.html', age=age, gender=gender, user_score=user_score, result=result)
-    return render_template('anxiety/anxiety_form.html')
+        return render_template('anxiety/anxiety_result.html', age=age, gender=gender, user_score=user_score, result=result)
+    return render_template('anxiety/anxiety_form_new.html')
 
             
 if __name__ == "__main__":

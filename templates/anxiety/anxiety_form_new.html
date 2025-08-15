@@ -1,0 +1,229 @@
+{% extends "base.html" %}
+
+{% block title %}Diagnosa Kecemasan - Sistem Pakar Kesehatan Mental{% endblock %}
+
+{% block content %}
+<!-- Header Section -->
+<section class="bg-gradient-to-r from-red-500 to-red-600 text-white py-12">
+    <div class="container mx-auto px-4 text-center">
+        <div class="flex items-center justify-center mb-4">
+            <i class="fas fa-exclamation-triangle text-4xl mr-3"></i>
+            <h1 class="text-4xl font-bold">Diagnosa Kecemasan</h1>
+        </div>
+        <p class="text-xl text-red-100">Evaluasi tingkat kecemasan Anda dengan kuesioner yang telah tervalidasi</p>
+    </div>
+</section>
+
+<div class="container mx-auto px-4 py-8">
+    <div class="max-w-4xl mx-auto">
+        <!-- Progress Bar -->
+        <div class="mb-8">
+            <div class="flex items-center justify-between text-sm text-gray-600 mb-2">
+                <span>Progress Pengisian</span>
+                <span id="progress-text">0%</span>
+            </div>
+            <div class="w-full bg-gray-200 rounded-full h-3">
+                <div id="progress-bar" class="bg-red-500 h-3 rounded-full transition-all duration-300" style="width: 0%"></div>
+            </div>
+        </div>
+
+        <!-- Form Card -->
+        <div class="bg-white rounded-xl shadow-lg p-8">
+            <form method="POST" class="space-y-8" id="anxiety-form">
+                <!-- Personal Information Section -->
+                <div class="bg-gray-50 p-6 rounded-lg">
+                    <h2 class="text-xl font-semibold text-gray-800 mb-4 flex items-center">
+                        <i class="fas fa-user text-red-500 mr-2"></i>
+                        Informasi Personal
+                    </h2>
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                        <div>
+                            <label for="age" class="block text-sm font-medium text-gray-700 mb-2">Usia:</label>
+                            <select name="age" id="age" class="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-red-500 focus:border-red-500 transition" required>
+                                <option value="">Pilih rentang usia</option>
+                                <option value="18-22">18-22</option>
+                                <option value="23-27">23-27</option>
+                                <option value="28-32">28-32</option>
+                                <option value="33 and above">33 dan di atas</option>
+                            </select>
+                        </div>
+
+                        <div>
+                            <label for="gender" class="block text-sm font-medium text-gray-700 mb-2">Jenis Kelamin:</label>
+                            <select name="gender" id="gender" class="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-red-500 focus:border-red-500 transition" required>
+                                <option value="">Pilih jenis kelamin</option>
+                                <option value="Male">Pria</option>
+                                <option value="Female">Perempuan</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Instructions -->
+                <div class="bg-red-50 border-l-4 border-red-500 p-4 rounded-r-lg">
+                    <div class="flex items-center">
+                        <i class="fas fa-info-circle text-red-500 mr-2"></i>
+                        <p class="text-red-700 font-medium">
+                            Jawab pertanyaan berikut berdasarkan kondisi Anda dalam 2 minggu terakhir. 
+                            <br>Skala: <strong>0</strong> (Tidak sama sekali) hingga <strong>3</strong> (Hampir setiap hari)
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Questions Section -->
+                <div class="space-y-8">
+                    <!-- Question 1 -->
+                    <div class="question-item">
+                        <h3 class="text-lg font-medium text-gray-800 mb-4 flex items-start">
+                            <span class="bg-red-500 text-white rounded-full w-8 h-8 flex items-center justify-center text-sm mr-3 flex-shrink-0">1</span>
+                            Dalam satu semester, seberapa sering Anda merasa gugup, cemas atau gelisah karena tekanan akademik?
+                        </h3>
+                        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3">
+                            {% for value, label in [('0', 'Tidak sama sekali'), ('1', 'Beberapa hari'), ('2', 'Lebih dari setengah hari'), ('3', 'Hampir setiap hari')] %}
+                            <label class="radio-option cursor-pointer">
+                                <input type="radio" name="q1" value="{{ value }}" class="hidden peer" {% if loop.first %}required{% endif %} />
+                                <div class="p-4 border-2 border-gray-200 rounded-lg peer-checked:border-red-500 peer-checked:bg-red-50 hover:border-red-300 transition transform hover:scale-105">
+                                    <div class="text-center">
+                                        <div class="text-2xl font-bold text-red-500 mb-1">{{ value }}</div>
+                                        <div class="text-sm text-gray-600">{{ label }}</div>
+                                    </div>
+                                </div>
+                            </label>
+                            {% endfor %}
+                        </div>
+                    </div>
+
+                    <!-- Question 2 -->
+                    <div class="question-item">
+                        <h3 class="text-lg font-medium text-gray-800 mb-4 flex items-start">
+                            <span class="bg-red-500 text-white rounded-full w-8 h-8 flex items-center justify-center text-sm mr-3 flex-shrink-0">2</span>
+                            Tidak dapat menghentikan atau mengontrol kekhawatiran?
+                        </h3>
+                        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3">
+                            {% for value, label in [('0', 'Tidak sama sekali'), ('1', 'Beberapa hari'), ('2', 'Lebih dari setengah hari'), ('3', 'Hampir setiap hari')] %}
+                            <label class="radio-option cursor-pointer">
+                                <input type="radio" name="q2" value="{{ value }}" class="hidden peer" required />
+                                <div class="p-4 border-2 border-gray-200 rounded-lg peer-checked:border-red-500 peer-checked:bg-red-50 hover:border-red-300 transition transform hover:scale-105">
+                                    <div class="text-center">
+                                        <div class="text-2xl font-bold text-red-500 mb-1">{{ value }}</div>
+                                        <div class="text-sm text-gray-600">{{ label }}</div>
+                                    </div>
+                                </div>
+                            </label>
+                            {% endfor %}
+                        </div>
+                    </div>
+
+                    <!-- Add more questions with similar pattern -->
+                    {% set questions = [
+                        "Khawatir berlebihan tentang hal-hal yang berbeda?",
+                        "Kesulitan untuk bersantai?",
+                        "Begitu gelisah sehingga sulit untuk duduk diam?",
+                        "Mudah kesal atau mudah tersinggung?",
+                        "Merasa takut seolah-olah sesuatu yang mengerikan akan terjadi?"
+                    ] %}
+
+                    {% for question in questions %}
+                    <div class="question-item">
+                        <h3 class="text-lg font-medium text-gray-800 mb-4 flex items-start">
+                            <span class="bg-red-500 text-white rounded-full w-8 h-8 flex items-center justify-center text-sm mr-3 flex-shrink-0">{{ loop.index + 2 }}</span>
+                            {{ question }}
+                        </h3>
+                        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3">
+                            {% for value, label in [('0', 'Tidak sama sekali'), ('1', 'Beberapa hari'), ('2', 'Lebih dari setengah hari'), ('3', 'Hampir setiap hari')] %}
+                            <label class="radio-option cursor-pointer">
+                                <input type="radio" name="q{{ loop.index0 + 3 }}" value="{{ value }}" class="hidden peer" required />
+                                <div class="p-4 border-2 border-gray-200 rounded-lg peer-checked:border-red-500 peer-checked:bg-red-50 hover:border-red-300 transition transform hover:scale-105">
+                                    <div class="text-center">
+                                        <div class="text-2xl font-bold text-red-500 mb-1">{{ value }}</div>
+                                        <div class="text-sm text-gray-600">{{ label }}</div>
+                                    </div>
+                                </div>
+                            </label>
+                            {% endfor %}
+                        </div>
+                    </div>
+                    {% endfor %}
+                </div>
+
+                <!-- Submit Button -->
+                <div class="pt-8 border-t border-gray-200">
+                    <div class="flex flex-col sm:flex-row gap-4 justify-between">
+                        <a href="/" class="inline-flex items-center px-6 py-3 border border-gray-300 rounded-lg text-gray-700 hover:bg-gray-50 transition">
+                            <i class="fas fa-arrow-left mr-2"></i>
+                            Kembali ke Beranda
+                        </a>
+                        <button type="submit" class="inline-flex items-center px-8 py-3 bg-red-600 text-white rounded-lg hover:bg-red-700 focus:ring-4 focus:ring-red-200 transition transform hover:scale-105 font-semibold">
+                            <i class="fas fa-chart-line mr-2"></i>
+                            Analisis Hasil
+                        </button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+{% endblock %}
+
+{% block extra_scripts %}
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    const form = document.getElementById('anxiety-form');
+    const progressBar = document.getElementById('progress-bar');
+    const progressText = document.getElementById('progress-text');
+    const totalQuestions = 7; // Update based on actual number of questions
+    
+    function updateProgress() {
+        const answeredQuestions = form.querySelectorAll('input[type="radio"]:checked').length;
+        const progress = Math.round((answeredQuestions / totalQuestions) * 100);
+        
+        progressBar.style.width = progress + '%';
+        progressText.textContent = progress + '%';
+        
+        // Change color based on progress
+        if (progress < 30) {
+            progressBar.className = 'bg-red-400 h-3 rounded-full transition-all duration-300';
+        } else if (progress < 70) {
+            progressBar.className = 'bg-yellow-400 h-3 rounded-full transition-all duration-300';
+        } else {
+            progressBar.className = 'bg-green-400 h-3 rounded-full transition-all duration-300';
+        }
+    }
+    
+    // Add event listeners to all radio buttons
+    const radioButtons = form.querySelectorAll('input[type="radio"]');
+    radioButtons.forEach(radio => {
+        radio.addEventListener('change', updateProgress);
+    });
+    
+    // Smooth scroll for question navigation
+    const questionItems = document.querySelectorAll('.question-item');
+    questionItems.forEach((item, index) => {
+        item.addEventListener('click', function() {
+            item.scrollIntoView({ behavior: 'smooth', block: 'center' });
+        });
+    });
+    
+    // Form validation
+    form.addEventListener('submit', function(e) {
+        const requiredFields = form.querySelectorAll('select[required], input[required]');
+        let allFilled = true;
+        
+        requiredFields.forEach(field => {
+            if (!field.value) {
+                allFilled = false;
+                field.classList.add('border-red-500');
+            } else {
+                field.classList.remove('border-red-500');
+            }
+        });
+        
+        if (!allFilled) {
+            e.preventDefault();
+            alert('Mohon lengkapi semua pertanyaan sebelum melanjutkan.');
+            return false;
+        }
+    });
+});
+</script>
+{% endblock %}
