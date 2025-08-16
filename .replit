@@ -1,10 +1,7 @@
-# File: .replit
+# File: .replit (Versi yang sudah diperbaiki)
 
+# Bahasa yang digunakan
 language = "python3"
+
+# Perintah yang dijalankan saat tombol "Run" ditekan
 run = ["gunicorn", "--bind", "0.0.0.0:8080", "main:app"]
-
-[packager]
-features = ["pip"]
-
-[packager.features.pip]
-dependencies = ["."]
