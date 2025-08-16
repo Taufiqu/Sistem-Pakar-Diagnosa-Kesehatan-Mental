@@ -1,0 +1,10 @@
+# File: .replit
+
+language = "python3"
+run = ["gunicorn", "--bind", "0.0.0.0:8080", "main:app"]
+
+[packager]
+features = ["pip"]
+
+[packager.features.pip]
+dependencies = ["."]
