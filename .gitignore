@@ -20,8 +20,8 @@ npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
 
-# Build output
-docs/
+# Build output (exclude docs for GitHub Pages)
+# docs/  # <- Comment this out
 dist/
 build/
 
