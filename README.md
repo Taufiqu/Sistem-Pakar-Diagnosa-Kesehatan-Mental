@@ -1,4 +1,4 @@
-# 🧠 Sistem Pakar Skrining Kesehatan Mental
+# 🧠 Sistem Pakar Diagnosa Kesehatan Mental
 
 Sebuah aplikasi web berbasis **Python Flask** yang dirancang sebagai platform skrining awal untuk kondisi kesehatan mental. Proyek ini memberikan evaluasi untuk **Depresi**, **Kecemasan**, dan **Stres** menggunakan logika pencocokan skor sederhana.
 
