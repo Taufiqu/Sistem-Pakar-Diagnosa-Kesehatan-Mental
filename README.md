@@ -1,136 +1,114 @@
-# 🧠 Sistem Pakar Diagnosa Kesehatan Mental
+# 🧠 Sistem Pakar Skrining Kesehatan Mental
 
-Platform AI berbasis web untuk screening awal kondisi kesehatan mental yang mencakup tes untuk **Depresi**, **Kecemasan**, dan **Stres**.
+Sebuah aplikasi web berbasis **Python Flask** yang dirancang sebagai platform skrining awal untuk kondisi kesehatan mental. Proyek ini memberikan evaluasi untuk **Depresi**, **Kecemasan**, dan **Stres** menggunakan logika pencocokan skor sederhana.
 
-## 🌟 Fitur Utama
-
-- **Tes Depresi (PHQ-9)** - Screening depresi berdasarkan kriteria klinis
-- **Tes Kecemasan (GAD-7)** - Evaluasi tingkat kecemasan dan gangguan anxiety  
-- **Tes Stres** - Pengukuran tingkat stress dan kemampuan coping
-- **Responsive Design** - Optimized untuk desktop dan mobile
-- **Real-time Results** - Hasil diagnosa langsung tanpa reload halaman
-
-## 🚀 Demo Live
-
-🌐 **[Lihat Demo](https://Taufiqu.github.io/Sistem-Pakar-Diagnosa-Kesehatan-Mental/)**
-
-## 🛠️ Teknologi
-
-- **Frontend**: HTML5, CSS3, JavaScript, Tailwind CSS
-- **Icons**: Font Awesome 6.4.0
-- **Fonts**: Google Fonts (Inter)
-- **Deployment**: GitHub Pages
-- **Original Backend**: Python Flask, Scikit-learn, Pandas
-
-## 📱 Screenshots
-
-### Homepage
-![Homepage](https://via.placeholder.com/800x400/4F46E5/FFFFFF?text=Mental+Health+Expert+System)
-
-### Test Interface
-![Test Interface](https://via.placeholder.com/800x400/10B981/FFFFFF?text=Interactive+Assessment)
-
-## 🏗️ Struktur Project
-
-```
-├── docs/                   # GitHub Pages deployment
-│   ├── index.html         # Homepage
-│   ├── anxiety.html       # Tes Kecemasan
-│   ├── depression.html    # Tes Depresi
-│   ├── stress.html        # Tes Stres
-│   └── static/           
-│       └── css/
-│           └── style.css  # Custom styles
-├── templates/             # Original Flask templates
-├── static/               # Static assets
-├── *.csv                 # ML datasets
-├── main.py              # Flask application
-├── build_static.py      # Static site generator
-└── requirements.txt     # Python dependencies
-```
-
-## 🚀 Quick Start
-
-### For Development (Flask)
-```bash
-# Clone repository
-git clone https://github.com/Taufiqu/Sistem-Pakar-Diagnosa-Kesehatan-Mental.git
-cd Sistem-Pakar-Diagnosa-Kesehatan-Mental
-
-# Setup virtual environment
-python -m venv env
-env\Scripts\activate  # Windows
-source env/bin/activate  # Linux/Mac
-
-# Install dependencies
-pip install -r requirements.txt
-
-# Run Flask app
-python main.py
-```
-
-### For Static Site (GitHub Pages)
-```bash
-# Build static site
-python build_static_simple.py
-
-# Files generated in docs/ directory
-# Ready for GitHub Pages deployment
-```
-
-## 📊 Assessment Scoring
-
-### Depresi (PHQ-9)
-- **0-4**: Depresi Minimal
-- **5-9**: Depresi Ringan  
-- **10-14**: Depresi Sedang
-- **15-27**: Depresi Berat
-
-### Kecemasan (GAD-7)
-- **0-4**: Kecemasan Minimal
-- **5-9**: Kecemasan Ringan
-- **10-14**: Kecemasan Sedang  
-- **15-21**: Kecemasan Berat
-
-### Stres
-- **0-1**: Stres Rendah
-- **2-3**: Stres Sedang
-- **4-5**: Stres Tinggi
-- **6+**: Stres Sangat Tinggi
-
-## ⚠️ Disclaimer
-
-Hasil tes ini hanya untuk **screening awal** dan **tujuan edukasi**. Tidak menggantikan diagnosis profesional. Untuk diagnosis akurat dan penanganan yang tepat, konsultasikan dengan **psikolog atau psikiater**.
-
-## 🤝 Contributing
-
-1. Fork repository
-2. Create feature branch (`git checkout -b feature/AmazingFeature`)
-3. Commit changes (`git commit -m 'Add some AmazingFeature'`)
-4. Push to branch (`git push origin feature/AmazingFeature`)
-5. Open Pull Request
-
-## 📄 License
-
-Project ini dibuat untuk keperluan **edukasi** dan **pembelajaran**.
-
-## 👨‍💻 Developer
-
-Dikembangkan sebagai **Tugas Sistem Pakar** - Semester 5
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+[![GitHub stars](https://img.shields.io/github/stars/Taufiqu/Sistem-Pakar-Diagnosa-Kesehatan-Mental?style=social)](https://github.com/Taufiqu/Sistem-Pakar-Diagnosa-Kesehatan-Mental/stargazers)
 
 ---
 
-### 🔧 Build Commands
+## 🚀 Demo Langsung
 
-```bash
-# Build static site
-python build_static_simple.py
+*Tautan demo akan tersedia setelah aplikasi di-deploy di platform hosting (misalnya: Replit, Railway).*
 
-# Install dependencies
-pip install -r requirements.txt
+---
 
-# Run Flask development server
-python main.py
+## 🌟 Fitur Utama
+
+-   **Tes Depresi (PHQ-9)**: Skrining gejala depresi berdasarkan 9 kriteria klinis.
+-   **Tes Kecemasan (GAD-7)**: Evaluasi tingkat kecemasan umum berdasarkan 7 item.
+-   **Tes Stres (PSS)**: Pengukuran tingkat stres yang dirasakan pengguna.
+-   **Hasil Real-time**: Dapatkan skor dan interpretasi diagnostik langsung di halaman.
+-   **Desain Responsif**: Tampilan optimal di perangkat desktop maupun mobile.
+-   **Backend Flask**: Logika aplikasi sepenuhnya ditangani oleh server Python Flask.
+
+---
+
+## 🛠️ Tumpukan Teknologi (Technology Stack)
+
+-   **Frontend**:
+    -   HTML5
+    -   Tailwind CSS
+    -   JavaScript
+-   **Backend**:
+    -   Python 3.11+
+    -   Flask (sebagai web server dan framework)
+    -   Pandas (untuk pemrosesan data dari file CSV)
+-   **Deployment**:
+    -   Dirancang untuk platform hosting seperti Replit, Railway, atau sejenisnya.
+
+---
+
+## 🏗️ Struktur Proyek
+
+```
+.
+├── static/              # Aset statis (CSS, gambar, dll.)
+├── templates/           # Template HTML yang di-render oleh Flask
+├── Anxiety.csv          # Dataset untuk logika pencocokan
+├── Depression.csv
+├── Stress.csv
+├── main.py              # Aplikasi utama Flask
+├── requirements.txt     # Daftar dependensi Python
+└── .replit              # File konfigurasi untuk deployment di Replit
 ```
 
-**Made with ❤️ for Mental Health Awareness**
+---
+
+## 🚀 Panduan Instalasi dan Menjalankan
+
+Ikuti langkah-langkah ini untuk menjalankan aplikasi di lingkungan pengembangan lokal Anda.
+
+1.  **Clone repositori:**
+    ```bash
+    git clone [https://github.com/Taufiqu/Sistem-Pakar-Diagnosa-Kesehatan-Mental.git](https://github.com/Taufiqu/Sistem-Pakar-Diagnosa-Kesehatan-Mental.git)
+    cd Sistem-Pakar-Diagnosa-Kesehatan-Mental
+    ```
+
+2.  **Buat dan aktifkan virtual environment:**
+    ```bash
+    # Windows
+    python -m venv env
+    .\env\Scripts\activate
+
+    # macOS / Linux
+    python3 -m venv env
+    source env/bin/activate
+    ```
+
+3.  **Instal semua dependensi yang diperlukan:**
+    ```bash
+    pip install -r requirements.txt
+    ```
+
+4.  **Jalankan aplikasi Flask:**
+    ```bash
+    python main.py
+    ```
+    Buka browser Anda dan kunjungi `http://127.0.0.1:5000` untuk melihat aplikasi berjalan.
+
+---
+
+## 📊 Skoring Penilaian
+
+Skoring didasarkan pada standar instrumen psikologi yang umum digunakan.
+
+| Tes         | Skor    | Interpretasi          |
+| :---------- | :------ | :-------------------- |
+| **Depresi** | 0-4     | Depresi Minimal       |
+| (PHQ-9)     | 5-9     | Depresi Ringan        |
+|             | 10-14   | Depresi Sedang        |
+|             | 15-27   | Depresi Berat         |
+| **Kecemasan** | 0-4     | Kecemasan Minimal     |
+| (GAD-7)     | 5-9     | Kecemasan Ringan      |
+|             | 10-14   | Kecemasan Sedang      |
+|             | 15-21   | Kecemasan Berat       |
+| **Stres** | 0-13    | Stres Rendah          |
+| (PSS-10)    | 14-26   | Stres Sedang          |
+|             | 27-40   | Stres Tinggi          |
+
+---
+
+## ⚠️ Penafian (Disclaimer)
+
+Aplikasi ini adalah **alat skrining awal** dan ditujukan untuk **keperluan edukasi**. Hasil tes ini **tidak menggantikan diagnosis klinis** dari seorang profesional. Untuk diagnosis yang akurat dan penanganan yang tepat, sangat disarankan untuk berkonsultasi dengan psikolog atau psikiater.
