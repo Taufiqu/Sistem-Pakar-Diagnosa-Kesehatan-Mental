@@ -1,0 +1,156 @@
+{% extends "base.html" %}
+
+{% block title %}Hasil Diagnosa Stres - Sistem Pakar Kesehatan Mental{% endblock %}
+
+{% block content %}
+<section class="bg-gradient-to-r from-green-500 to-green-600 text-white py-12">
+    <div class="container mx-auto px-4 text-center">
+        <div class="flex items-center justify-center mb-4">
+            <i class="fas fa-bolt text-4xl mr-3"></i>
+            <h1 class="text-4xl font-bold">Hasil Diagnosa Stres</h1>
+        </div>
+        <p class="text-xl text-green-100">Analisis lengkap kondisi stres Anda</p>
+    </div>
+</section>
+
+<div class="container mx-auto px-4 py-8">
+    <div class="max-w-4xl mx-auto">
+        <div class="bg-white rounded-xl shadow-lg p-8 mb-8">
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center">
+                <div class="space-y-4">
+                    <h2 class="text-2xl font-bold text-gray-800 mb-4 flex items-center">
+                        <i class="fas fa-user-circle text-green-500 mr-2"></i>
+                        Informasi Personal
+                    </h2>
+                    <div class="space-y-3">
+                        <div class="bg-gray-50 p-4 rounded-lg">
+                            <span class="text-sm text-gray-600">Usia</span>
+                            <p class="text-lg font-semibold text-gray-800">{{ age }}</p>
+                        </div>
+                        <div class="bg-gray-50 p-4 rounded-lg">
+                            <span class="text-sm text-gray-600">Jenis Kelamin</span>
+                            <p class="text-lg font-semibold text-gray-800">
+                                {% if gender == 'Male' %}Pria{% else %}Perempuan{% endif %}
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="text-center">
+                    <h2 class="text-2xl font-bold text-gray-800 mb-4">Skor Stres Anda</h2>
+                    <div class="relative">
+                        <div class="w-40 h-40 mx-auto mb-4">
+                            <svg class="w-full h-full transform -rotate-90" viewBox="0 0 36 36">
+                                <path class="text-gray-200" stroke="currentColor" stroke-width="3" fill="none" d="M18 2.0845a 15.9155 15.9155 0 0 1 0 31.831a 15.9155 15.9155 0 0 1 0 -31.831"></path>
+                                <path class="score-circle text-green-500" stroke="currentColor" stroke-width="3" fill="none" stroke-linecap="round" stroke-dasharray="{{ (user_score / 40) * 100 }}, 100" d="M18 2.0845a 15.9155 15.9155 0 0 1 0 31.831a 15.9155 15.9155 0 0 1 0 -31.831"></path>
+                            </svg>
+                            <div class="absolute inset-0 flex items-center justify-center">
+                                <span class="text-3xl font-bold text-green-600">{{ user_score }}/40</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="bg-white rounded-xl shadow-lg p-8 mb-8">
+            <h2 class="text-2xl font-bold text-gray-800 mb-6 flex items-center">
+                <i class="fas fa-brain text-green-500 mr-2"></i>
+                Analisis Hasil
+            </h2>
+            
+            <div class="text-center mb-6">
+                <div class="inline-flex items-center px-6 py-3 rounded-full text-xl font-bold
+                    {% if result['Stress Label'] == 'Normal' %} bg-green-100 text-green-800
+                    {% elif result['Stress Label'] == 'Mild Stress' %} bg-yellow-100 text-yellow-800
+                    {% elif result['Stress Label'] == 'Moderate Stress' %} bg-orange-100 text-orange-800
+                    {% elif result['Stress Label'] == 'Severe Stress' %} bg-red-100 text-red-800
+                    {% elif result['Stress Label'] == 'Extremely Severe Stress' %} bg-red-200 text-red-900
+                    {% endif %}
+                ">
+                    <i class="fas fa-exclamation-triangle mr-2"></i>
+                    {% if result['Stress Label'] == 'Normal' %} Normal
+                    {% elif result['Stress Label'] == 'Mild Stress' %} Stres Ringan
+                    {% elif result['Stress Label'] == 'Moderate Stress' %} Stres Sedang
+                    {% elif result['Stress Label'] == 'Severe Stress' %} Stres Berat
+                    {% elif result['Stress Label'] == 'Extremely Severe Stress' %} Stres Sangat Berat
+                    {% endif %}
+                </div>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <div class="bg-gray-50 p-6 rounded-lg">
+                    <h3 class="text-lg font-semibold text-gray-800 mb-3">Data Referensi Terdekat</h3>
+                    <div class="space-y-2">
+                        <p class="text-gray-700"><strong>Usia:</strong> {{ result['1. Age'] }}</p>
+                        <p class="text-gray-700"><strong>Jenis Kelamin:</strong> 
+                            {% if result['2. Gender'] == 'Male' %}Pria{% else %}Perempuan{% endif %}
+                        </p>
+                        <p class="text-gray-700"><strong>Nilai Stres:</strong> {{ result['Stress Value'] }}</p>
+                    </div>
+                </div>
+
+                <div class="bg-green-50 p-6 rounded-lg">
+                    <h3 class="text-lg font-semibold text-gray-800 mb-3">Interpretasi Hasil</h3>
+                    <div class="text-gray-700">
+                        {% if result['Stress Label'] == 'Normal' %} <p>Tingkat stres Anda dalam batas normal. Pertahankan keseimbangan hidup yang baik.</p>
+                        {% elif result['Stress Label'] == 'Mild Stress' %} <p>Anda mengalami stres ringan. Identifikasi sumber stres dan coba teknik relaksasi dasar.</p>
+                        {% elif result['Stress Label'] == 'Moderate Stress' %} <p>Tingkat stres sedang terdeteksi. Penting untuk menerapkan strategi manajemen stres secara aktif.</p>
+                        {% elif result['Stress Label'] == 'Severe Stress' %} <p>Stres berat dapat berdampak pada kesehatan. Disarankan untuk berkonsultasi dengan profesional.</p>
+                        {% elif result['Stress Label'] == 'Extremely Severe Stress' %} <p>Tingkat stres sangat berat memerlukan perhatian serius. Segera cari bantuan profesional.</p>
+                        {% endif %}
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="bg-white rounded-xl shadow-lg p-8 mb-8">
+            <h2 class="text-2xl font-bold text-gray-800 mb-6 flex items-center">
+                <i class="fas fa-lightbulb text-yellow-500 mr-2"></i>
+                Rekomendasi
+            </h2>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                <div class="text-center p-6 bg-blue-50 rounded-lg"><i class="fas fa-meditation text-3xl text-blue-600 mb-3"></i><h3 class="text-lg font-semibold mb-2">Manajemen Waktu</h3><p class="text-gray-600">Prioritaskan tugas dan ambil istirahat secara teratur untuk menghindari kelelahan.</p></div>
+                <div class="text-center p-6 bg-green-50 rounded-lg"><i class="fas fa-running text-3xl text-green-600 mb-3"></i><h3 class="text-lg font-semibold mb-2">Aktivitas Fisik</h3><p class="text-gray-600">Olahraga adalah cara yang sangat efektif untuk melepaskan ketegangan dan stres.</p></div>
+                <div class="text-center p-6 bg-purple-50 rounded-lg"><i class="fas fa-user-md text-3xl text-purple-600 mb-3"></i><h3 class="text-lg font-semibold mb-2">Konsultasi Profesional</h3><p class="text-gray-600">Jika stres terasa berlebihan, jangan ragu untuk mencari bantuan dari konselor.</p></div>
+            </div>
+        </div>
+
+        <div class="flex flex-wrap gap-4 justify-center">
+            <a href="/stress" class="inline-flex items-center px-6 py-3 bg-green-600 text-white rounded-lg hover:bg-green-700 transition font-semibold"><i class="fas fa-redo mr-2"></i> Ulangi Tes</a>
+            <a href="/anxiety" class="inline-flex items-center px-6 py-3 bg-red-600 text-white rounded-lg hover:bg-red-700 transition font-semibold"><i class="fas fa-exclamation-triangle mr-2"></i> Tes Kecemasan</a>
+            <a href="/depression" class="inline-flex items-center px-6 py-3 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition font-semibold"><i class="fas fa-cloud-rain mr-2"></i> Tes Depresi</a>
+            <a href="/" class="inline-flex items-center px-6 py-3 border border-gray-300 text-gray-700 rounded-lg hover:bg-gray-50 transition font-semibold"><i class="fas fa-home mr-2"></i> Kembali ke Beranda</a>
+        </div>
+    </div>
+</div>
+{% endblock %}
+
+{% block extra_scripts %}
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    // Animate score circle
+    const scoreCircle = document.querySelector('.score-circle.text-green-500');
+    if (scoreCircle) {
+        const originalDashArray = scoreCircle.style.strokeDasharray;
+        scoreCircle.style.strokeDasharray = '0, 100';
+        setTimeout(() => {
+            scoreCircle.style.transition = 'stroke-dasharray 1.5s ease-in-out';
+            scoreCircle.style.strokeDasharray = '{{ (user_score / 40) * 100 }}, 100';
+        }, 300);
+    }
+    
+    // Add fade-in animation to cards
+    const cards = document.querySelectorAll('.bg-white');
+    cards.forEach((card, index) => {
+        card.style.opacity = '0';
+        card.style.transform = 'translateY(20px)';
+        card.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+        setTimeout(() => {
+            card.style.opacity = '1';
+            card.style.transform = 'translateY(0)';
+        }, index * 200);
+    });
+});
+</script>
+{% endblock %}

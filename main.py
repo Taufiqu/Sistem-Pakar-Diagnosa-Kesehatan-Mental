@@ -43,7 +43,7 @@ def depression_diagnosis():
         # Render result
         result = closest_match.to_dict()
 
-        return render_template('depresi/depresi.html',age=age, gender=gender, user_score=user_score, result=result)
+        return render_template('depresi/depresi_result.html',age=age, gender=gender, user_score=user_score, result=result)
     return render_template('depresi/depresi_form_new.html')
 
 @app.route("/stress", methods=["GET", "POST"])
@@ -76,7 +76,7 @@ def stress_diagnosis():
         
         # Render result
         result = closest_match.to_dict()
-        return render_template('stres/stres.html',age=age, gender=gender,user_score=user_score, result=result)
+        return render_template('stres/stres_result.html',age=age, gender=gender,user_score=user_score, result=result)
     return render_template('stres/stres_form_new.html')
 
 @app.route("/anxiety", methods=["GET", "POST"])
