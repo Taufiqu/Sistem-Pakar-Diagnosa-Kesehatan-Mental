@@ -22,9 +22,23 @@ def depression_diagnosis():
         scores = [int(request.form.get(f"q{i}", 0)) for i in range(1, 10)]
         user_score = sum(scores)
         
-        # Find the closest match in the dataset
-        depression_data["score_diff"] = abs(depression_data["Depression Value"] - user_score)
-        closest_match = depression_data.loc[depression_data["score_diff"].idxmin()]
+        # Salin dataframe agar tidak mengubah data asli
+        search_data = depression_data.copy()
+
+        # 1. Hitung selisih skor (prioritas utama)
+        search_data['score_diff'] = abs(search_data['Depression Value'] - user_score)
+
+        # 2. Beri penalti jika gender tidak cocok
+        search_data['gender_penalty'] = (search_data['2. Gender'] != gender) * 100
+
+        # 3. Beri penalti jika usia tidak cocok
+        search_data['age_penalty'] = (search_data['1. Age'] != age) * 100
+
+        # 4. Hitung total "jarak" atau perbedaan
+        search_data['total_diff'] = search_data['score_diff'] + search_data['gender_penalty'] + search_data['age_penalty']
+
+        # 5. Cari baris dengan total_diff yang paling kecil
+        closest_match = search_data.loc[search_data['total_diff'].idxmin()]
         
         # Render result
         result = closest_match.to_dict()
@@ -42,9 +56,23 @@ def stress_diagnosis():
         scores = [int(request.form.get(f"q{i}", 0)) for i in range(1, 11)]
         user_score = sum(scores)
         
-        # Find the closest match in the dataset
-        stress_data["score_diff"] = abs(stress_data["Stress Value"] - user_score)
-        closest_match = stress_data.loc[stress_data["score_diff"].idxmin()]
+        # Salin dataframe agar tidak mengubah data asli
+        search_data = stress_data.copy()
+        
+        # 1. Hitung selisih skor (prioritas utama)
+        search_data['score_diff'] = abs(search_data['Stress Value'] - user_score)
+
+        # 2. Beri penalti jika gender tidak cocok
+        search_data['gender_penalty'] = (search_data['2. Gender'] != gender) * 100
+
+        # 3. Beri penalti jika usia tidak cocok
+        search_data['age_penalty'] = (search_data['1. Age'] != age) * 100
+
+        # 4. Hitung total "jarak" atau perbedaan
+        search_data['total_diff'] = search_data['score_diff'] + search_data['gender_penalty'] + search_data['age_penalty']
+
+        # 5. Cari baris dengan total_diff yang paling kecil
+        closest_match = search_data.loc[search_data['total_diff'].idxmin()]
         
         # Render result
         result = closest_match.to_dict()
@@ -59,18 +87,32 @@ def anxiety_diagnosis():
         gender = request.form.get("gender")
 
         # Get user input for anxiety scale
-        scores = [int(request.form.get(f"q{i}", 0)) for i in range(1, 8)]
+        scores = [int(request.form.get(f"question_{i}", 0)) for i in range(1, 8)]
         user_score = sum(scores)
         
-        # Find the closest match in the dataset
-        anxiety_data["score_diff"] = abs(anxiety_data["Anxiety Value"] - user_score)
-        closest_match = anxiety_data.loc[anxiety_data["score_diff"].idxmin()]
+        search_data = anxiety_data.copy()
+
+        # 1. Hitung selisih skor (prioritas utama)
+        search_data['score_diff'] = abs(search_data['Anxiety Value'] - user_score)
+
+        # 2. Beri penalti jika gender tidak cocok
+        # Jika gender data TIDAK SAMA DENGAN gender input, beri penalti. Jika sama, penaltinya 0.
+        # Penalti ini (angka 100) harus lebih besar dari rentang skor (0-21) agar ketidakcocokan gender sangat dihindari
+        search_data['gender_penalty'] = (search_data['2. Gender'] != gender) * 100
+
+        # 3. Beri penalti jika usia tidak cocok
+        search_data['age_penalty'] = (search_data['1. Age'] != age) * 100
+
+        # 4. Hitung total "jarak" atau perbedaan
+        search_data['total_diff'] = search_data['score_diff'] + search_data['gender_penalty'] + search_data['age_penalty']
+
+        # 5. Cari baris dengan total_diff yang paling kecil
+        closest_match = search_data.loc[search_data['total_diff'].idxmin()]
         
         # Render result
         result = closest_match.to_dict()
         return render_template('anxiety/anxiety_result.html', age=age, gender=gender, user_score=user_score, result=result)
     return render_template('anxiety/anxiety_form_new.html')
 
-            
 if __name__ == "__main__":
-    app.run(host='0.0.0.0', port=8080)
+    app.run(debug=True)

@@ -1,66 +1,42 @@
-/* Custom CSS for Mental Health Expert System */
+/* Custom CSS for Mental Health Expert System - Fixed Version */
 
 /* Smooth animations */
 * {
     scroll-behavior: smooth;
 }
 
-/* Force icon colors */
-.text-blue-600 {
-    color: #2563eb !important;
-}
+/* Force icon colors - removed !important where not necessary */
+.text-blue-600 { color: #2563eb; }
+.text-green-600 { color: #16a34a; }
+.text-purple-600 { color: #9333ea; }
+.text-red-500 { color: #ef4444; }
+.text-yellow-500 { color: #eab308; }
 
-.text-green-600 {
-    color: #16a34a !important;
-}
-
-.text-purple-600 {
-    color: #9333ea !important;
-}
-
-.text-red-500 {
-    color: #ef4444 !important;
-}
-
-.text-yellow-500 {
-    color: #eab308 !important;
-}
-
-/* Ensure buttons are visible */
+/* Button styling */
 .bg-blue-600 {
     background-color: #2563eb !important;
+    color: white !important;
     border: none !important;
 }
 
 .bg-green-600 {
     background-color: #16a34a !important;
+    color: white !important;
     border: none !important;
 }
 
 .bg-red-600 {
     background-color: #dc2626 !important;
+    color: white !important;
     border: none !important;
 }
 
 /* Button hover effects */
-.bg-blue-600:hover {
-    background-color: #1d4ed8 !important;
-}
+.bg-blue-600:hover { background-color: #1d4ed8 !important; }
+.bg-green-600:hover { background-color: #15803d !important; }
+.bg-red-600:hover { background-color: #b91c1c !important; }
 
-.bg-green-600:hover {
-    background-color: #15803d !important;
-}
-
-.bg-red-600:hover {
-    background-color: #b91c1c !important;
-}
-
-/* Ensure text is white on buttons */
-.bg-blue-600, .bg-green-600, .bg-red-600 {
-    color: white !important;
-}
-
-/* Hover effects for cards */
+/* Card hover effects */
 .card-hover {
     transition: all 0.3s ease;
 }
@@ -75,7 +51,7 @@
     transition: width 0.5s ease-in-out;
 }
 
-/* Fade in animation */
+/* Animations */
 @keyframes fadeInUp {
     from {
         opacity: 0;
@@ -91,14 +67,9 @@
     animation: fadeInUp 0.6s ease forwards;
 }
 
-/* Pulse animation for important elements */
 @keyframes pulse {
-    0%, 100% {
-        transform: scale(1);
-    }
-    50% {
-        transform: scale(1.05);
-    }
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.05); }
 }
 
 .pulse-animation {
@@ -113,10 +84,38 @@
     background-clip: text;
 }
 
-/* Custom radio buttons */
-.radio-option input[type="radio"]:checked + div {
-    border-width: 2px;
+/* FIXED: Radio button styling - removed conflicting styles */
+.radio-option {
+    display: block;
+    position: relative;
+}
+
+.radio-option input[type="radio"] {
+    position: absolute;
+    opacity: 0;
+    cursor: pointer;
+    height: 0;
+    width: 0;
+}
+
+.radio-option input[type="radio"]:checked + .radio-display {
+    border-color: #ef4444 !important;
+    background-color: #fef2f2 !important;
     transform: scale(1.02);
+}
+
+.radio-option input[type="radio"]:focus + .radio-display {
+    outline: 2px solid #3b82f6;
+    outline-offset: 2px;
+}
+
+.radio-display {
+    transition: all 0.2s ease;
+    cursor: pointer;
+}
+
+.radio-display:hover {
+    border-color: #fca5a5 !important;
 }
 
 /* Loading spinner */
@@ -136,13 +135,8 @@
 
 /* Mobile responsive improvements */
 @media (max-width: 768px) {
-    .mobile-padding {
-        padding: 1rem;
-    }
-    
-    .mobile-text-sm {
-        font-size: 0.875rem;
-    }
+    .mobile-padding { padding: 1rem; }
+    .mobile-text-sm { font-size: 0.875rem; }
 }
 
 /* Accessibility improvements */
@@ -152,31 +146,21 @@
 }
 
 /* Custom scrollbar */
-::-webkit-scrollbar {
-    width: 8px;
-}
-
+::-webkit-scrollbar { width: 8px; }
 ::-webkit-scrollbar-track {
     background: #f1f1f1;
     border-radius: 10px;
 }
-
 ::-webkit-scrollbar-thumb {
     background: #888;
     border-radius: 10px;
 }
+::-webkit-scrollbar-thumb:hover { background: #555; }
 
-::-webkit-scrollbar-thumb:hover {
-    background: #555;
-}
-
-/* Question highlight effect */
-.question-item:hover {
-    background-color: #f8fafc;
-    border-radius: 8px;
-    padding: 1rem;
-    margin: -1rem;
+/* Question highlight effect - removed conflicting hover */
+.question-item {
     transition: all 0.3s ease;
+    border-radius: 8px;
 }
 
 /* Submit button loading state */
@@ -201,22 +185,20 @@
     animation: spin 1s ease infinite;
 }
 
-/* Force Font Awesome icons to display */
+/* Font Awesome icons */
 .fas, .fa {
     font-family: "Font Awesome 5 Free" !important;
     font-weight: 900 !important;
     display: inline-block !important;
 }
 
-/* Ensure button visibility */
+/* Button visibility fixes */
 a[class*="bg-"] {
     display: block !important;
     text-decoration: none !important;
 }
 
-/* Additional button styling for visibility */
 .btn-diagnosa {
-    background: linear-gradient(135deg, var(--bg-color), var(--bg-hover-color)) !important;
     color: white !important;
     padding: 12px 24px !important;
     border-radius: 8px !important;

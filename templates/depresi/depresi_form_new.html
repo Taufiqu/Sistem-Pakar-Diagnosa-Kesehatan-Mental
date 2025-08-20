@@ -3,7 +3,6 @@
 {% block title %}Diagnosa Depresi - Sistem Pakar Kesehatan Mental{% endblock %}
 
 {% block content %}
-<!-- Header Section -->
 <section class="bg-gradient-to-r from-blue-500 to-blue-600 text-white py-12">
     <div class="container mx-auto px-4 text-center">
         <div class="flex items-center justify-center mb-4">
@@ -16,7 +15,6 @@
 
 <div class="container mx-auto px-4 py-8">
     <div class="max-w-4xl mx-auto">
-        <!-- Progress Bar -->
         <div class="mb-8">
             <div class="flex items-center justify-between text-sm text-gray-600 mb-2">
                 <span>Progress Pengisian</span>
@@ -27,10 +25,8 @@
             </div>
         </div>
 
-        <!-- Form Card -->
         <div class="bg-white rounded-xl shadow-lg p-8">
             <form method="POST" class="space-y-8" id="depression-form">
-                <!-- Personal Information Section -->
                 <div class="bg-gray-50 p-6 rounded-lg">
                     <h2 class="text-xl font-semibold text-gray-800 mb-4 flex items-center">
                         <i class="fas fa-user text-blue-500 mr-2"></i>
@@ -59,7 +55,6 @@
                     </div>
                 </div>
 
-                <!-- Instructions -->
                 <div class="bg-blue-50 border-l-4 border-blue-500 p-4 rounded-r-lg">
                     <div class="flex items-center">
                         <i class="fas fa-info-circle text-blue-500 mr-2"></i>
@@ -70,44 +65,166 @@
                     </div>
                 </div>
 
-                <!-- Questions Section -->
                 <div class="space-y-8">
-                    {% set depression_questions = [
-                        "Sedikit minat atau kesenangan dalam melakukan sesuatu?",
-                        "Merasa sedih, depresi, atau putus asa?",
-                        "Kesulitan tertidur atau tetap tertidur, atau terlalu banyak tidur?",
-                        "Merasa lelah atau memiliki sedikit energi?",
-                        "Nafsu makan yang buruk atau makan berlebihan?",
-                        "Merasa buruk tentang diri sendiri atau merasa gagal atau mengecewakan diri sendiri atau keluarga?",
-                        "Kesulitan berkonsentrasi pada hal-hal seperti membaca koran atau menonton televisi?",
-                        "Bergerak atau berbicara sangat lambat sehingga orang lain bisa memperhatikan atau sebaliknya sangat gelisah atau gelisah?",
-                        "Pikiran bahwa Anda akan lebih baik mati atau menyakiti diri sendiri dengan cara tertentu?"
-                    ] %}
-
-                    {% for question in depression_questions %}
                     <div class="question-item">
                         <h3 class="text-lg font-medium text-gray-800 mb-4 flex items-start">
-                            <span class="bg-blue-500 text-white rounded-full w-8 h-8 flex items-center justify-center text-sm mr-3 flex-shrink-0">{{ loop.index }}</span>
-                            {{ question }}
+                            <span class="bg-blue-500 text-white rounded-full w-8 h-8 flex items-center justify-center text-sm mr-3 flex-shrink-0">1</span>
+                            Sedikit minat atau kesenangan dalam melakukan sesuatu?
                         </h3>
                         <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3">
-                            {% for value, label in [('0', 'Tidak sama sekali'), ('1', 'Beberapa hari'), ('2', 'Lebih dari setengah hari'), ('3', 'Hampir setiap hari')] %}
                             <label class="radio-option cursor-pointer">
-                                <input type="radio" name="q{{ loop.index0 + 1 }}" value="{{ value }}" class="hidden peer" required />
+                                <input type="radio" name="q1" value="0" class="hidden peer" required />
                                 <div class="p-4 border-2 border-gray-200 rounded-lg peer-checked:border-blue-500 peer-checked:bg-blue-50 hover:border-blue-300 transition transform hover:scale-105">
-                                    <div class="text-center">
-                                        <div class="text-2xl font-bold text-blue-500 mb-1">{{ value }}</div>
-                                        <div class="text-sm text-gray-600">{{ label }}</div>
-                                    </div>
+                                    <div class="text-center"><div class="text-2xl font-bold text-blue-500 mb-1">0</div><div class="text-sm text-gray-600">Tidak sama sekali</div></div>
                                 </div>
                             </label>
-                            {% endfor %}
+                            <label class="radio-option cursor-pointer">
+                                <input type="radio" name="q1" value="1" class="hidden peer" required />
+                                <div class="p-4 border-2 border-gray-200 rounded-lg peer-checked:border-blue-500 peer-checked:bg-blue-50 hover:border-blue-300 transition transform hover:scale-105">
+                                    <div class="text-center"><div class="text-2xl font-bold text-blue-500 mb-1">1</div><div class="text-sm text-gray-600">Beberapa hari</div></div>
+                                </div>
+                            </label>
+                            <label class="radio-option cursor-pointer">
+                                <input type="radio" name="q1" value="2" class="hidden peer" required />
+                                <div class="p-4 border-2 border-gray-200 rounded-lg peer-checked:border-blue-500 peer-checked:bg-blue-50 hover:border-blue-300 transition transform hover:scale-105">
+                                    <div class="text-center"><div class="text-2xl font-bold text-blue-500 mb-1">2</div><div class="text-sm text-gray-600">Lebih dari setengah hari</div></div>
+                                </div>
+                            </label>
+                            <label class="radio-option cursor-pointer">
+                                <input type="radio" name="q1" value="3" class="hidden peer" required />
+                                <div class="p-4 border-2 border-gray-200 rounded-lg peer-checked:border-blue-500 peer-checked:bg-blue-50 hover:border-blue-300 transition transform hover:scale-105">
+                                    <div class="text-center"><div class="text-2xl font-bold text-blue-500 mb-1">3</div><div class="text-sm text-gray-600">Hampir setiap hari</div></div>
+                                </div>
+                            </label>
                         </div>
                     </div>
-                    {% endfor %}
+
+                    <div class="question-item">
+                        <h3 class="text-lg font-medium text-gray-800 mb-4 flex items-start">
+                            <span class="bg-blue-500 text-white rounded-full w-8 h-8 flex items-center justify-center text-sm mr-3 flex-shrink-0">2</span>
+                            Merasa sedih, depresi, atau putus asa?
+                        </h3>
+                        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3">
+                            <label class="radio-option cursor-pointer">
+                                <input type="radio" name="q2" value="0" class="hidden peer" required />
+                                <div class="p-4 border-2 border-gray-200 rounded-lg peer-checked:border-blue-500 peer-checked:bg-blue-50 hover:border-blue-300 transition transform hover:scale-105">
+                                    <div class="text-center"><div class="text-2xl font-bold text-blue-500 mb-1">0</div><div class="text-sm text-gray-600">Tidak sama sekali</div></div>
+                                </div>
+                            </label>
+                            <label class="radio-option cursor-pointer">
+                                <input type="radio" name="q2" value="1" class="hidden peer" required />
+                                <div class="p-4 border-2 border-gray-200 rounded-lg peer-checked:border-blue-500 peer-checked:bg-blue-50 hover:border-blue-300 transition transform hover:scale-105">
+                                    <div class="text-center"><div class="text-2xl font-bold text-blue-500 mb-1">1</div><div class="text-sm text-gray-600">Beberapa hari</div></div>
+                                </div>
+                            </label>
+                            <label class="radio-option cursor-pointer">
+                                <input type="radio" name="q2" value="2" class="hidden peer" required />
+                                <div class="p-4 border-2 border-gray-200 rounded-lg peer-checked:border-blue-500 peer-checked:bg-blue-50 hover:border-blue-300 transition transform hover:scale-105">
+                                    <div class="text-center"><div class="text-2xl font-bold text-blue-500 mb-1">2</div><div class="text-sm text-gray-600">Lebih dari setengah hari</div></div>
+                                </div>
+                            </label>
+                            <label class="radio-option cursor-pointer">
+                                <input type="radio" name="q2" value="3" class="hidden peer" required />
+                                <div class="p-4 border-2 border-gray-200 rounded-lg peer-checked:border-blue-500 peer-checked:bg-blue-50 hover:border-blue-300 transition transform hover:scale-105">
+                                    <div class="text-center"><div class="text-2xl font-bold text-blue-500 mb-1">3</div><div class="text-sm text-gray-600">Hampir setiap hari</div></div>
+                                </div>
+                            </label>
+                        </div>
+                    </div>
+
+                    <div class="question-item">
+                        <h3 class="text-lg font-medium text-gray-800 mb-4 flex items-start">
+                            <span class="bg-blue-500 text-white rounded-full w-8 h-8 flex items-center justify-center text-sm mr-3 flex-shrink-0">3</span>
+                            Kesulitan tertidur atau tetap tertidur, atau terlalu banyak tidur?
+                        </h3>
+                        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3">
+                            <label class="radio-option cursor-pointer"><input type="radio" name="q3" value="0" class="hidden peer" required /><div class="p-4 border-2 border-gray-200 rounded-lg peer-checked:border-blue-500 peer-checked:bg-blue-50 hover:border-blue-300 transition transform hover:scale-105"><div class="text-center"><div class="text-2xl font-bold text-blue-500 mb-1">0</div><div class="text-sm text-gray-600">Tidak sama sekali</div></div></div></label>
+                            <label class="radio-option cursor-pointer"><input type="radio" name="q3" value="1" class="hidden peer" required /><div class="p-4 border-2 border-gray-200 rounded-lg peer-checked:border-blue-500 peer-checked:bg-blue-50 hover:border-blue-300 transition transform hover:scale-105"><div class="text-center"><div class="text-2xl font-bold text-blue-500 mb-1">1</div><div class="text-sm text-gray-600">Beberapa hari</div></div></div></label>
+                            <label class="radio-option cursor-pointer"><input type="radio" name="q3" value="2" class="hidden peer" required /><div class="p-4 border-2 border-gray-200 rounded-lg peer-checked:border-blue-500 peer-checked:bg-blue-50 hover:border-blue-300 transition transform hover:scale-105"><div class="text-center"><div class="text-2xl font-bold text-blue-500 mb-1">2</div><div class="text-sm text-gray-600">Lebih dari setengah hari</div></div></div></label>
+                            <label class="radio-option cursor-pointer"><input type="radio" name="q3" value="3" class="hidden peer" required /><div class="p-4 border-2 border-gray-200 rounded-lg peer-checked:border-blue-500 peer-checked:bg-blue-50 hover:border-blue-300 transition transform hover:scale-105"><div class="text-center"><div class="text-2xl font-bold text-blue-500 mb-1">3</div><div class="text-sm text-gray-600">Hampir setiap hari</div></div></div></label>
+                        </div>
+                    </div>
+
+                    <div class="question-item">
+                        <h3 class="text-lg font-medium text-gray-800 mb-4 flex items-start">
+                            <span class="bg-blue-500 text-white rounded-full w-8 h-8 flex items-center justify-center text-sm mr-3 flex-shrink-0">4</span>
+                            Merasa lelah atau memiliki sedikit energi?
+                        </h3>
+                        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3">
+                            <label class="radio-option cursor-pointer"><input type="radio" name="q4" value="0" class="hidden peer" required /><div class="p-4 border-2 border-gray-200 rounded-lg peer-checked:border-blue-500 peer-checked:bg-blue-50 hover:border-blue-300 transition transform hover:scale-105"><div class="text-center"><div class="text-2xl font-bold text-blue-500 mb-1">0</div><div class="text-sm text-gray-600">Tidak sama sekali</div></div></div></label>
+                            <label class="radio-option cursor-pointer"><input type="radio" name="q4" value="1" class="hidden peer" required /><div class="p-4 border-2 border-gray-200 rounded-lg peer-checked:border-blue-500 peer-checked:bg-blue-50 hover:border-blue-300 transition transform hover:scale-105"><div class="text-center"><div class="text-2xl font-bold text-blue-500 mb-1">1</div><div class="text-sm text-gray-600">Beberapa hari</div></div></div></label>
+                            <label class="radio-option cursor-pointer"><input type="radio" name="q4" value="2" class="hidden peer" required /><div class="p-4 border-2 border-gray-200 rounded-lg peer-checked:border-blue-500 peer-checked:bg-blue-50 hover:border-blue-300 transition transform hover:scale-105"><div class="text-center"><div class="text-2xl font-bold text-blue-500 mb-1">2</div><div class="text-sm text-gray-600">Lebih dari setengah hari</div></div></div></label>
+                            <label class="radio-option cursor-pointer"><input type="radio" name="q4" value="3" class="hidden peer" required /><div class="p-4 border-2 border-gray-200 rounded-lg peer-checked:border-blue-500 peer-checked:bg-blue-50 hover:border-blue-300 transition transform hover:scale-105"><div class="text-center"><div class="text-2xl font-bold text-blue-500 mb-1">3</div><div class="text-sm text-gray-600">Hampir setiap hari</div></div></div></label>
+                        </div>
+                    </div>
+
+                    <div class="question-item">
+                        <h3 class="text-lg font-medium text-gray-800 mb-4 flex items-start">
+                            <span class="bg-blue-500 text-white rounded-full w-8 h-8 flex items-center justify-center text-sm mr-3 flex-shrink-0">5</span>
+                            Nafsu makan yang buruk atau makan berlebihan?
+                        </h3>
+                        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3">
+                            <label class="radio-option cursor-pointer"><input type="radio" name="q5" value="0" class="hidden peer" required /><div class="p-4 border-2 border-gray-200 rounded-lg peer-checked:border-blue-500 peer-checked:bg-blue-50 hover:border-blue-300 transition transform hover:scale-105"><div class="text-center"><div class="text-2xl font-bold text-blue-500 mb-1">0</div><div class="text-sm text-gray-600">Tidak sama sekali</div></div></div></label>
+                            <label class="radio-option cursor-pointer"><input type="radio" name="q5" value="1" class="hidden peer" required /><div class="p-4 border-2 border-gray-200 rounded-lg peer-checked:border-blue-500 peer-checked:bg-blue-50 hover:border-blue-300 transition transform hover:scale-105"><div class="text-center"><div class="text-2xl font-bold text-blue-500 mb-1">1</div><div class="text-sm text-gray-600">Beberapa hari</div></div></div></label>
+                            <label class="radio-option cursor-pointer"><input type="radio" name="q5" value="2" class="hidden peer" required /><div class="p-4 border-2 border-gray-200 rounded-lg peer-checked:border-blue-500 peer-checked:bg-blue-50 hover:border-blue-300 transition transform hover:scale-105"><div class="text-center"><div class="text-2xl font-bold text-blue-500 mb-1">2</div><div class="text-sm text-gray-600">Lebih dari setengah hari</div></div></div></label>
+                            <label class="radio-option cursor-pointer"><input type="radio" name="q5" value="3" class="hidden peer" required /><div class="p-4 border-2 border-gray-200 rounded-lg peer-checked:border-blue-500 peer-checked:bg-blue-50 hover:border-blue-300 transition transform hover:scale-105"><div class="text-center"><div class="text-2xl font-bold text-blue-500 mb-1">3</div><div class="text-sm text-gray-600">Hampir setiap hari</div></div></div></label>
+                        </div>
+                    </div>
+
+                    <div class="question-item">
+                        <h3 class="text-lg font-medium text-gray-800 mb-4 flex items-start">
+                            <span class="bg-blue-500 text-white rounded-full w-8 h-8 flex items-center justify-center text-sm mr-3 flex-shrink-0">6</span>
+                            Merasa buruk tentang diri sendiri atau merasa gagal atau mengecewakan diri sendiri atau keluarga?
+                        </h3>
+                        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3">
+                            <label class="radio-option cursor-pointer"><input type="radio" name="q6" value="0" class="hidden peer" required /><div class="p-4 border-2 border-gray-200 rounded-lg peer-checked:border-blue-500 peer-checked:bg-blue-50 hover:border-blue-300 transition transform hover:scale-105"><div class="text-center"><div class="text-2xl font-bold text-blue-500 mb-1">0</div><div class="text-sm text-gray-600">Tidak sama sekali</div></div></div></label>
+                            <label class="radio-option cursor-pointer"><input type="radio" name="q6" value="1" class="hidden peer" required /><div class="p-4 border-2 border-gray-200 rounded-lg peer-checked:border-blue-500 peer-checked:bg-blue-50 hover:border-blue-300 transition transform hover:scale-105"><div class="text-center"><div class="text-2xl font-bold text-blue-500 mb-1">1</div><div class="text-sm text-gray-600">Beberapa hari</div></div></div></label>
+                            <label class="radio-option cursor-pointer"><input type="radio" name="q6" value="2" class="hidden peer" required /><div class="p-4 border-2 border-gray-200 rounded-lg peer-checked:border-blue-500 peer-checked:bg-blue-50 hover:border-blue-300 transition transform hover:scale-105"><div class="text-center"><div class="text-2xl font-bold text-blue-500 mb-1">2</div><div class="text-sm text-gray-600">Lebih dari setengah hari</div></div></div></label>
+                            <label class="radio-option cursor-pointer"><input type="radio" name="q6" value="3" class="hidden peer" required /><div class="p-4 border-2 border-gray-200 rounded-lg peer-checked:border-blue-500 peer-checked:bg-blue-50 hover:border-blue-300 transition transform hover:scale-105"><div class="text-center"><div class="text-2xl font-bold text-blue-500 mb-1">3</div><div class="text-sm text-gray-600">Hampir setiap hari</div></div></div></label>
+                        </div>
+                    </div>
+
+                    <div class="question-item">
+                        <h3 class="text-lg font-medium text-gray-800 mb-4 flex items-start">
+                            <span class="bg-blue-500 text-white rounded-full w-8 h-8 flex items-center justify-center text-sm mr-3 flex-shrink-0">7</span>
+                            Kesulitan berkonsentrasi pada hal-hal seperti membaca koran atau menonton televisi?
+                        </h3>
+                        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3">
+                            <label class="radio-option cursor-pointer"><input type="radio" name="q7" value="0" class="hidden peer" required /><div class="p-4 border-2 border-gray-200 rounded-lg peer-checked:border-blue-500 peer-checked:bg-blue-50 hover:border-blue-300 transition transform hover:scale-105"><div class="text-center"><div class="text-2xl font-bold text-blue-500 mb-1">0</div><div class="text-sm text-gray-600">Tidak sama sekali</div></div></div></label>
+                            <label class="radio-option cursor-pointer"><input type="radio" name="q7" value="1" class="hidden peer" required /><div class="p-4 border-2 border-gray-200 rounded-lg peer-checked:border-blue-500 peer-checked:bg-blue-50 hover:border-blue-300 transition transform hover:scale-105"><div class="text-center"><div class="text-2xl font-bold text-blue-500 mb-1">1</div><div class="text-sm text-gray-600">Beberapa hari</div></div></div></label>
+                            <label class="radio-option cursor-pointer"><input type="radio" name="q7" value="2" class="hidden peer" required /><div class="p-4 border-2 border-gray-200 rounded-lg peer-checked:border-blue-500 peer-checked:bg-blue-50 hover:border-blue-300 transition transform hover:scale-105"><div class="text-center"><div class="text-2xl font-bold text-blue-500 mb-1">2</div><div class="text-sm text-gray-600">Lebih dari setengah hari</div></div></div></label>
+                            <label class="radio-option cursor-pointer"><input type="radio" name="q7" value="3" class="hidden peer" required /><div class="p-4 border-2 border-gray-200 rounded-lg peer-checked:border-blue-500 peer-checked:bg-blue-50 hover:border-blue-300 transition transform hover:scale-105"><div class="text-center"><div class="text-2xl font-bold text-blue-500 mb-1">3</div><div class="text-sm text-gray-600">Hampir setiap hari</div></div></div></label>
+                        </div>
+                    </div>
+
+                    <div class="question-item">
+                        <h3 class="text-lg font-medium text-gray-800 mb-4 flex items-start">
+                            <span class="bg-blue-500 text-white rounded-full w-8 h-8 flex items-center justify-center text-sm mr-3 flex-shrink-0">8</span>
+                            Bergerak atau berbicara sangat lambat sehingga orang lain bisa memperhatikan atau sebaliknya sangat gelisah atau gelisah?
+                        </h3>
+                        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3">
+                            <label class="radio-option cursor-pointer"><input type="radio" name="q8" value="0" class="hidden peer" required /><div class="p-4 border-2 border-gray-200 rounded-lg peer-checked:border-blue-500 peer-checked:bg-blue-50 hover:border-blue-300 transition transform hover:scale-105"><div class="text-center"><div class="text-2xl font-bold text-blue-500 mb-1">0</div><div class="text-sm text-gray-600">Tidak sama sekali</div></div></div></label>
+                            <label class="radio-option cursor-pointer"><input type="radio" name="q8" value="1" class="hidden peer" required /><div class="p-4 border-2 border-gray-200 rounded-lg peer-checked:border-blue-500 peer-checked:bg-blue-50 hover:border-blue-300 transition transform hover:scale-105"><div class="text-center"><div class="text-2xl font-bold text-blue-500 mb-1">1</div><div class="text-sm text-gray-600">Beberapa hari</div></div></div></label>
+                            <label class="radio-option cursor-pointer"><input type="radio" name="q8" value="2" class="hidden peer" required /><div class="p-4 border-2 border-gray-200 rounded-lg peer-checked:border-blue-500 peer-checked:bg-blue-50 hover:border-blue-300 transition transform hover:scale-105"><div class="text-center"><div class="text-2xl font-bold text-blue-500 mb-1">2</div><div class="text-sm text-gray-600">Lebih dari setengah hari</div></div></div></label>
+                            <label class="radio-option cursor-pointer"><input type="radio" name="q8" value="3" class="hidden peer" required /><div class="p-4 border-2 border-gray-200 rounded-lg peer-checked:border-blue-500 peer-checked:bg-blue-50 hover:border-blue-300 transition transform hover:scale-105"><div class="text-center"><div class="text-2xl font-bold text-blue-500 mb-1">3</div><div class="text-sm text-gray-600">Hampir setiap hari</div></div></div></label>
+                        </div>
+                    </div>
+
+                    <div class="question-item">
+                        <h3 class="text-lg font-medium text-gray-800 mb-4 flex items-start">
+                            <span class="bg-blue-500 text-white rounded-full w-8 h-8 flex items-center justify-center text-sm mr-3 flex-shrink-0">9</span>
+                            Pikiran bahwa Anda akan lebih baik mati atau menyakiti diri sendiri dengan cara tertentu?
+                        </h3>
+                        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3">
+                            <label class="radio-option cursor-pointer"><input type="radio" name="q9" value="0" class="hidden peer" required /><div class="p-4 border-2 border-gray-200 rounded-lg peer-checked:border-blue-500 peer-checked:bg-blue-50 hover:border-blue-300 transition transform hover:scale-105"><div class="text-center"><div class="text-2xl font-bold text-blue-500 mb-1">0</div><div class="text-sm text-gray-600">Tidak sama sekali</div></div></div></label>
+                            <label class="radio-option cursor-pointer"><input type="radio" name="q9" value="1" class="hidden peer" required /><div class="p-4 border-2 border-gray-200 rounded-lg peer-checked:border-blue-500 peer-checked:bg-blue-50 hover:border-blue-300 transition transform hover:scale-105"><div class="text-center"><div class="text-2xl font-bold text-blue-500 mb-1">1</div><div class="text-sm text-gray-600">Beberapa hari</div></div></div></label>
+                            <label class="radio-option cursor-pointer"><input type="radio" name="q9" value="2" class="hidden peer" required /><div class="p-4 border-2 border-gray-200 rounded-lg peer-checked:border-blue-500 peer-checked:bg-blue-50 hover:border-blue-300 transition transform hover:scale-105"><div class="text-center"><div class="text-2xl font-bold text-blue-500 mb-1">2</div><div class="text-sm text-gray-600">Lebih dari setengah hari</div></div></div></label>
+                            <label class="radio-option cursor-pointer"><input type="radio" name="q9" value="3" class="hidden peer" required /><div class="p-4 border-2 border-gray-200 rounded-lg peer-checked:border-blue-500 peer-checked:bg-blue-50 hover:border-blue-300 transition transform hover:scale-105"><div class="text-center"><div class="text-2xl font-bold text-blue-500 mb-1">3</div><div class="text-sm text-gray-600">Hampir setiap hari</div></div></div></label>
+                        </div>
+                    </div>
+
                 </div>
 
-                <!-- Submit Button -->
                 <div class="pt-8 border-t border-gray-200">
                     <div class="flex flex-col sm:flex-row gap-4 justify-between">
                         <a href="/" class="inline-flex items-center px-6 py-3 border border-gray-300 rounded-lg text-gray-700 hover:bg-gray-50 transition">
