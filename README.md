@@ -9,7 +9,7 @@ Sebuah aplikasi web berbasis **Python Flask** yang dirancang sebagai platform sk
 
 ## 🚀 Demo Langsung
 
-*Tautan demo akan tersedia setelah aplikasi di-deploy di platform hosting (misalnya: Replit, Railway).*
+https://sistem-pakar-diagnosa-kesehatan-men.vercel.app/
 
 ---
 
@@ -17,7 +17,7 @@ Sebuah aplikasi web berbasis **Python Flask** yang dirancang sebagai platform sk
 
 -   **Tes Depresi (PHQ-9)**: Skrining gejala depresi berdasarkan 9 kriteria klinis.
 -   **Tes Kecemasan (GAD-7)**: Evaluasi tingkat kecemasan umum berdasarkan 7 item.
--   **Tes Stres (PSS)**: Pengukuran tingkat stres yang dirasakan pengguna.
+-   **Tes Stres (PSS-10)**: Pengukuran tingkat stres yang dirasakan pengguna.
 -   **Hasil Real-time**: Dapatkan skor dan interpretasi diagnostik langsung di halaman.
 -   **Desain Responsif**: Tampilan optimal di perangkat desktop maupun mobile.
 -   **Backend Flask**: Logika aplikasi sepenuhnya ditangani oleh server Python Flask.
