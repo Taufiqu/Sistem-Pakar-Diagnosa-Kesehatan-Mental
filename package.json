@@ -1,15 +1,9 @@
 {
   "name": "sistem-pakar-rekomendasi-tempat-wisata",
   "version": "1.0.0",
-  "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "build:css": "tailwindcss -i ./static/css/tailwind.css -o ./static/css/output.css --watch"
+    "build": "tailwindcss -i ./static/css/tailwind.css -o ./static/css/output.css"
   },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
-  "description": "",
   "devDependencies": {
     "tailwindcss": "^3.4.17"
   },
